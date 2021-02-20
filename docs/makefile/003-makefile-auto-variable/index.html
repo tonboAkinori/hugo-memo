@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <title>自動変数</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="generator" content="Hugo 0.80.0" />
+  
+  <!-- ** CSS Plugins Needed for the Project ** -->
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://examplesite.com/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://examplesite.com/plugins/themify-icons/themify-icons.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://examplesite.com/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#02007e;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link href="https://examplesite.com/css/style.min.css" rel="stylesheet" media="screen"/>
+  
+<!-- ** JS Plugins Needed for the Project ** -->
+
+<!-- jquiry -->
+<script src="https://examplesite.com/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://examplesite.com/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://examplesite.com/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://examplesite.com/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+
+  
+
+  <!-- create /layouts/partials/overrides/header.html in your own theme or root directory to add your custom content here -->
+
+
+</head>
+
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/">
+      
+      
+      
+      Tonbo
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://examplesite.com/">Home</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://examplesite.com/faq">Faq</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://examplesite.com/contact">contact</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            docs
+          </a>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="https://examplesite.com/makefile">Makefile</a>
+            
+            <a class="dropdown-item" href="https://examplesite.com/billing-pricing">Billing and Pricing</a>
+            
+            <a class="dropdown-item" href="https://examplesite.com/features">Features</a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section-sm pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="sidebar">
+          <ul class="list-styled">
+            
+            <a class="back-btn" href="/"></a>
+            
+              
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/" title="Makefile" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/">
+    Makefile
+  </a>
+  
+  
+    <ul>
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/001-makefile/" title="基本文法" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/001-makefile/">
+    基本文法
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/002-makefile-macro/" title="マクロ" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/002-makefile-macro/">
+    マクロ
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/003-makefile-auto-variable/" title="自動変数" class="sidelist
+  active">
+  <a href="https://examplesite.com/makefile/003-makefile-auto-variable/">
+    自動変数
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/004-makefile-multi-target/" title="複数ターゲット" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/004-makefile-multi-target/">
+    複数ターゲット
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/005-makefile-option/" title="コマンドオプション" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/005-makefile-option/">
+    コマンドオプション
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/006-makefile-header/" title="ヘッダファイル" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/006-makefile-header/">
+    ヘッダファイル
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/007-makefile-multi-make/" title="多段 Make" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/007-makefile-multi-make/">
+    多段 Make
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/008-makefile-assign-operate/" title="代入演算子" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/008-makefile-assign-operate/">
+    代入演算子
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://examplesite.com/makefile/009-makefile-variables/" title="変数" class="sidelist
+  ">
+  <a href="https://examplesite.com/makefile/009-makefile-variables/">
+    変数
+  </a>
+  
+  
+</li>
+
+
+        
+      
+    </ul>
+  
+</li>
+
+
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">自動変数</h2>
+          
+          <div class="content"><table>
+<thead>
+<tr>
+<th>自動変数</th>
+<th>内容</th>
+<th>有効範囲</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$@</td>
+<td>処理中ターゲット</td>
+<td>コマンド行で有効</td>
+</tr>
+<tr>
+<td>$%</td>
+<td>ターゲットがアーカイブメンバのときのターゲットメンバ名</td>
+<td></td>
+</tr>
+<tr>
+<td>$&lt;</td>
+<td>最初に記載した依存ファイルの名前 <br> (ヘッダをソースより後ろに配置することでヘッダの更新に使える)</td>
+<td></td>
+</tr>
+<tr>
+<td>$^</td>
+<td>依存しているすべてのファイル</td>
+<td></td>
+</tr>
+<tr>
+<td>$?</td>
+<td>ターゲットよりタイムスタンプが新しい依存ファイル</td>
+<td></td>
+</tr>
+<tr>
+<td>$$@</td>
+<td>処理中のターゲット</td>
+<td>コンポーネントのみで使える</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">   <span style="color:#f92672">[</span>Makefile<span style="color:#f92672">]</span>
+   TARGET <span style="color:#f92672">=</span> app 
+   SRCS <span style="color:#f92672">=</span> main.c sub.c
+   OBJS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.o<span style="color:#e6db74">}</span>
+
+   <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>: <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -o $@ <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+
+   main.o: main.c
+	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -c $?
+
+   sub.o: sub.c
+	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -c $?
+
+   sub.o: sub.h
+
+   clean:
+	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   ■実行結果
+   $make
+   cc -c main.c
+   cc -c sub.c sub.h
+   cc -o app main.o sub.o
+
+   $ls
+   Makefile  app  main.c  main.o  sub.c  sub.h  sub.h.gch  sub.o
+   &gt;&gt; sub.g.gch というファイルが出来てしまった。
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   ■確認
+   $make -p | less
+   で, sub.h を検索すると、下記のルールが作成されていた。
+   Makefileで sub.o をターゲットとするルールは分かれているが、統合されていた。
+   $?はターゲットより新しい依存ファイルのため sub.g.gch というファイルが作られてしまった。
+
+   ■作成されていたルール
+   sub.o: sub.c sub.h
+        ${CC} -c $?
+</code></pre></div><h3 id="gchファイル">.gchファイル</h3>
+<p>ヘッダファイルもコンパイルができるらしい。
+コンパイル済みヘッダとなり、.gchとして出力される。
+このファイルを利用することで、ヘッダファイルの処理を省略できる。
+ただし、コンパイル済みヘッダは１回のコンパイルで1つしか使えないらしい。
+そのため、ヘッダーファイルに必要なヘッダをすべて記述するとかするらしい。</p>
+</div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 29 Dec 2018</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://examplesite.com/makefile/002-makefile-macro/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">マクロ</span></a>
+            
+            
+            <a class="nav nav-next" href="https://examplesite.com/makefile/004-makefile-multi-target/"> <span class="d-none d-md-block">複数ターゲット</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 text-md-left text-center">
+       <p class="mb-md-0 mb-4">Copyright © 2021 tonbo</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://examplesite.com/js/script.min.js"></script>
+  </body>
+
+</html>

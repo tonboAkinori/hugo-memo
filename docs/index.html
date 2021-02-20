@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <title>Tonbo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="generator" content="Hugo 0.80.0" />
+  
+  <!-- ** CSS Plugins Needed for the Project ** -->
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://examplesite.com/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://examplesite.com/plugins/themify-icons/themify-icons.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://examplesite.com/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#02007e;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link href="https://examplesite.com/css/style.min.css" rel="stylesheet" media="screen"/>
+  
+<!-- ** JS Plugins Needed for the Project ** -->
+
+<!-- jquiry -->
+<script src="https://examplesite.com/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://examplesite.com/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://examplesite.com/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://examplesite.com/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+
+  
+
+  <!-- create /layouts/partials/overrides/header.html in your own theme or root directory to add your custom content here -->
+
+
+</head>
+
+  
+  <body>
+    
+    <!-- header -->
+    <header class="banner overlay bg-cover" data-background="https://examplesite.com/images/banner.jpg">
+      <nav class="navbar navbar-expand-md navbar-dark">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/">
+      
+      
+      
+      Tonbo
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://examplesite.com/">Home</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://examplesite.com/faq">Faq</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="https://examplesite.com/contact">contact</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            docs
+          </a>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="https://examplesite.com/makefile">Makefile</a>
+            
+            <a class="dropdown-item" href="https://examplesite.com/billing-pricing">Billing and Pricing</a>
+            
+            <a class="dropdown-item" href="https://examplesite.com/features">Features</a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+      <!-- banner -->
+<div class="container section">
+	<div class="row">
+		<div class="col-lg-8 text-center mx-auto">
+			<h1 class="text-white mb-3">search</h1>
+			<p class="text-white mb-4"></p>
+			<div class="position-relative">
+				<input id="search" class="form-control" placeholder="">
+				<i class="ti-search search-icon"></i>
+				
+				
+				
+				
+				<script>
+					$(function() {
+					var projects = [
+						
+						{
+							value: "基本文法",
+							label: "<p>Makefileの基本的な文法は下記になる\nターゲット：コンポーネント コマンド(コンポーネントからターゲット作成する方法を記述する) Makefileの文法確認 (1) [sub.h] #ifndef __INCLUDE_SUB_H_  #define __INCLUDE_SUB_H_  void Greeting(char* str); #endif \/\/ __INCLUDE_SUB_H_ [sub.c] #include \u0026lt;stdio.h\u0026gt; #include \u0026#34;sub.h\u0026#34; void Greeting(char* str) { printf(\u0026#34;\u0026gt; %s\\n\u0026#34;, str); } [main.c] #include \u0026#34;sub.h\u0026#34; void main(void) { Greeting(\u0026#34;Hello world!\u0026#34;); } [Makefile] TARGET = app #CC = OBJS = main.o sub.o ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c clean: ${RM} *~ *.o ${TARGET} ■実行結果 $make cc -c main.c cc -c sub.c cc -o app main.o sub.o Makefileの文法確認(2) (1)の記述では、ヘッダファイルの sub.h が更新されてもターゲットは更新されない。 Makefile に記載されている依存関係が .c ファイルだけのため。\n$make cc -c main.c cc -c sub.c cc -o app main.o sub.o $ touch sub.h $ make make: \u0026#39;app\u0026#39; は更新済みです. $ emacs Makefile \u0026lt;- 下記にMakefileを書き直し $ make cc -c sub.c cc -o app main.o sub.o [Makefile] TARGET = app #CC = OBJS = main.o sub.o ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} </p><p>C言語</p><p>Makefile</p>",
+							url:"https:\/\/examplesite.com\/makefile\/001-makefile\/"
+						},
+						
+						{
+							value: "マクロ",
+							label: "<p>make も予め定義されたマクロがあり使うことが出来る。 下記のコマンドでマクロを確認できる\n$ make -p  ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意\n マクロの優先順位 参照できるマクロが複数あるため優先順位は意識すること。 優先順位が高い順に並べる。\n コマンドラインで定義されたもの Makefile 内で定義されたもの　 環境変数 makeで予め定義されているもの  マクロ文字列の置換 マクロ文字列を使うと簡単にファイル名などを変更することが可能。 下記では、${SRCS:.c=.o} で SRCS の .c を .o に変更している\n[Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} </p><p>C言語</p><p>Makefile</p><p>マクロ</p>",
+							url:"https:\/\/examplesite.com\/makefile\/002-makefile-macro\/"
+						},
+						
+						{
+							value: "自動変数",
+							label: "<p>   自動変数 内容 有効範囲     $@ 処理中ターゲット コマンド行で有効   $% ターゲットがアーカイブメンバのときのターゲットメンバ名    $\u0026lt; 最初に記載した依存ファイルの名前 (ヘッダをソースより後ろに配置することでヘッダの更新に使える)    $^ 依存しているすべてのファイル    $? ターゲットよりタイムスタンプが新しい依存ファイル    $$@ 処理中のターゲット コンポーネントのみで使える    [Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c $? sub.o: sub.c ${CC} -c $? sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ■実行結果 $make cc -c main.c cc -c sub.c sub.h cc -o app main.o sub.o $ls Makefile app main.c main.o sub.c sub.h sub.h.gch sub.o \u0026gt;\u0026gt; sub.g.gch というファイルが出来てしまった。 ■確認 $make -p | less で, sub.h を検索すると、下記のルールが作成されていた。 Makefileで sub.o をターゲットとするルールは分かれているが、統合されていた。 $?はターゲットより新しい依存ファイルのため sub.g.gch というファイルが作られてしまった。 ■作成されていたルール sub.o: sub.c sub.h ${CC} -c $? .gchファイル ヘッダファイルもコンパイルができるらしい。 コンパイル済みヘッダとなり、.gchとして出力される。 このファイルを利用することで、ヘッダファイルの処理を省略できる。 ただし、コンパイル済みヘッダは１回のコンパイルで1つしか使えないらしい。 そのため、ヘッダーファイルに必要なヘッダをすべて記述するとかするらしい。\n</p><p>C言語</p><p>Makefile</p><p>自動変数</p>",
+							url:"https:\/\/examplesite.com\/makefile\/003-makefile-auto-variable\/"
+						},
+						
+						{
+							value: "複数ターゲット",
+							label: "<p>複数ターゲットを指定するとどうなるか確認してみた。\n下記の場合は、最初のターゲット(app)のみがビルドされた。\nTARGET = app hoge SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ■実行結果 $ make cc -c main.c cc -c sub.c cc -o app main.o sub.o $ make hoge cc -o hoge main.o sub.o all ターゲットを作成することで、どちらもビルドされた。\n[Makefile] TARGET = app hoge SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} all: app hoge ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ■実行結果 $ make cc -c main.c cc -c sub.c cc -o app main.o sub.o cc -o hoge main.o sub.o </p><p>C言語</p><p>Makefile</p><p>複数ターゲット</p>",
+							url:"https:\/\/examplesite.com\/makefile\/004-makefile-multi-target\/"
+						},
+						
+						{
+							value: "コマンドオプション",
+							label: "<p>オプションから変数を指定することもできる。\nmake -p makefile を読み込んで得られたデータベース　(規則と変数の値) を出力する。\nmake -n 実行するコマンドの表示だけを行う。\n変数に値を設定する $ make CFLAGS=-g cc -g -c -o main.o main.c cc -g -c -o sub.o sub.c cc -g -o app main.o sub.o $ make \u0026#34;CFLAGS=-g -DDEBUG\u0026#34; cc -g -DDEBUG -c -o main.o main.c cc -g -DDEBUG -c -o sub.o sub.c cc -g -DDEBUG -o app main.o sub.o 複数のオプションを設定する場合 $ make CFLAGS=-g LIB=-l cc -g -c -o main.o main.c cc -g -c -o sub.o sub.c cc -g -l -o app main.o sub.o [Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} # MAKEFLAGS \u002b= --no-builtin-rules # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u0026lt; %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} $\u0026lt; ${TARGET}: ${OBJS} ${LINK.c} ${OUTPUT_OPTION} ${OBJS} ${LIB} sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} </p><p>C言語</p><p>Makefile</p><p>コマンドオプション</p>",
+							url:"https:\/\/examplesite.com\/makefile\/005-makefile-option\/"
+						},
+						
+						{
+							value: "ヘッダファイル",
+							label: "<p>ヘッダファイルの依存に対応する ヘッダファイルの更新でビルドされる Makefile を作成する。\n[sub_a.h] #ifndef __INCLUDE__SUB_A  #define __INCLUDE__SUB_A  void sub_a(void); void sub_A(void); #endif \/\/ __INCLUDE__SUB_A [sub_b.h] #ifndef __INCLUDE__SUB_B  #define __INCLUDE__SUB_B  void sub_b(void); #endif \/\/ __INCLUDE__SUB_B [sub_ab.c] #include \u0026lt;stdio.h\u0026gt; #include \u0026#34;sub_a.h\u0026#34; #include \u0026#34;sub_b.h\u0026#34; void sub_a(void) { printf(\u0026#34;\u0026gt; Call sub_a\\n\u0026#34;); } void sub_b(void) { printf(\u0026#34;\u0026gt; Call sub_b\\n\u0026#34;); } [parse.h] #ifndef __INCLUDE__PARSE_H  #define __INCLUDE__PARSE_H  void parse(void); #endif \/\/ __INCLUDE__PARSE_H [parse.c] #include \u0026lt;stdio.h\u0026gt; #include \u0026#34;parse.h\u0026#34; void parse(void) { printf(\u0026#34;\u0026gt; Call parse\\n\u0026#34;); } [main.c] #include \u0026#34;sub_a.h\u0026#34; #include \u0026#34;sub_b.h\u0026#34; #include \u0026#34;parse.h\u0026#34; void main(void) { sub_a(); sub_b(); parse(); } ヘッダファイルの依存関係を考慮しない Makefile を作成すると以下のようになる。\n[Makefile] #ヘッダファイルの依存関係に対応する TARGET = app SRCS = main.c sub_ab.c parse.c OBJS = ${SRCS:.c=.o} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u0026lt; %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} $\u0026lt; ${TARGET}: ${OBJS} ${LINK.c} ${OUTPUT_OPTION} ${OBJS} clean: ${RM} *~ *.o ${TARGET} ビルド結果は下記になる\n$ make cc -c -o main.o main.c cc -c -o sub_ab.o sub_ab.c cc -c -o parse.o parse.c cc -o app main.o sub_ab.o parse.o ここで、 parse.h を更新して再ビルドしてみる。\n$ touch parse.h $ make make: \u0026#39;app\u0026#39; は更新済みです. parse.o と parse.h の依存が書かれていないため make は更新が必要ない判断しているためである。\nファイル数が少なければひとつずつ対応できるが、さらに簡単に対応できる方法がある。\nコンパイラにはソースコードに必要なヘッダファイルがわかっているため、 コンパイラによっては依存するヘッダファイルの情報を出力してくれるものもある。\n-M オプション 標準ファイルも含めて依存関係がわかる。\n$ gcc -M sub_ab.c sub_ab.o: sub_ab.c \/usr\/include\/stdc-predef.h \/usr\/include\/stdio.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/libc-header-start.h \\ \/usr\/include\/features.h \/usr\/include\/x86_64-linux-gnu\/sys\/cdefs.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/wordsize.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/long-double.h \\ \/usr\/include\/x86_64-linux-gnu\/gnu\/stubs.h \\ \/usr\/include\/x86_64-linux-gnu\/gnu\/stubs-64.h \\ \/usr\/lib\/gcc\/x86_64-linux-gnu\/7\/include\/stddef.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/types.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/typesizes.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/types\/__FILE.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/types\/FILE.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/libio.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/_G_config.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/types\/__mbstate_t.h \\ \/usr\/lib\/gcc\/x86_64-linux-gnu\/7\/include\/stdarg.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/stdio_lim.h \\ \/usr\/include\/x86_64-linux-gnu\/bits\/sys_errlist.h sub_a.h sub_b.h -MM オプション システムヘッダディレクトリにあるヘッダは対象外にして出力\n$ gcc -MM sub_ab.c sub_ab.o: sub_ab.c sub_a.h sub_b.h -MF file名 オプション -MMは標準出力だったが、指定したファイル名に依存関係を出力する\n$ gcc -MM sub_ab.c -MF sub.d $ cat sub.d sub_ab.o: sub_ab.c sub_a.h sub_b.h -MG オプション -MMは対象のヘッダが見つからない場合にエラーとなるが、 このオプションを使うとエラーとしない。 ヘッダファイルが自動生成される場合に使われる。\n-MP オプション 依存するヘッダファイルを偽のターゲットとして追加する\n-MD オプション -M は依存するヘッダファイルを調べるのみだが、 このオプションを使うとコンパイルも行われる。 なお、このオプションを使うと依存関係の結果が .d に出力される。\n-MMD オプション -MM は依存するヘッダファイルを調べるのみだが、 このオプションを使うとコンパイルも行われる。 なお、このオプションを使うと依存関係の結果が .d に出力される。\nヘッダファイル更新を考慮した Makefile これらを組み合わせて Makefile を書き直す。\n[Makefile] #ヘッダファイルの依存関係に対応する TARGET = app SRCS = main.c sub_ab.c parse.c OBJS = ${SRCS:.c=.o} DEPS = ${SRCS:.c=.d} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # # %.o: %.c  # $(COMPILE.C) $(OUTPUT_OPTION) $\u0026lt; all: ${TARGET} # - を付けないと、.d がない場合にエラーとなる -include ${DEPS} # .d ファイルをインクルード %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} -MMD $\u0026lt; ${TARGET}: ${OBJS} ${LINK.c} ${OUTPUT_OPTION} ${OBJS} clean: ${RM} *~ *.o ${TARGET} ${DEPS} ■実行結果 $ make cc -c -o main.o -MMD main.c cc -c -o sub_ab.o -MMD sub_ab.c cc -c -o parse.o -MMD parse.c cc -o app main.o sub_ab.o parse.o $ touch sub_a.h $ make cc -c -o main.o -MMD main.c cc -c -o sub_ab.o -MMD sub_ab.c cc -o app main.o sub_ab.o parse.o ■確認 $ ls Makefile main.c parse.c parse.h sub.d sub_a.h sub_ab.c sub_b.h $ make -p -n parse.o: parse.c \u0026lt;== .h の依存関係はない。 # Implicit rule search has been done. # Implicit\/static pattern stem: \u0026#39;parse\u0026#39; # Last modified 2514-05-30 10:53:03.107374182 # File has been updated. # Successfully updated. # automatic # @ := parse.o # automatic # % := # automatic # * := parse # automatic # \u002b := parse.c # automatic # | := # automatic # \u0026lt; := parse.c # automatic # ^ := parse.c # automatic # ? := parse.c # variable set hash-table stats: # Load=8\/32=25%, Rehash=0, Collisions=2\/19=11% # recipe to execute (from \u0026#39;Makefile\u0026#39;, line 18): ${COMPILE.c} ${OUTPUT_OPTION} -MMD $\u0026lt; $ make cc -c -o main.o -MMD main.c cc -c -o sub_ab.o -MMD sub_ab.c cc -c -o parse.o -MMD parse.c cc -o app main.o sub_ab.o parse.o $ ls Makefile main.c main.o parse.d parse.o sub_a.h sub_ab.d sub_b.h app main.d parse.c parse.h sub.d sub_ab.c sub_ab.o $ cat parse.d parse.o: parse.c parse.h $ make -p -n parse.o: parse.c parse.c parse.h \u0026lt;==.h の依存関係が追加されている。 # Implicit rule search has been done. # Implicit\/static pattern stem: \u0026#39;parse\u0026#39; # Last modified 2021-02-11 00:54:28.0608391 # File has been updated. # Successfully updated. # recipe to execute (from \u0026#39;Makefile\u0026#39;, line 18): ${COMPILE.c} ${OUTPUT_OPTION} -MMD $\u0026lt; </p><p>C言語</p><p>Makefile</p><p>ヘッダファイル</p>",
+							url:"https:\/\/examplesite.com\/makefile\/006-makefile-header\/"
+						},
+						
+						{
+							value: "多段 Make",
+							label: "<p>とりあえずベタ書き。 シェルコマンドを使えばより簡単に書ける。\n. ├── Makefile ├── include │ ├── codec │ │ └── codec.h │ └── ui │ └── ui.h ├── lib │ ├── codec │ │ ├── Makefile │ │ └── codec.c │ └── ui │ ├── Makefile │ └── ui.c └── main.c [Makefile] TARGET := app SUB_TARGET := ui codec LIB_UI_DIR := lib\/ui #lib\/uiのソースコードを探索 LIB_UI_SRC := $(shell find ${LIB_UI_DIR} -type f -name \\*.c) LIB_UI_OBJS := ${LIB_UI_SRC:.c=.o} LIB_CODEC_DIR = lib\/codec #lib\/codecのソースコード探索 LIB_CODEC_SRC := $(shell find ${LIB_CODEC_DIR} -type f -name \\*.c) LIB_CODEC_OBJS := ${LIB_CODEC_SRC:.c=.o} INCLUDE_PATH = -Iinclude SRCS = main.c OBJS = ${SRCS:.c=.o} DEPS = ${SRCS:.c=.d} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u0026lt;  all: ${SUB_TARGET} ${TARGET} ${SUB_TARGET}: ${MAKE} -C lib\/$@ ${TARGET}: ${OBJS} ${LIB_UI_OBJS} ${LIB_CODEC_OBJS} ${LINK.c} ${OUTPUT_OPTION} ${OBJS} ${LIB_UI_OBJS} ${LIB_CODEC_OBJS} %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} ${INCLUDE_PATH} -MMD $\u0026lt; clean: ${RM} *~ *.o ${TARGET} ${DEPS} ${MAKE} -C ${LIB_UI_DIR} clean ${MAKE} -C ${LIB_CODEC_DIR} clean  ターゲットの順番大事。TARGET を先にしていたことで SUB_TARGET が先に実施されずに意図しない処理になった。\n [lib\/codec\/Makefile] #多段Makefile TARGET = codec.o INCLUDE_PATH = -I..\/..\/include SRCS = codec.c #OBJS = ${SRCS:.c=.o} DEPS = ${SRCS:.c=.d} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u0026lt;  all: ${TARGET} -include ${DEPS} ${TARGET}: %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} ${INCLUDE_PATH} -MMD $\u0026lt; clean: ${RM} *~ *.o ${TARGET} ${DEPS} [lib\/ui\/Makefile] #多段Makefile TARGET = ui.o INCLUDE_PATH = -I..\/..\/include SRCS = ui.c DEPS = ${SRCS:.c=.d} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u0026lt;  all: ${TARGET} -include ${DEPS} %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} ${INCLUDE_PATH} -MMD $\u0026lt; clean: ${RM} *~ *.o ${TARGET} ${DEPS} </p><p>C言語</p><p>Makefile</p><p>多段 Make</p>",
+							url:"https:\/\/examplesite.com\/makefile\/007-makefile-multi-make\/"
+						},
+						
+						{
+							value: "代入演算子",
+							label: "<p>makeで使うことのできる演算子を記載する。\n   演算子 内容     = 変数が使われる度に評価される。シェルコマンドを代入している場合、変数を使う度に評価される。   := 一度だけ評価するため、定数として使える。   ?= 変数が定義されていないときのみ := として機能する   \u002b= 加算代入演算子。    </p><p>C言語</p><p>Makefile</p><p>代入演算子</p>",
+							url:"https:\/\/examplesite.com\/makefile\/008-makefile-assign-operate\/"
+						},
+						
+						{
+							value: "変数",
+							label: "<p>   自動変数 内容     CFLAGS Cコンパイラに与える追加のフラグ   CXXFLAGS C\u002b\u002bコンパイラに与える追加のフラグ   CPPFLAGS Cプリプロセッサに与える追加フラグ、プログラムに使われる。   LDFLAGS -Lのようなリンカーを実行をサポートする時にコンパイラに与えられる追加フラグ。代わりにライブラリ(-lfoo)は LDLIBS 変数に追加するべき。   LDLIBS ライブラリフラグや名前をコンパイラに与える、リンカーが実行される時にサポートする。 -Lのようなライブラリではないリンカーフラグは LDFLAGS 変数に与える。    </p><p>C言語</p><p>Makefile</p><p>変数</p>",
+							url:"https:\/\/examplesite.com\/makefile\/009-makefile-variables\/"
+						},
+						
+						{
+							value: "Makefile",
+							label: "<p></p><p>C言語</p><p>Makefile</p>",
+							url:"https:\/\/examplesite.com\/makefile\/"
+						},
+						
+						{
+							value: "Tonbo",
+							label: "<p></p>",
+							url:"https:\/\/examplesite.com\/"
+						},
+						
+						{
+							value: "Categories",
+							label: "<p></p>",
+							url:"https:\/\/examplesite.com\/categories\/"
+						},
+						
+						{
+							value: "Tags",
+							label: "<p></p>",
+							url:"https:\/\/examplesite.com\/tags\/"
+						},
+						
+					];
+					$( "#search" ).autocomplete({
+						source: projects
+					})
+					.data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+						return $( "<li>" )
+						.append( "<a href=" + item.url + " + \" &quot;\" +  >" + item.value + "</a>" + item.label )
+						.appendTo( ul );
+					};
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /banner -->
+    </header>
+    <!-- /header -->
+    
+    
+
+  <!-- topics -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <h2 class="section-title"></h2>
+        </div>
+        <!-- topic-item -->
+        
+      </div>
+    </div>
+  </section>
+  <!-- /topics -->
+
+  
+
+
+    <!-- footer -->
+<footer class="section pb-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 text-md-left text-center">
+       <p class="mb-md-0 mb-4">Copyright © 2021 tonbo</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://examplesite.com/js/script.min.js"></script>
+  </body>
+
+</html>

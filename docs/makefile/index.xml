@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Makefile on Tonbo</title>
+    <link>https://examplesite.com/makefile/</link>
+    <description>Recent content in Makefile on Tonbo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2021 tonbo </copyright>
+    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://examplesite.com/makefile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基本文法</title>
+      <link>https://examplesite.com/makefile/001-makefile/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/001-makefile/</guid>
+      <description>Makefileの基本的な文法は下記になる
+ターゲット：コンポーネント コマンド(コンポーネントからターゲット作成する方法を記述する) Makefileの文法確認 (1) [sub.h] #ifndef __INCLUDE_SUB_H_  #define __INCLUDE_SUB_H_  void Greeting(char* str); #endif // __INCLUDE_SUB_H_ [sub.c] #include &amp;lt;stdio.h&amp;gt; #include &amp;#34;sub.h&amp;#34; void Greeting(char* str) { printf(&amp;#34;&amp;gt; %s\n&amp;#34;, str); } [main.c] #include &amp;#34;sub.h&amp;#34; void main(void) { Greeting(&amp;#34;Hello world!&amp;#34;); } [Makefile] TARGET = app #CC = OBJS = main.o sub.o ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c clean: ${RM} *~ *.o ${TARGET} ■実行結果 $make cc -c main.</description>
+    </item>
+    
+    <item>
+      <title>マクロ</title>
+      <link>https://examplesite.com/makefile/002-makefile-macro/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/002-makefile-macro/</guid>
+      <description>make も予め定義されたマクロがあり使うことが出来る。 下記のコマンドでマクロを確認できる
+$ make -p  ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意
+ マクロの優先順位 参照できるマクロが複数あるため優先順位は意識すること。 優先順位が高い順に並べる。
+ コマンドラインで定義されたもの Makefile 内で定義されたもの　 環境変数 makeで予め定義されているもの  マクロ文字列の置換 マクロ文字列を使うと簡単にファイル名などを変更することが可能。 下記では、${SRCS:.c=.o} で SRCS の .c を .o に変更している
+[Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} </description>
+    </item>
+    
+    <item>
+      <title>自動変数</title>
+      <link>https://examplesite.com/makefile/003-makefile-auto-variable/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/003-makefile-auto-variable/</guid>
+      <description>自動変数 内容 有効範囲     $@ 処理中ターゲット コマンド行で有効   $% ターゲットがアーカイブメンバのときのターゲットメンバ名    $&amp;lt; 最初に記載した依存ファイルの名前 (ヘッダをソースより後ろに配置することでヘッダの更新に使える)    $^ 依存しているすべてのファイル    $? ターゲットよりタイムスタンプが新しい依存ファイル    $$@ 処理中のターゲット コンポーネントのみで使える    [Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c $? sub.o: sub.c ${CC} -c $? sub.o: sub.</description>
+    </item>
+    
+    <item>
+      <title>複数ターゲット</title>
+      <link>https://examplesite.com/makefile/004-makefile-multi-target/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/004-makefile-multi-target/</guid>
+      <description>複数ターゲットを指定するとどうなるか確認してみた。
+下記の場合は、最初のターゲット(app)のみがビルドされた。
+TARGET = app hoge SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ■実行結果 $ make cc -c main.c cc -c sub.c cc -o app main.o sub.o $ make hoge cc -o hoge main.o sub.o all ターゲットを作成することで、どちらもビルドされた。
+[Makefile] TARGET = app hoge SRCS = main.c sub.c OBJS = ${SRCS:.</description>
+    </item>
+    
+    <item>
+      <title>コマンドオプション</title>
+      <link>https://examplesite.com/makefile/005-makefile-option/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/005-makefile-option/</guid>
+      <description>オプションから変数を指定することもできる。
+make -p makefile を読み込んで得られたデータベース　(規則と変数の値) を出力する。
+make -n 実行するコマンドの表示だけを行う。
+変数に値を設定する $ make CFLAGS=-g cc -g -c -o main.o main.c cc -g -c -o sub.o sub.c cc -g -o app main.o sub.o $ make &amp;#34;CFLAGS=-g -DDEBUG&amp;#34; cc -g -DDEBUG -c -o main.o main.c cc -g -DDEBUG -c -o sub.o sub.c cc -g -DDEBUG -o app main.o sub.o 複数のオプションを設定する場合 $ make CFLAGS=-g LIB=-l cc -g -c -o main.o main.c cc -g -c -o sub.</description>
+    </item>
+    
+    <item>
+      <title>ヘッダファイル</title>
+      <link>https://examplesite.com/makefile/006-makefile-header/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/006-makefile-header/</guid>
+      <description>ヘッダファイルの依存に対応する ヘッダファイルの更新でビルドされる Makefile を作成する。
+[sub_a.h] #ifndef __INCLUDE__SUB_A  #define __INCLUDE__SUB_A  void sub_a(void); void sub_A(void); #endif // __INCLUDE__SUB_A [sub_b.h] #ifndef __INCLUDE__SUB_B  #define __INCLUDE__SUB_B  void sub_b(void); #endif // __INCLUDE__SUB_B [sub_ab.c] #include &amp;lt;stdio.h&amp;gt; #include &amp;#34;sub_a.h&amp;#34; #include &amp;#34;sub_b.h&amp;#34; void sub_a(void) { printf(&amp;#34;&amp;gt; Call sub_a\n&amp;#34;); } void sub_b(void) { printf(&amp;#34;&amp;gt; Call sub_b\n&amp;#34;); } [parse.h] #ifndef __INCLUDE__PARSE_H  #define __INCLUDE__PARSE_H  void parse(void); #endif // __INCLUDE__PARSE_H [parse.c] #include &amp;lt;stdio.h&amp;gt; #include &amp;#34;parse.h&amp;#34; void parse(void) { printf(&amp;#34;&amp;gt; Call parse\n&amp;#34;); } [main.</description>
+    </item>
+    
+    <item>
+      <title>多段 Make</title>
+      <link>https://examplesite.com/makefile/007-makefile-multi-make/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/007-makefile-multi-make/</guid>
+      <description>とりあえずベタ書き。 シェルコマンドを使えばより簡単に書ける。
+. ├── Makefile ├── include │ ├── codec │ │ └── codec.h │ └── ui │ └── ui.h ├── lib │ ├── codec │ │ ├── Makefile │ │ └── codec.c │ └── ui │ ├── Makefile │ └── ui.c └── main.c [Makefile] TARGET := app SUB_TARGET := ui codec LIB_UI_DIR := lib/ui #lib/uiのソースコードを探索 LIB_UI_SRC := $(shell find ${LIB_UI_DIR} -type f -name \*.c) LIB_UI_OBJS := ${LIB_UI_SRC:.c=.o} LIB_CODEC_DIR = lib/codec #lib/codecのソースコード探索 LIB_CODEC_SRC := $(shell find ${LIB_CODEC_DIR} -type f -name \*.</description>
+    </item>
+    
+    <item>
+      <title>代入演算子</title>
+      <link>https://examplesite.com/makefile/008-makefile-assign-operate/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/008-makefile-assign-operate/</guid>
+      <description>makeで使うことのできる演算子を記載する。
+   演算子 内容     = 変数が使われる度に評価される。シェルコマンドを代入している場合、変数を使う度に評価される。   := 一度だけ評価するため、定数として使える。   ?= 変数が定義されていないときのみ := として機能する   += 加算代入演算子。    </description>
+    </item>
+    
+    <item>
+      <title>変数</title>
+      <link>https://examplesite.com/makefile/009-makefile-variables/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      
+      <guid>https://examplesite.com/makefile/009-makefile-variables/</guid>
+      <description>   自動変数 内容     CFLAGS Cコンパイラに与える追加のフラグ   CXXFLAGS C++コンパイラに与える追加のフラグ   CPPFLAGS Cプリプロセッサに与える追加フラグ、プログラムに使われる。   LDFLAGS -Lのようなリンカーを実行をサポートする時にコンパイラに与えられる追加フラグ。代わりにライブラリ(-lfoo)は LDLIBS 変数に追加するべき。   LDLIBS ライブラリフラグや名前をコンパイラに与える、リンカーが実行される時にサポートする。 -Lのようなライブラリではないリンカーフラグは LDFLAGS 変数に与える。    </description>
+    </item>
+    
+  </channel>
+</rss>

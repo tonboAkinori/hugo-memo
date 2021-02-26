@@ -3,7 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/gcc/001-gcc/</loc>
+    <lastmod>2020-12-29T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/command/001-find/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/command/002-awk/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   
@@ -48,12 +63,22 @@
   </url>
   
   <url>
-    <loc>https://tonboAkinori.github.io/hugo-memo/makefile/</loc>
-    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+    <loc>https://tonboAkinori.github.io/hugo-memo/gcc/</loc>
+    <lastmod>2020-12-29T11:02:05+06:00</lastmod>
   </url>
   
   <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/</loc>
+    <lastmod>2020-12-29T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/command/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/makefile/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   

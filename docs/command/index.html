@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
   <meta charset="utf-8">
-  <title>マクロ</title>
+  <title>Commands</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="generator" content="Hugo 0.80.0" />
   
@@ -140,8 +140,6 @@
               
             
               
-            
-              
               
 
 
@@ -151,10 +149,10 @@
 
 
 
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/" title="Makefile" class="sidelist
-  ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/">
-    Makefile
+<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/command/" title="Commands" class="sidelist
+  active">
+  <a href="https://tonboAkinori.github.io/hugo-memo/command/">
+    Commands
   </a>
   
   
@@ -170,10 +168,10 @@
 
 
 
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/" title="基本文法" class="sidelist
+<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/command/001-find/" title="find" class="sidelist
   ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">
-    基本文法
+  <a href="https://tonboAkinori.github.io/hugo-memo/command/001-find/">
+    find
   </a>
   
   
@@ -192,164 +190,10 @@
 
 
 
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/" title="マクロ" class="sidelist
-  active">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">
-    マクロ
-  </a>
-  
-  
-</li>
-
-
-        
-      
-        
-          
-
-
-
-
-
-
-
-
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/" title="自動変数" class="sidelist
+<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/command/002-awk/" title="awk" class="sidelist
   ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">
-    自動変数
-  </a>
-  
-  
-</li>
-
-
-        
-      
-        
-          
-
-
-
-
-
-
-
-
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/" title="複数ターゲット" class="sidelist
-  ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/">
-    複数ターゲット
-  </a>
-  
-  
-</li>
-
-
-        
-      
-        
-          
-
-
-
-
-
-
-
-
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/" title="コマンドオプション" class="sidelist
-  ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">
-    コマンドオプション
-  </a>
-  
-  
-</li>
-
-
-        
-      
-        
-          
-
-
-
-
-
-
-
-
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/" title="ヘッダファイル" class="sidelist
-  ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">
-    ヘッダファイル
-  </a>
-  
-  
-</li>
-
-
-        
-      
-        
-          
-
-
-
-
-
-
-
-
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/" title="多段 Make" class="sidelist
-  ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/">
-    多段 Make
-  </a>
-  
-  
-</li>
-
-
-        
-      
-        
-          
-
-
-
-
-
-
-
-
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/" title="代入演算子" class="sidelist
-  ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/">
-    代入演算子
-  </a>
-  
-  
-</li>
-
-
-        
-      
-        
-          
-
-
-
-
-
-
-
-
-<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/makefile/009-makefile-variables/" title="変数" class="sidelist
-  ">
-  <a href="https://tonboAkinori.github.io/hugo-memo/makefile/009-makefile-variables/">
-    変数
+  <a href="https://tonboAkinori.github.io/hugo-memo/command/002-awk/">
+    awk
   </a>
   
   
@@ -365,51 +209,86 @@
 
               
             
+              
+            
           </ul>
         </div>
       </div>
       <div class="col-lg-9">
         <div class="p-lg-5 p-4 bg-white">
-          <h2 class="mb-5">マクロ</h2>
+          <h2 class="mb-5">Commands</h2>
           
-          <div class="content"><p>make も予め定義されたマクロがあり使うことが出来る。
-下記のコマンドでマクロを確認できる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ make -p
-</code></pre></div>
+          <div class="bg-light p-4">
+            <ul class="page-list">
+              
 
-<div class="notices note" ><p>ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意</p></div>
 
-<h3 id="マクロの優先順位">マクロの優先順位</h3>
-<p>参照できるマクロが複数あるため優先順位は意識すること。
-優先順位が高い順に並べる。</p>
-<ol>
-<li>コマンドラインで定義されたもの</li>
-<li>Makefile 内で定義されたもの　</li>
-<li>環境変数</li>
-<li>makeで予め定義されているもの</li>
-</ol>
-<h3 id="マクロ文字列の置換">マクロ文字列の置換</h3>
-<p>マクロ文字列を使うと簡単にファイル名などを変更することが可能。
-下記では、<code>${SRCS:.c=.o}</code> で SRCS の .c を .o に変更している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">   <span style="color:#f92672">[</span>Makefile<span style="color:#f92672">]</span>
-   TARGET <span style="color:#f92672">=</span> app 
-   SRCS <span style="color:#f92672">=</span> main.c sub.c
-   OBJS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.o<span style="color:#e6db74">}</span>
 
-   <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>: <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
-        <span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
 
-   main.o: main.c
-	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -c main.c
 
-   sub.o: sub.c
-	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -c sub.c
 
-   sub.o: sub.h
 
-   clean:
-	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>
-</code></pre></div></div>
+
+<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/command/" title="Commands" class="sidelist
+  active">
+  <a href="https://tonboAkinori.github.io/hugo-memo/command/">
+    Commands
+  </a>
+  
+  
+    <ul>
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/command/001-find/" title="find" class="sidelist
+  ">
+  <a href="https://tonboAkinori.github.io/hugo-memo/command/001-find/">
+    find
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://tonboAkinori.github.io/hugo-memo/command/002-awk/" title="awk" class="sidelist
+  ">
+  <a href="https://tonboAkinori.github.io/hugo-memo/command/002-awk/">
+    awk
+  </a>
+  
+  
+</li>
+
+
+        
+      
+    </ul>
+  
+</li>
+
+
+            </ul>
+          </div>
           
           <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 29 Dec 2018</p>
           <nav class="pagination mt-3">
@@ -473,44 +352,12 @@
             
             
             
-
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-            
             
 
             
             
             
 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            
-            
-            
-
-            
-            
-            
-            
             
             
             
@@ -555,6 +402,8 @@
             
             
             
+            
+            
 
             
             
@@ -563,6 +412,32 @@
             
             
             
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
             
             
             
@@ -687,10 +562,10 @@
             
 
             
-            <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">基本文法</span></a>
+            <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/gcc/001-gcc/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">GCC</span></a>
             
             
-            <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/"> <span class="d-none d-md-block">自動変数</span><i class="ti-arrow-right ml-2"></i></a>
+            <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/001-find/"> <span class="d-none d-md-block">find</span><i class="ti-arrow-right ml-2"></i></a>
             
           </nav>
         </div>

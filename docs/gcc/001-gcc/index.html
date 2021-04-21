@@ -112,6 +112,8 @@
             
             <a class="dropdown-item" href="https://tonboAkinori.github.io/hugo-memo/command">Command</a>
             
+            <a class="dropdown-item" href="https://tonboAkinori.github.io/hugo-memo/other">Other</a>
+            
           </div>
         </li>
         
@@ -183,6 +185,8 @@
 </li>
 
 
+              
+            
               
             
               
@@ -2454,7 +2458,54 @@
 </tr>
 </tbody>
 </table>
-</div>
+<h3 id="-wabsolute-value">-Wabsolute-value</h3>
+<p>より適切な標準関数が使用可能な場合に、引数の絶対値を計算する標準関数の呼び出しについて警告する。
+たとえば、abs（3.14）を呼び出すと警告される。
+これは、double引数の絶対値を計算するために呼び出す適切な関数がfabsであるためです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;math.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+  <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> tmp0 <span style="color:#f92672">=</span> abs(<span style="color:#ae81ff">10.3</span>);
+  <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> tmp1 <span style="color:#f92672">=</span> abs(<span style="color:#ae81ff">10</span>);
+  <span style="color:#66d9ef">double</span> tmp2 <span style="color:#f92672">=</span> fabs(<span style="color:#ae81ff">10</span>);
+  <span style="color:#66d9ef">double</span> tmp3 <span style="color:#f92672">=</span> fabs(<span style="color:#ae81ff">10.3</span>);
+
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">sample.c:7:24: warning: using integer absolute value <span style="color:#66d9ef">function</span> ‘abs’ when argument is of floating point type ‘double’ <span style="color:#f92672">[</span>-Wabsolute-value<span style="color:#f92672">]</span>
+    <span style="color:#ae81ff">7</span> |   unsigned char tmp0 <span style="color:#f92672">=</span> abs<span style="color:#f92672">(</span>10.3<span style="color:#f92672">)</span>;
+sample.c:9:17: warning: using floating point absolute value <span style="color:#66d9ef">function</span> ‘fabs’ when argument is of integer type ‘int’ <span style="color:#f92672">[</span>-Wabsolute-value<span style="color:#f92672">]</span>
+    <span style="color:#ae81ff">9</span> |   double tmp2 <span style="color:#f92672">=</span> fabs<span style="color:#f92672">(</span>10<span style="color:#f92672">)</span>;
+</code></pre></div><h2 id="-waddress">-Waddress</h2>
+<p>メモリアドレスの疑わしい使用について警告します。
+これには、void func（void）などの条件式で関数のアドレスを使用することが含まれます。
+if（func）、およびif（x == &ldquo;abc&rdquo;）などの文字列リテラルのメモリアドレスとの比較。
+このような使用法は通常、プログラマーのエラーを示します。
+関数のアドレスは常にtrueと評価されるため、条件付きでの使用は通常、プログラマーが関数呼び出しの括弧を忘れたことを示します。
+また、文字列リテラルとの比較は、不特定の動作をもたらし、Cで移植できないため、通常、プログラマーがstrcmpを使用することを意図していたことを示します。
+この警告は-Wallによって有効になります。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myfunc</span>(<span style="color:#66d9ef">void</span>)
+{
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+ <span style="color:#66d9ef">if</span>(myfunc)
+   <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+ <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">sample.c:9:6: warning: the address of ‘myfunc’ will always evaluate as ‘true’ [-Waddress]
+    9 |   if(myfunc)
+      |
+~`~
+
+### -Waddress-of-packed-member
+
+</code></pre></div></div>
           
           <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 29 Dec 2020</p>
           <nav class="pagination mt-3">
@@ -2506,6 +2557,38 @@
             
             
             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
             
             
             
@@ -2729,7 +2812,7 @@
             <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/gcc/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Gccs</span></a>
             
             
-            <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/"> <span class="d-none d-md-block">Commands</span><i class="ti-arrow-right ml-2"></i></a>
+            <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/other/"> <span class="d-none d-md-block">Others</span><i class="ti-arrow-right ml-2"></i></a>
             
           </nav>
         </div>

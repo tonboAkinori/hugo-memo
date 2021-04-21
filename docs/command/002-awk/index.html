@@ -112,6 +112,8 @@
             
             <a class="dropdown-item" href="https://tonboAkinori.github.io/hugo-memo/command">Command</a>
             
+            <a class="dropdown-item" href="https://tonboAkinori.github.io/hugo-memo/other">Other</a>
+            
           </div>
         </li>
         
@@ -136,6 +138,8 @@
           <ul class="list-styled">
             
             <a class="back-btn" href="https://tonboAkinori.github.io/hugo-memo/"></a>
+            
+              
             
               
             
@@ -272,6 +276,102 @@ END
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ awk <span style="color:#e6db74">&#39;{if($2==1) print $0}&#39;</span> test.txt
 A   <span style="color:#ae81ff">1</span> A
 E   <span style="color:#ae81ff">1</span> E
+</code></pre></div><h3 id="組み込み変数">組み込み変数</h3>
+<table>
+<thead>
+<tr>
+<th>変数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FNR</td>
+<td>現在処理しているファイルの入力レコード番号</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>入力フィールドのセパレーター、デフォルトはスペース</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>現在入力レコードのフィールド数</td>
+</tr>
+<tr>
+<td>NR</td>
+<td>現在処理している行番号</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td>出力フィールドのセパレーター、デフォルトはスペース</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td>出力レコードの和パレーター、デフォルトはスペース</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>入力レコードのセパレーター、デフォルトは改行</td>
+</tr>
+</tbody>
+</table>
+<h4 id="fs">FS</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+    FS =&#34;,&#34;
+}
+{
+    print $2
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ echo 1,2:3,4 | awk -f sample.awk
+2:3
+</code></pre></div><h4 id="nf">NF</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+    FS=&#34;,&#34;
+}
+{
+    if(NF &lt; 3)
+    {
+        print NR&#34;#&#34;,&#34;列が不足しています&#34;
+    }
+    else
+    {
+        print NR&#34;#&#34;,$0
+    }
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ echo -e <span style="color:#e6db74">&#34;1,2:3*A,4\na,b\n7,8,9,10&#34;</span>  | awk -f sample.awk
+1# 1,2:3*A,4
+2# 列が不足しています
+3# 7,8,9,10
+</code></pre></div><h4 id="nr">NR</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+}
+{
+    print NR&#34;#&#34;, $0
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ echo -e <span style="color:#e6db74">&#34;1,2:3*A,4\na,b,c&#34;</span>  | awk -f sample.awk
+1# 1,2:3*A,4
+2# a,b,c
+</code></pre></div><h4 id="ofs">OFS</h4>
+<p>print出力のスペースだと、区切り文字として出力されない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+    FS = &#34;,&#34;
+    OFS =&#34;%&#34;
+}
+{
+    print $1 $2 $3
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ echo 1,2:3*A,4 | awk -f sample.awk
+12:3*A4
+</code></pre></div><p>print出力をカンマで区切ると、区切り文字が出力された。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+    FS = &#34;,&#34;
+    OFS =&#34;%&#34;
+}
+{
+    print $1 $2 $3
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">echo 1,2:3*A,4 | awk -f sample.awk
+1%2:3*A%4
 </code></pre></div></div>
           
           <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 29 Dec 2018</p>
@@ -293,6 +393,38 @@ E   <span style="color:#ae81ff">1</span> E
             
             
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
             
             
             

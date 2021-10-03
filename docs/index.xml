@@ -5,9 +5,7 @@
     <link>https://tonboAkinori.github.io/hugo-memo/</link>
     <description>Recent content on Tonbo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Copyright © 2021 tonbo </copyright>
-    <lastBuildDate>Tue, 29 Dec 2020 11:02:05 +0600</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Oct 2021 02:41:21 +0000</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GCC</title>
       <link>https://tonboAkinori.github.io/hugo-memo/gcc/001-gcc/</link>
@@ -54,6 +52,31 @@ find &amp;lt;検索位置&amp;gt; &amp;lt;expression&amp;gt; 検索を試した�
     </item>
     
     <item>
+      <title>リンクまでの流れ</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/link/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/link/</guid>
+      <description>通常のコンパイラは、ファイル単位でコンパイルし「オブジェクトファイル」と呼ばれるファイルを作成する。
+最終的にオブジェクトファイルが結合されるときに、実際の関数呼び出しに置き換えられる。
+この結合作業を「リンク」と呼ぶ。
+スタートアップルーチン 標準ライブラリの関数が利用されていない場合でも、 実行できる形式にするために スタートアップルーチン と呼ばれる初期化を行うプログラムがリンクされる。
+スタートアップルーチンでは、レジスタの初期化や main 関数への引数設定や各種初期化が行われる。 プログラムで最初に実行されるのは、main 関数ではなくスタートアップルーチンである。</description>
+    </item>
+    
+    <item>
+      <title>GCCでリンクまでの処理確認</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/</link>
+      <pubDate>Sat, 02 Oct 2021 02:55:17 +0000</pubDate>
+      
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/</guid>
+      <description>gcc は指定されたファイルを読み込み、ファイルの形式に応じて下記の作業を順番に行う。
+本当の意味でのコンパイラは cc1 であり、このため gcc は 「コンパイラドライバー」 とも呼ばれる。
+ プリプロセス (ccp1) コンパイル (ccp1) アセンブル (as) リンク (collect2)  gccで-v オプションを指定するとgccが行う処理の詳細が出力される。
+$ gcc -v main.c Using built-in specs. COLLECT_GCC=gcc COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper OFFLOAD_TARGET_NAMES=nvptx-none:hsa OFFLOAD_TARGET_DEFAULT=1 Target: x86_64-linux-gnu Configured with: ../src/configure -v --with-pkgversion=&amp;#39;Ubuntu 9.3.0-17ubuntu1~20.04&amp;#39; --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-HskZEa/gcc-9-9.</description>
+    </item>
+    
+    <item>
       <title>awk</title>
       <link>https://tonboAkinori.github.io/hugo-memo/command/002-awk/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
@@ -62,7 +85,7 @@ find &amp;lt;検索位置&amp;gt; &amp;lt;expression&amp;gt; 検索を試した�
       <description>空白やタブで区切られたテキストを処理するコマンド。 演算機能もあり、プログラミング言語としても使用される。
 基本構文 awk &amp;#39; BEGIN{ 最初に実行されるブロック } { メインブロック } END{ 最後に実行されるブロック } &amp;#39; 処理するファイルの内容は下記とする。
 A 1 A B 2 C D 3 D E 1 E $ awk &amp;#39;BEGIN{print &amp;#34;=== Start ===&amp;#34;}{print $0}END{print &amp;#34;=== End ===&amp;#34;}&amp;#39; test.txt === Start === A 1 A B 2 C D 3 D E 1 E === End === スクリプトの読み込み -f でスクリプトを指定する。
-BEGIN{ print &amp;#34;START&amp;#34; } { print &amp;#34;---&amp;#34; print $0 } END{ print &amp;#34;END&amp;#34; } $ awk -f sf test.</description>
+BEGIN{ print &amp;#34;START&amp;#34; } { print &amp;#34;---&amp;#34; print $0 } END{ print &amp;#34;END&amp;#34; } $ awk -f スクリプトファイル test.</description>
     </item>
     
     <item>
@@ -72,8 +95,7 @@ BEGIN{ print &amp;#34;START&amp;#34; } { print &amp;#34;---&amp;#34; print $0 } 
       
       <guid>https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/</guid>
       <description>make も予め定義されたマクロがあり使うことが出来る。 下記のコマンドでマクロを確認できる
-$ make -p  ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意
- マクロの優先順位 参照できるマクロが複数あるため優先順位は意識すること。 優先順位が高い順に並べる。
+$ make -p  ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意  マクロの優先順位 参照できるマクロが複数あるため優先順位は意識すること。 優先順位が高い順に並べる。
  コマンドラインで定義されたもの Makefile 内で定義されたもの　 環境変数 makeで予め定義されているもの  マクロ文字列の置換 マクロ文字列を使うと簡単にファイル名などを変更することが可能。 下記では、${SRCS:.c=.o} で SRCS の .c を .o に変更している
 [Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} </description>
     </item>
@@ -85,6 +107,17 @@ $ make -p  ただし、 Makefile のある場所で実施すると Makefile の�
       
       <guid>https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/</guid>
       <description>自動変数 内容 有効範囲     $@ 処理中ターゲット コマンド行で有効   $% ターゲットがアーカイブメンバのときのターゲットメンバ名    $&amp;lt; 最初に記載した依存ファイルの名前 (ヘッダをソースより後ろに配置することでヘッダの更新に使える)    $^ 依存しているすべてのファイル    $? ターゲットよりタイムスタンプが新しい依存ファイル    $$@ 処理中のターゲット コンポーネントのみで使える    [Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c $? sub.o: sub.c ${CC} -c $? sub.o: sub.</description>
+    </item>
+    
+    <item>
+      <title>スタートアップルーチン</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/startup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/startup/</guid>
+      <description>標準ライブラリの関数が利用されていない場合でも、 実行できる形式にするために スタートアップルーチン と呼ばれる初期化を行うプログラムがリンクされる。
+スタートアップルーチンでは、レジスタの初期化や main 関数への引数設定や各種初期化が行われる。
+プログラムで最初に実行されるのは、main 関数ではなくスタートアップルーチンである。</description>
     </item>
     
     <item>

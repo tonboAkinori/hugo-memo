@@ -4,8 +4,6 @@
     <title>Tags on Tonbo</title>
     <link>https://tonboAkinori.github.io/hugo-memo/tags/</link>
     <description>Recent content in Tags on Tonbo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Copyright © 2021 tonbo </copyright><atom:link href="https://tonboAkinori.github.io/hugo-memo/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://tonboAkinori.github.io/hugo-memo/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

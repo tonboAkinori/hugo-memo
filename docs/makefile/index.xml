@@ -5,8 +5,6 @@
     <link>https://tonboAkinori.github.io/hugo-memo/makefile/</link>
     <description>Recent content in Makefile on Tonbo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Copyright © 2021 tonbo </copyright>
     <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/makefile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基本文法</title>
@@ -25,8 +23,7 @@
       
       <guid>https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/</guid>
       <description>make も予め定義されたマクロがあり使うことが出来る。 下記のコマンドでマクロを確認できる
-$ make -p  ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意
- マクロの優先順位 参照できるマクロが複数あるため優先順位は意識すること。 優先順位が高い順に並べる。
+$ make -p  ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意  マクロの優先順位 参照できるマクロが複数あるため優先順位は意識すること。 優先順位が高い順に並べる。
  コマンドラインで定義されたもの Makefile 内で定義されたもの　 環境変数 makeで予め定義されているもの  マクロ文字列の置換 マクロ文字列を使うと簡単にファイル名などを変更することが可能。 下記では、${SRCS:.c=.o} で SRCS の .c を .o に変更している
 [Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} </description>
     </item>

@@ -1,0 +1,44 @@
+[
+  {
+    "content": "ディレクトリやファイルの再帰的な検索\nfind \u003c検索位置\u003e \u003cexpression\u003e 検索を試したディレクトリ構造\n. ├── 001 │ ├── 001-01 │ │ └── 001-01.txt │ └── 001-02 ├── 002 └── 003 └── 003.txt 通常 $ find . . ./001 ./001/001-01 ./001/001-01/001-01.txt ./001/001-02 ./002 ./003 ./003/003.txt ファイルタイプを指定 タイプで指定できる一覧。\n   タイプ 内容     b ブロック(バッファー)特別   c 文字(バッファーなし)特別   d ディレクトリ   p 名前付きパイプ   f 標準ファイル   l シンボリックリンク   s ソケット    1 2 3 4 5 6 7  $ find . -type d . ./001 ./001/001-01 ./001/001-02 ./002 ./003   1 2 3  $ find . -type f ./001/001-01/001-01.txt ./003/003.txt   ファイル名を指定 1 2  $ find . -type f -name \"003*\" ./003/003.txt   ",
+    "description": "",
+    "tags": null,
+    "title": "find",
+    "uri": "/command/001-find/"
+  },
+  {
+    "content": "空白やタブで区切られたテキストを処理するコマンド。 演算機能もあり、プログラミング言語としても使用される。\n基本構文 awk ' BEGIN{ 最初に実行されるブロック } { メインブロック } END{ 最後に実行されるブロック } ' 処理するファイルの内容は下記とする。\nA 1 A B 2 C D 3 D E 1 E $ awk 'BEGIN{print \"=== Start ===\"}{print $0}END{print \"=== End ===\"}' test.txt === Start === A 1 A B 2 C D 3 D E 1 E === End === スクリプトの読み込み -f でスクリプトを指定する。\nBEGIN{ print \"START\" } { print \"---\" print $0 } END{ print \"END\" } $ awk -f スクリプトファイル test.txt START --- A 1 A --- B 2 C --- D 3 D --- E 1 E END 制御構文 if-elseやandなども使える。\n$ awk '{if($2==1) print $0}' test.txt A 1 A E 1 E 複数フィールドの出力 カンマで区切る場合 OFSでフィールドが区切られる。\nBEGIN{ FS = \"%\" OFS =\"#\" } { print $1,$2,$3 } $ echo 1%2:3%A%4 | awk -f sample.awk 1#2:3#A カンマで区切らない場合 OFSでフィールドが区切られない。\nBEGIN{ FS = \"%\" OFS =\"#\" } { print $1 $2 $3 } $ echo 1%2:3%A%4 | awk -f sample.awk 12:3A 組み込み変数    変数名 内容     FNR 現在処理しているファイルの入力レコード番号、処理するファイルが１つの場合は NR と同じ   FS 入力フィールドのセパレーター、デフォルトはスペース   NF 現在入力レコードのフィールド数   NR 現在処理している行番号   OFS 出力フィールドのセパレーター、デフォルトはスペース   ORS 出力レコードのセパレーター、デフォルトはスペース   RS 入力レコードのセパレーター、デフォルトは改行    FS BEGIN{ FS =\",\" } { print $2 } $ echo 1,2:3,4 | awk -f sample.awk 2:3 NF BEGIN{ FS=\",\" } { if(NF \u003c 3) { print NR\"#\",\"列が不足しています\" } else { print NR\"#\",$0 } } $ echo -e \"1,2:3*A,4\\na,b\\n7,8,9,10\" | awk -f sample.awk 1# 1,2:3*A,4 2# 列が不足しています 3# 7,8,9,10 NR BEGIN{ } { print NR\"#\", $0 } $ echo -e \"1,2:3*A,4\\na,b,c\" | awk -f sample.awk 1# 1,2:3*A,4 2# a,b,c OFS print出力をスペースで区切ると、区切り文字として出力されない。\nBEGIN{ FS = \",\" OFS =\"%\" } { print $1 $2 $3 } $ echo 1,2:3*A,4 | awk -f sample.awk 12:3*A4 print出力をカンマで区切ると、区切り文字が出力される。\nBEGIN{ FS = \",\" OFS =\"%\" } { print $1,$2,$3 } echo 1,2:3*A,4 | awk -f sample.awk 1%2:3*A%4 ",
+    "description": "",
+    "tags": null,
+    "title": "awk",
+    "uri": "/command/002-awk/"
+  },
+  {
+    "content": "Chapter X Some Chapter title Lorem Ipsum.\n",
+    "description": "",
+    "tags": null,
+    "title": "Content",
+    "uri": "/"
+  },
+  {
+    "content": "Chapter Command Some Chapter title Command\n",
+    "description": "",
+    "tags": null,
+    "title": "Content",
+    "uri": "/command/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Categories",
+    "uri": "/categories/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Tags",
+    "uri": "/tags/"
+  }
+]

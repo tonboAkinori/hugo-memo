@@ -1,47 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tonbo</title>
+    <title>Content on Tonbo</title>
     <link>https://tonboAkinori.github.io/hugo-memo/</link>
-    <description>Recent content on Tonbo</description>
+    <description>Recent content in Content on Tonbo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2021 tonbo </copyright>
-    <lastBuildDate>Sun, 03 Oct 2021 02:41:21 +0000</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>リンカー</title>
-      <link>https://tonboAkinori.github.io/hugo-memo/linker/</link>
-      <pubDate>Sun, 03 Oct 2021 02:41:21 +0000</pubDate>
-      <guid>https://tonboAkinori.github.io/hugo-memo/linker/</guid>
-      <description>リンカー リンクまでの流れ GCCでリンクまでの処理確認 スタートアップルーチン  </description>
-    </item>
-    <item>
-      <title>Gccs</title>
-      <link>https://tonboAkinori.github.io/hugo-memo/gcc/</link>
-      <pubDate>Tue, 29 Dec 2020 11:02:05 +0600</pubDate>
-      <guid>https://tonboAkinori.github.io/hugo-memo/gcc/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Others</title>
-      <link>https://tonboAkinori.github.io/hugo-memo/other/</link>
-      <pubDate>Tue, 29 Dec 2020 11:02:05 +0600</pubDate>
-      <guid>https://tonboAkinori.github.io/hugo-memo/other/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Commands</title>
+      <title>Content</title>
       <link>https://tonboAkinori.github.io/hugo-memo/command/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       <guid>https://tonboAkinori.github.io/hugo-memo/command/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Makefile</title>
-      <link>https://tonboAkinori.github.io/hugo-memo/makefile/</link>
-      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      <guid>https://tonboAkinori.github.io/hugo-memo/makefile/</guid>
-      <description></description>
+      <description>Chapter Command Some Chapter title Command</description>
     </item>
   </channel>
 </rss>

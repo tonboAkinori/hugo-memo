@@ -25,6 +25,13 @@
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/linker/link/</loc>
+  </url>
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/</loc>
+    <lastmod>2021-10-02T02:55:17+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/command/awk/002-awk/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
@@ -61,6 +68,14 @@
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/</loc>
+    <lastmod>2021-10-03T02:41:21+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/linker/</loc>
+    <lastmod>2021-10-03T02:41:21+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/command/awk/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
@@ -74,10 +89,6 @@
   </url>
   <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/command/grep/</loc>
-    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
-  </url>
-  <url>
-    <loc>https://tonboAkinori.github.io/hugo-memo/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   <url>

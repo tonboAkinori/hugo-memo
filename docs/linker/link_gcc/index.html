@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>GCCでリンクまでの処理確認 :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636176006" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636176006" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636176006" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -78,9 +76,9 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/linker/" title="リンカー" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/">リンカー</a><ul>
+          <li data-nav-id="/linker/" title="リンカー" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/linker/">リンカー</a><ul>
           <li data-nav-id="/linker/link/" title="リンクまでの流れ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link/">リンクまでの流れ</a></li>
-          <li data-nav-id="/linker/link_gcc/" title="GCCでリンクまでの処理確認" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/">GCCでリンクまでの処理確認</a></li></ul></li>
+          <li data-nav-id="/linker/link_gcc/" title="GCCでリンクまでの処理確認" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/">GCCでリンクまでの処理確認</a></li></ul></li>
           <li data-nav-id="/command/" title="Command" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
           <li data-nav-id="/command/awk/" title="awk" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/">awk</a><ul>
           <li data-nav-id="/command/awk/001-awk/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/001-awk/">基本構文</a></li>
@@ -118,23 +116,89 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/linker/"><span itemprop="name">リンカー</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/" aria-disabled="true"><span itemprop="name">GCCでリンクまでの処理確認</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents"></nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>GCCでリンクまでの処理確認</h1>
 
+<p>gcc は指定されたファイルを読み込み、ファイルの形式に応じて下記の作業を順番に行う。</p>
+<p>本当の意味でのコンパイラは cc1 であり、このため gcc は <strong>「コンパイラドライバー」</strong> とも呼ばれる。</p>
+<ol>
+<li>プリプロセス (ccp1)</li>
+<li>コンパイル (ccp1)</li>
+<li>アセンブル (as)</li>
+<li>リンク (collect2)</li>
+</ol>
+<p>gccで<code>-v</code> オプションを指定するとgccが行う処理の詳細が出力される。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ gcc -v main.c
 
-<h3 id="home">Home</h3>
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:hsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion=&#39;Ubuntu 9.3.0-17ubuntu1~20.04&#39; --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-HskZEa/gcc-9-9.3.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)
+COLLECT_GCC_OPTIONS=&#39;-v&#39; &#39;-mtune=generic&#39; &#39;-march=x86-64&#39;
+ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 ★ ccp1 コマンド★ -quiet -v -imultiarch x86_64-linux-gnu main.c -quiet -dumpbase main.c -mtune=generic -march=x86-64 -auxbase main -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccfwreyC.s 
+GNU C17 (Ubuntu 9.3.0-17ubuntu1~20.04) version 9.3.0 (x86_64-linux-gnu)
+        compiled by GNU C version 9.3.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
 
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory &#34;/usr/local/include/x86_64-linux-gnu&#34;
+ignoring nonexistent directory &#34;/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed&#34;
+ignoring nonexistent directory &#34;/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include&#34;
+#include &#34;...&#34; search starts here:
+#include &lt;...&gt; search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/9/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 9.3.0-17ubuntu1~20.04) version 9.3.0 (x86_64-linux-gnu)
+        compiled by GNU C version 9.3.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
 
-        </div> 
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: bbf13931d8de1abe14040c9909cb6969
+COLLECT_GCC_OPTIONS=&#39;-v&#39; &#39;-mtune=generic&#39; &#39;-march=x86-64&#39;
+ as ★ as コマンド ★ -v --64 -o /tmp/cc0U4iJC.o /tmp/ccfwreyC.s
+GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS=&#39;-v&#39; &#39;-mtune=generic&#39; &#39;-march=x86-64&#39;
+ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 ★ collect2 コマンド ★ -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYW7lFB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. /tmp/cc0U4iJC.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS=&#39;-v&#39; &#39;-mtune=generic&#39; &#39;-march=x86-64&#39;
+</code></pre></div>
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/linker/" title="リンカー"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/linker/link/" title="リンクまでの流れ"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/" title="Command"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

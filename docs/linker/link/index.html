@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>リンクまでの流れ :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636176006" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636176006" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636176006" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/linker/link/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -78,8 +76,8 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/linker/" title="リンカー" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/">リンカー</a><ul>
-          <li data-nav-id="/linker/link/" title="リンクまでの流れ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link/">リンクまでの流れ</a></li>
+          <li data-nav-id="/linker/" title="リンカー" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/linker/">リンカー</a><ul>
+          <li data-nav-id="/linker/link/" title="リンクまでの流れ" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link/">リンクまでの流れ</a></li>
           <li data-nav-id="/linker/link_gcc/" title="GCCでリンクまでの処理確認" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/">GCCでリンクまでの処理確認</a></li></ul></li>
           <li data-nav-id="/command/" title="Command" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
           <li data-nav-id="/command/awk/" title="awk" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/">awk</a><ul>
@@ -118,23 +116,53 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/linker/"><span itemprop="name">リンカー</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/linker/link/" aria-disabled="true"><span itemprop="name">リンクまでの流れ</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#スタートアップルーチン">スタートアップルーチン</a></li>
+  </ul>
+</nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>リンクまでの流れ</h1>
 
+<p><img src="https://tonboAkinori.github.io/hugo-memo/images/%E5%AE%9F%E8%A1%8C%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90%E3%81%AE%E6%B5%81%E3%82%8C.jpg?width=30pc" alt="This is Images"></p>
+<p>通常のコンパイラは、ファイル単位でコンパイルし「オブジェクトファイル」と呼ばれるファイルを作成する。<br>
+最終的にオブジェクトファイルが結合されるときに、実際の関数呼び出しに置き換えられる。<br>
+この結合作業を「リンク」と呼ぶ。</p>
+<h2 id="スタートアップルーチン">スタートアップルーチン</h2>
+<p>標準ライブラリの関数が利用されていない場合でも、
+実行できる形式にするために <strong>スタートアップルーチン</strong> と呼ばれる初期化を行うプログラムがリンクされる。</p>
+<p>スタートアップルーチンでは、レジスタの初期化や main 関数への引数設定や各種初期化が行われる。<br>
+プログラムで最初に実行されるのは、main 関数ではなくスタートアップルーチンである。</p>
 
-<h3 id="home">Home</h3>
-
-
-        </div> 
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/linker/" title="リンカー"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/linker/" title="リンカー"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/" title="GCCでリンクまでの処理確認"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

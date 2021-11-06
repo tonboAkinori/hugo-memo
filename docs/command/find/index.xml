@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>find on Tonbo</title>
+    <link>https://tonboAkinori.github.io/hugo-memo/command/find/</link>
+    <description>Recent content in find on Tonbo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2021 tonbo </copyright>
+    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/command/find/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基本構文</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/find/001-find/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/find/001-find/</guid>
+      <description>ディレクトリやファイルの再帰的な検索を行う
+find &amp;lt;検索位置&amp;gt; &amp;lt;expression&amp;gt; 検索を試したディレクトリ構造
+. ├── 001 │ ├── 001-01 │ │ └── 001-01.txt │ └── 001-02 ├── 002 └── 003 └── 003.txt </description>
+    </item>
+    <item>
+      <title>検索位置のみを指定</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/find/002-find/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/find/002-find/</guid>
+      <description>$ find . . ./001 ./001/001-01 ./001/001-01/001-01.txt ./001/001-02 ./002 ./003 ./003/003.txt </description>
+    </item>
+    <item>
+      <title>ファイルタイプを指定</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/find/003-find/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/find/003-find/</guid>
+      <description>タイプで指定できる一覧。
+   タイプ 内容     b ブロック(バッファー)特別   c 文字(バッファーなし)特別   d ディレクトリ   p 名前付きパイプ   f 標準ファイル   l シンボリックリンク   s ソケット    1 2 3 4 5 6 7  $ find . -type d . ./001 ./001/001-01 ./001/001-02 ./002 ./003   1 2 3  $ find . -type f ./001/001-01/001-01.txt .</description>
+    </item>
+    <item>
+      <title>ファイル名を指定</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/find/004-find/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/find/004-find/</guid>
+      <description>1 2  $ find . -type f -name 003* ./003/003.txt   </description>
+    </item>
+  </channel>
+</rss>

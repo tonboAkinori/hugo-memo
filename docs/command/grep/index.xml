@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>grep on Tonbo</title>
+    <link>https://tonboAkinori.github.io/hugo-memo/command/grep/</link>
+    <description>Recent content in grep on Tonbo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2021 tonbo </copyright>
+    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/command/grep/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基本構文</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/grep/001-grep/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/grep/001-grep/</guid>
+      <description>grep PATTERN [FILE...] パターンにマッチする行を表示する。
+ファイルが指定されない場合や、ファイル名の代わりに - が指定されている場合は標準入力から検索する</description>
+    </item>
+  </channel>
+</rss>

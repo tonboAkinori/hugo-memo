@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>リンカー on Tonbo</title>
+    <link>https://tonboAkinori.github.io/hugo-memo/linker/</link>
+    <description>Recent content in リンカー on Tonbo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2021 tonbo </copyright>
+    <lastBuildDate>Sun, 03 Oct 2021 02:41:21 +0000</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/linker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>リンクまでの流れ</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/link/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/link/</guid>
+      <description>通常のコンパイラは、ファイル単位でコンパイルし「オブジェクトファイル」と呼ばれるファイルを作成する。
+最終的にオブジェクトファイルが結合されるときに、実際の関数呼び出しに置き換えられる。
+この結合作業を「リンク」と呼ぶ。
+スタートアップルーチン 標準ライブラリの関数が利用されていない場合でも、 実行できる形式にするために スタートアップルーチン と呼ばれる初期化を行うプログラムがリンクされる。
+スタートアップルーチンでは、レジスタの初期化や main 関数への引数設定や各種初期化が行われる。
+プログラムで最初に実行されるのは、main 関数ではなくスタートアップルーチンである。</description>
+    </item>
+    <item>
+      <title>GCCでリンクまでの処理確認</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/</link>
+      <pubDate>Sat, 02 Oct 2021 02:55:17 +0000</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/</guid>
+      <description>gcc は指定されたファイルを読み込み、ファイルの形式に応じて下記の作業を順番に行う。
+本当の意味でのコンパイラは cc1 であり、このため gcc は 「コンパイラドライバー」 とも呼ばれる。
+ プリプロセス (ccp1) コンパイル (ccp1) アセンブル (as) リンク (collect2)  gccで-v オプションを指定するとgccが行う処理の詳細が出力される。
+$ gcc -v main.c Using built-in specs. COLLECT_GCC=gcc COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper OFFLOAD_TARGET_NAMES=nvptx-none:hsa OFFLOAD_TARGET_DEFAULT=1 Target: x86_64-linux-gnu Configured with: ../src/configure -v --with-pkgversion=&amp;#39;Ubuntu 9.3.0-17ubuntu1~20.04&amp;#39; --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-HskZEa/gcc-9-9.</description>
+    </item>
+    <item>
+      <title>セクション</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/section/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/section/</guid>
+      <description>実行形式ファイルのフォーマット 実行形式のファイルフォーマットには複数のフォーマットがある。
+昔は a.out (Assembler OUTput) 形式、 現在は ELF (Executable and Linking Format) 形式が多く利用されている。
+実行形式ファイルのセクション a.out 形式では、領域は text, data, bss の3つであり、領域に属性を持たせることが出来ない。 ELF 形式では、任意の数でセクションを確保でき、様々な属性を持たせることができる。
+a.out 形式のセクションは size コマンドで確認できる。 size コマンドは、もともと a.out 形式用だったので3つの領域でサイズが示される。 ELF 形式は a.out 形式より多くのセクションで分けられる。
+$gcc main.c $size a.out text data bss dec hex filename 1568 600 8 2176 880 a.out 以下は、ELF形式の各セクションにC言語では何が格納されるかを示す。
+ .text  実行コード   .data  グローバル変数 (0以外の初期値) 関数内部で定義している static 変数 (0以外の初期値) 関数外部で定義している static 変数 (0以外の初期値)   .</description>
+    </item>
+    <item>
+      <title>objdump でセクション確認</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/objdump/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/objdump/</guid>
+      <description>objdump コマンドを利用すると、ELF 形式のセクション情報が得られる。
+   オプション 説明     -f オブジェクトファイルのヘッダ全体から要約を表示する   -h オブジェクトファイルのセクションヘッダから要約を表示する   -t オブジェクトファイルのシンボルーテーブルエントリを表示する
+これはnmコマンドと似ているが、出力フォーマットが異なる    $ objdump -f a.out a.out: file format elf64-x86-64 architecture: i386:x86-64, flags 0x00000150: HAS_SYMS, DYNAMIC, D_PAGED start address 0x0000000000001060 $ objdump -h a.out a.out: file format elf64-x86-64 Sections: Idx Name Size VMA LMA File off Algn 0 .interp 0000001c 0000000000000318 0000000000000318 00000318 2**0 CONTENTS, ALLOC, LOAD, READONLY, DATA 1 .</description>
+    </item>
+    <item>
+      <title>マップファイルでセクション確認</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/mapfile/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/mapfile/</guid>
+      <description>マップファイルで以下のコードで定義した変数や定数がどのセクションに配置されるか確認する。
+[main.c] char char_1 = &amp;#39;a&amp;#39;; char *pnan; char *p1 = &amp;#34;sample0&amp;#34;; char str[] = &amp;#34;sample1&amp;#34;; int global_inan; int global_i0 = 0; int global_i1 = 1; static int static_global_inan; static int static_global_i0 = 0; static int static_global_i1 = 1; const int const_inan; const int const_i0 = 0; const int const_i1 = 1; int func() { int hoge = 0; return 0; } int main() { static int static_internal_inan; static int static_internal_i0 = 0; static int static_internal_i1 = 1; return 0; } リンカオプションで出力したマップファイルを確認する。 ただし、すべてを貼り付けると行数が多いため、変数名が現れている個所だけ抽出する。</description>
+    </item>
+    <item>
+      <title>nm でセクション確認</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/nm/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/nm/</guid>
+      <description>nm コマンドはオブジェクトファイルからシンボルをリストする。 nm コマンドで出力されるアルファベットについて以下に示す。 小文字の場合はローカル、大野字の場合はグローバルシンボルであることを示す。
+   文字 内容     A シンボルの値は絶対的であり、リンクで変更されない。   B,b シンボルは bss セクションにある。   C シンボルは共通。このシンボルは未初期化のデータである。リンク時、複数の共通シンボルは同じ名前で現れるかもしれない。もしシンボルがどこかで定義されている場合、共通シンボルは未定義の参照として扱われる。   D,d シンボルは data セクションにある。   G,g シンボルは小さなオブジェクトに対する初期化済みのデータセクションにある。オブジェクトファイルフォーマットは小さなデータオブジェクトデータに効率的にアクセスすることを許可する。 例えば、大きなグローバル配列に対して、グローバル int 変数である。   I シンボルは他のシンボルに対する間接的な参照である。   N シンボルはデバッグシンボルである。   n シンボルは読み込み専用のデータセクションにある。   p シンボルは stack unwind セクションにある。   R,r シンボルは読み込み専用のデータセクションにある。   S,s シンボルは小さなオブジェクトのための未初期化もしくは0初期化済みのデータセクションにある。   T,t シンボルはコードセクションにある。   U シンボルは未定義である。   u シンボルはユニークなグローバルシンボルである。   V,v シンボルは弱いオブジェクトである。弱く定義されたシンボルが通常定義のシンボルとリンクされた時、エラーなしで通常定義のシンボルが使われる。弱く定義されたシンボルがリンクされ、シンボルが定義されていない場合、弱いシンボルの値はエラーなしで0となる。   W,w シンボルは弱いオブジェクトシンボルとしてタグ付けされていない弱いシンボルである。弱く定義されたシンボルが通常定義されたシンボルとリンクされた時、エラーなしで通常定義シンボルが使われる。弱く定義されたシンボルがリンクされ、シンボルが定義されていない時、シンボルの値はエラーなしでシステム作法で決定される。    マップファイルでセクション確認 で利用したソースコードで作成した実行ファイルに対してnm コマンドを実行する。static などのファイルスコープもどのセクションに配置されるかわかる。</description>
+    </item>
+    <item>
+      <title>readelf でセクション確認</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/readelf/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/readelf/</guid>
+      <description>readelf は ELF 形式ファイルの情報を表示する。
+   オプション 説明     -a &amp;ndash;file-header, &amp;ndash;program-headers, &amp;ndash;sections, &amp;ndash;symbols, &amp;ndash;relocs, &amp;ndash;dynamic, &amp;ndash;notes, &amp;ndash;version-info &amp;ndash;arch-specific, &amp;ndash;unwind, &amp;ndash;section-groups, &amp;ndash;histogram を指定するのと等価   -h ファイルの先頭にある ELF ヘッダに含まれる情報を表示   -l ファイルのセグメントヘッダに含まれれる情報を表示   -S ファイルのセクションヘッダに含まれれる情報を表示   -g ファイルのセクショングループに含まれれる情報を表示   -s ファイルのシンボルテーブルセクションのエントリを表示   -x [number or name] 16進形式で指定されたセクションを表示       セクション名 内容     .text コードを配置   .</description>
+    </item>
+    <item>
+      <title>ABIとAPI</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/abiapi/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/abiapi/</guid>
+      <description>ABI (Application Binray Interface)
+ABI = 「OSとアプリケーション間の規約」
+API = 「OSとプログラム間の規約」
+ APIとしてのopenシステムコール
+C言語上からopenシステムコールを利用するには、適切な引数でopen関数を呼び出す ABIとしてのopenシステムコール
+OSのopenシステムコールを利用するには、各種レジスターに適切にパラメーターを設定してint 0x80 を実行する  OSが異なればABIも異なる。つまり、システムコールの呼び出し手順が異なることになる。
+UNIX系のOSの場合には、システムコールのAPIはPOSIX(Portable Operating Systen Interface for UNIX)で統一されている。 POSIXが定義しているのは、APIでありABIではない。 APIが共通であれば、バイナリレベルでの互換性はないが、ソースコードレベルでは互換性があるということになる。 したがって、ソースコードからコンパイルすれば、原則的には同じプログラムを異なるOSで動かすことができる。(open関数などがAPIの違いを吸収してくれる)</description>
+    </item>
+    <item>
+      <title>リンカースクリプト</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/linkerscript/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/linkerscript/</guid>
+      <description>すべてのリンクはリンカースクリプトによって制御される。 このスクリプトはリンカーコマンド言語で記載されている。
+リンカースクリプトの主な目的は、 入力ファイルのセクションをどのように出力ファイルにマップするべきかを表現する。 そして、出力ファイルのメモリレイアウトを制御する。 ほとんどのリンカスクリプトはこれ以上のことは何もしない。
+スタートアップルーチン リンカースクリプトの ENTRY コマンドで指定できる。 main.c ではENTRY(_start)が指定されている。
+main関数がエントリーポイントではないことが重要。
+リンカースクリプト仕様 https://progrunner.hatenablog.jp/entry/2019/01/19/233701 https://www.computex.co.jp/article/use_gcc_1.htm https://sourceware.org/binutils/docs/ld/Scripts.html#Scripts
+すべてのリンクはリンカースクリプトによって制御される。 このスクリプトはリンカーコマンド言語で記載されている。
+リンカースクリプトの主な目的は、 入力ファイルのセクションをどのように出力ファイルにマップするべきかを表現する。 そして、出力ファイルのメモリレイアウトを制御する。 ほとんどのリンカスクリプトはこれ以上のことは何もしない。
+しかしながら、必要があれば、 リンカスクリプトは多くの他の操作を実行するために直接リンカーを管理することも可能である。
+リンカーはいつもリンカースクリプトを使う。 もし、あなたが自分で提供しない場合、リンカーは実行可能なリンカーでコンパイルされたデフォルトスクリプトを使用する。 --verbose オプションを利用することで、デフォルトリンカースクリプトを表示できる。 -rや-Nは、デフォルトリンカースクリプトに影響を与える。
+-T オプションを使うことによって、あなた自身のリンカースクリプトを提供しても良い。 これを実施する時、あなたのリンカースクリプトはデフォルトスクリプトを置き換える。
+あなたはリンカーに入力ファイルとして指定することで、リンカースクリプトを暗黙的に使用することもできる。
+Basic Script Concept リンカースクリプトを説明するために、私たちはいくつかの基本的なコンセプトと語彙を定義する必要がある。
+リンカーは入力ファイルを一つの出力ファイルに結合する。 出力ファイルと各入力ファイルは、オブジェクトファイルフォーマットとして知られる特別なデータフォーマットである。 各ファイルはオブジェクトファイルと呼ばれる。 出力ファイルは、しばしば実行可能ファイルと呼ばれる。 しかし、我々の目的はそれをオブジェクトファイルと呼ぶことではない。各オブジェクトファイルはセクションのリストを持つ。 我々は入力セクションとして入力ファイル内のセクションを参照＠する。同様に、出力ファイルのセクションは出力のセクションである。
+オブジェクトファイルの各セクションは、名前とサイズを持つ。 ほとんどのセクションは、　セクションコンテンツとして知られる関連づけられたデータブロックも持つ。 セクションはlodableとマークされることもあり、これは実行ファイルが実行されるときにメモリにロードされるべきであることを示す。コンテンツを持たないセクションはallocatableとすることができる、これは、メモリ内の領域を確保しておくべきことを示す。しかし、特別なことがなければここにロードすべきではない、(いくつかのケースではこのメモリーはゼロにしなければならない) lodableではなくallocatableでもないセクションは、通常デバッグ情報が含まれている。
+lodableまたはallocatableである出力セッションは、 ２つのアドレスを持つ。 最初はVMAまたは仮想メモリのアドレスである。 これは出力ファイルの実行時にセクションが持つアドレスである。 次はLMAまたはロードメモリアドレスである。 ほとんどのケースでは、２つのアドレスは同じである。 これらが異なる例は、データセクションがROMにロードされ、プログラムの起動時にRAMにコピーする場合である。 (このテクニックは、ROMベースシステムでグローバル変数を初期化するためによく使われる)。この場合ROMアドレスはLMAになり、RAMアドレスはVMAになる。
+あなたは、-pオプションでobjedumpコマンド使用して、オブジェクトファイル内のセクションを見ることができる。
+全てのオブジェクトファイルは、シンボルテーブルとして知られる、シンボルのリストも持つ。シンボルは定義されている場合も、未定義である場合もある。各シンボルは名前をもち、各定義済みのシンボルは他の情報とともにアドレスを持つ。もし、あなたがCもしくはC＋＋プログラムをオブジェクトファイルにコンパイルする場合、すべての定義済み関数およびグローバル変数または静的変数に対して定義済みのシンボルを取得できる。入力ファイルで参照されるすべての定義済みの関数もしくはグローバル変数は、未定義のシンボルになる。
+nmコマンドオや-tオプションでobjdumpコマンド使用して、オブジェクトファイルのシンボルを見ることができる。
+3.2 Linker Script Format リンカースクリプトはテキストファイルである。
+あなたは一連のコマンドとしてリンカースクリプトを記述できる。 それぞれのコマンドは、キーワード(場合によっては引数に続く)、またはシンボルへの割り当てのいずれかである。 あなたはセミコロンを使用してコマンドを分割することもできる。 ホワイトスペースは一般的に無視される。
+ファイルやフォーマット名のような文字列は、直接入力できる。 ファイル名にコンマなどの文字が含まれている場合、ファイル名を区切るのに役立つ。ファイル名を二重引用符で囲むことができる。</description>
+    </item>
+    <item>
+      <title>ローダー</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/loader/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/loader/</guid>
+      <description>プログラムの実行にはいくつかの情報が必要である。 例えば以下の情報で、これらは実行形式のヘッダに格納されている。
+ どのようなセクションがあるのか、またそのサイズ どのアドレスに展開すべきか、どのアドレスから実行するべきか  ローダーはヘッダの情報を読み込み、情報にしたがってセクションをメモリに展開する。 そして、指定されたメモリのアドレスから実行を開始する。
+配列とポインタの明確な違い 配列の実体は、.data に配置される。 ポインタの場合は、文字列
+char str1[] = &amp;#34;ABC&amp;#34;; char *str2 = &amp;#34;DEF&amp;#34;; 複数のオブジェクトを1つにまとめる たとえば、２つのオブジェクトふぁいるから作成したアーカイブファイルがあるとする。 このオブジェクト間でグローバル変数を利用しているとする。 この時、objcpyの--localaize-sympleでグローバル変数をファイルスコープにする場合を考える。 この時、グローバル変数を定義したオブジェクトファイルでは、ファイルスコープになるが、宣言している側のオブジェクトファイルでは変数が未定義となる。
+これを解決する一つの手段が、ldの-rで２つのオブジェクトを1つにまとめる方法。
+アライメント わかりやすいとおもう https://hirokuma.blog/?p=1691
+##キャッシュのヒット率
+関連のあるライブラリ同士をメモリ上で近くに配置すれば、キャッシュのヒット率があがる。
+ライブラリと依存関係 ライブラリに依存関係がある場合、参照する側を参照される側よりも先に書く必要がある。 リンク時に、リンクすべきファイルをすべて指定してもundefined referenceと表示される。 GNU ld の下記の動作条件が影響している。
+1　オブジェクトファイルは無条件でリンクされる ２ ライブラリは、アーカイブ内のオブジェクトファイル単位で、リンクの必要・不要が判断される。
+この２があるため、リンクすべきファイルをすべて指定してもリンクが失敗する。
+リンカースクリプト仕様 https://progrunner.hatenablog.jp/entry/2019/01/19/233701 https://www.computex.co.jp/article/use_gcc_1.htm https://sourceware.org/binutils/docs/ld/Scripts.html#Scripts
+すべてのリンクはリンカースクリプトによって制御される。 このスクリプトはリンカーコマンド言語で記載されている。
+リンカースクリプトの主な目的は、 入力ファイルのセクションをどのように出力ファイルにマップするべきかを表現する。 そして、出力ファイルのメモリレイアウトを制御する。 ほとんどのリンカスクリプトはこれ以上のことは何もしない。
+しかしながら、必要があれば、 リンカスクリプトは多くの他の操作を実行するために直接リンカーを管理することも可能である。
+リンカーはいつもリンカースクリプトを使う。 もし、あなたが自分で提供しない場合、リンカーは実行可能なリンカーでコンパイルされたデフォルトスクリプトを使用する。 --verbose オプションを利用することで、デフォルトリンカースクリプトを表示できる。 -rや-Nは、デフォルトリンカースクリプトに影響を与える。
+-T オプションを使うことによって、あなた自身のリンカースクリプトを提供しても良い。 これを実施する時、あなたのリンカースクリプトはデフォルトスクリプトを置き換える。
+あなたはリンカーに入力ファイルとして指定することで、リンカースクリプトを暗黙的に使用することもできる。
+Basic Script Concept リンカースクリプトを説明するために、私たちはいくつかの基本的なコンセプトと語彙を定義する必要がある。
+リンカーは入力ファイルを一つの出力ファイルに結合する。 出力ファイルと各入力ファイルは、オブジェクトファイルフォーマットとして知られる特別なデータフォーマットである。 各ファイルはオブジェクトファイルと呼ばれる。 出力ファイルは、しばしば実行可能ファイルと呼ばれる。 しかし、我々の目的はそれをオブジェクトファイルと呼ぶことではない。各オブジェクトファイルはセクションのリストを持つ。 我々は入力セクションとして入力ファイル内のセクションを参照＠する。同様に、出力ファイルのセクションは出力のセクションである。</description>
+    </item>
+    <item>
+      <title>その他</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/linker/other/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/linker/other/</guid>
+      <description>配列とポインタの明確な違い 配列の実体は、.data に配置される。 ポインタの場合は、.rodata に配置される。
+char str1[] = &amp;#34;ABC&amp;#34;; char *str2 = &amp;#34;DEF&amp;#34;; 複数のオブジェクトを1つにまとめる たとえば、２つのオブジェクトふぁいるから作成したアーカイブファイルがあるとする。 このオブジェクト間でグローバル変数を利用しているとする。 この時、objcpyの--localaize-sympleでグローバル変数をファイルスコープにする場合を考える。 この時、グローバル変数を定義したオブジェクトファイルでは、ファイルスコープになるが、宣言している側のオブジェクトファイルでは変数が未定義となる。
+これを解決する一つの手段が、ldの-rで２つのオブジェクトを1つにまとめる方法。
+ライブラリと依存関係 ライブラリに依存関係がある場合、参照する側を参照される側よりも先に書く必要がある。 リンク時に、リンクすべきファイルをすべて指定してもundefined referenceと表示される。 GNU ld の下記の動作条件が影響している。
+ オブジェクトファイルは無条件でリンクされる ライブラリは、アーカイブ内のオブジェクトファイル単位で、リンクの必要・不要が判断される。  この２があるため、リンクすべきファイルをすべて指定してもリンクが失敗する。</description>
+    </item>
+  </channel>
+</rss>

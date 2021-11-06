@@ -1,0 +1,303 @@
+[
+  {
+    "content": "Makefileの基本的な文法は下記になる\nターゲット：コンポーネント コマンド(コンポーネントからターゲット作成する方法を記述する) Makefileの文法確認 (1) [sub.h] #ifndef __INCLUDE_SUB_H_  #define __INCLUDE_SUB_H_  void Greeting(char* str); #endif // __INCLUDE_SUB_H_ [sub.c] #include \u003cstdio.h\u003e #include \"sub.h\" void Greeting(char* str) { printf(\"\u003e %s\\n\", str); } [main.c] #include \"sub.h\" void main(void) { Greeting(\"Hello world!\"); } [Makefile] TARGET = app #CC = OBJS = main.o sub.o ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c clean: ${RM} *~ *.o ${TARGET} ■実行結果 $make cc -c main.c cc -c sub.c cc -o app main.o sub.o Makefileの文法確認(2) (1)の記述では、ヘッダファイルの sub.h が更新されてもターゲットは更新されない。 Makefile に記載されている依存関係が .c ファイルだけのため。\n$make cc -c main.c cc -c sub.c cc -o app main.o sub.o $ touch sub.h $ make make: 'app' は更新済みです. $ emacs Makefile \u003c- 下記にMakefileを書き直し $ make cc -c sub.c cc -o app main.o sub.o [Makefile] TARGET = app #CC = OBJS = main.o sub.o ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ",
+    "description": "",
+    "tags": null,
+    "title": "基本文法",
+    "uri": "/makefile/001-makefile/"
+  },
+  {
+    "content": "空白やタブで区切られたテキストを処理するコマンド。 演算機能もあり、プログラミング言語としても使用される。\nawk ' BEGIN{ 最初に実行されるブロック } { メインブロック } END{ 最後に実行されるブロック } ' 処理するファイルの内容は下記とする。\nA 1 A B 2 C D 3 D E 1 E $ awk 'BEGIN{print \"=== Start ===\"}{print $0}END{print \"=== End ===\"}' test.txt === Start === A 1 A B 2 C D 3 D E 1 E === End === ",
+    "description": "",
+    "tags": null,
+    "title": "基本構文",
+    "uri": "/command/awk/001-awk/"
+  },
+  {
+    "content": "ディレクトリやファイルの再帰的な検索を行う\nfind \u003c検索位置\u003e \u003cexpression\u003e 検索を試したディレクトリ構造\n. ├── 001 │ ├── 001-01 │ │ └── 001-01.txt │ └── 001-02 ├── 002 └── 003 └── 003.txt ",
+    "description": "",
+    "tags": null,
+    "title": "基本構文",
+    "uri": "/command/find/001-find/"
+  },
+  {
+    "content": "grep PATTERN [FILE...] パターンにマッチする行を表示する。\nファイルが指定されない場合や、ファイル名の代わりに - が指定されている場合は標準入力から検索する\n",
+    "description": "",
+    "tags": null,
+    "title": "基本構文",
+    "uri": "/command/grep/001-grep/"
+  },
+  {
+    "content": "コマンド1 | コマンド2 | ... あるコマンドが 標準出力 に出力した内容を、他のコマンドの 標準入力 にする。\n",
+    "description": "",
+    "tags": null,
+    "title": "基本構文",
+    "uri": "/command/pipe/001-pipe/"
+  },
+  {
+    "content": "xargs [command [initial-arguments]] 標準入力を読み込みコマンドラインを作成し、それを実行する。\nこのコマンドは、標準入力から空白や改行で区切られた一連の項目を読み込み(空白はダブルクォートなどで保護できる)、\nそれを引数で指定した command を1回以上実行する。\ncommand に対して指定した引数があれば、標準入力から読み込んだ項目はその後ろに追加される。\n次に、xargs を用いる場合、用いない場合での動作の違いを確認した。\ncat コマンドの概要 cat [File...] 指定したFILEの内容を標準出力へ出力する。 FILEが一つも与えられないと標準入力から読み込む。\ncat コマンドを用いた動作確認 aaa.txt に以下の内容を記載して確認した。\nhoge xargs を用いない場合 aaa.txt が標準入力として与えられる。\n$ echo aaa.txt | cat aaa.txt xargs を用いる場合 aaa.txt がFILEとして与えられる。\n$ echo aaa.txt | xargs cat hoge grep コマンドを用いた動作確認 aaa.txt に以下の内容を記載して確認した。\nhoge xargs を用いない場合 aaa.txt が標準入力として与えられる。\nこのため、ファイルの内容ではなく文字列 aaa.txt とマッチする。\n$ echo aaa.txt | grep aaa aaa.txt xargs を用いる場合 aaa.txt が FILE として与えられる。\nこのため、ファイルの内容とマッチする。\n$ echo aaa.txt | xargs grep hoge hoge ",
+    "description": "",
+    "tags": null,
+    "title": "基本構文",
+    "uri": "/command/xargs/001-xargs/"
+  },
+  {
+    "content": "通常のコンパイラは、ファイル単位でコンパイルし「オブジェクトファイル」と呼ばれるファイルを作成する。\n最終的にオブジェクトファイルが結合されるときに、実際の関数呼び出しに置き換えられる。\nこの結合作業を「リンク」と呼ぶ。\nスタートアップルーチン 標準ライブラリの関数が利用されていない場合でも、 実行できる形式にするために スタートアップルーチン と呼ばれる初期化を行うプログラムがリンクされる。\nスタートアップルーチンでは、レジスタの初期化や main 関数への引数設定や各種初期化が行われる。\nプログラムで最初に実行されるのは、main 関数ではなくスタートアップルーチンである。\n",
+    "description": "",
+    "tags": null,
+    "title": "リンクまでの流れ",
+    "uri": "/linker/link/"
+  },
+  {
+    "content": "gcc は指定されたファイルを読み込み、ファイルの形式に応じて下記の作業を順番に行う。\n本当の意味でのコンパイラは cc1 であり、このため gcc は 「コンパイラドライバー」 とも呼ばれる。\n プリプロセス (ccp1) コンパイル (ccp1) アセンブル (as) リンク (collect2)  gccで-v オプションを指定するとgccが行う処理の詳細が出力される。\n$ gcc -v main.c Using built-in specs. COLLECT_GCC=gcc COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper OFFLOAD_TARGET_NAMES=nvptx-none:hsa OFFLOAD_TARGET_DEFAULT=1 Target: x86_64-linux-gnu Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.3.0-17ubuntu1~20.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-HskZEa/gcc-9-9.3.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu Thread model: posix gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04) COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64' /usr/lib/gcc/x86_64-linux-gnu/9/cc1 ★ ccp1 コマンド★ -quiet -v -imultiarch x86_64-linux-gnu main.c -quiet -dumpbase main.c -mtune=generic -march=x86-64 -auxbase main -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccfwreyC.s GNU C17 (Ubuntu 9.3.0-17ubuntu1~20.04) version 9.3.0 (x86_64-linux-gnu) compiled by GNU C version 9.3.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072 ignoring nonexistent directory \"/usr/local/include/x86_64-linux-gnu\" ignoring nonexistent directory \"/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed\" ignoring nonexistent directory \"/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include\" #include \"...\" search starts here: #include \u003c...\u003e search starts here: /usr/lib/gcc/x86_64-linux-gnu/9/include /usr/local/include /usr/include/x86_64-linux-gnu /usr/include End of search list. GNU C17 (Ubuntu 9.3.0-17ubuntu1~20.04) version 9.3.0 (x86_64-linux-gnu) compiled by GNU C version 9.3.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072 Compiler executable checksum: bbf13931d8de1abe14040c9909cb6969 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64' as ★ as コマンド ★ -v --64 -o /tmp/cc0U4iJC.o /tmp/ccfwreyC.s GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/ LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/ COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64' /usr/lib/gcc/x86_64-linux-gnu/9/collect2 ★ collect2 コマンド ★ -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYW7lFB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. /tmp/cc0U4iJC.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64' ",
+    "description": "",
+    "tags": null,
+    "title": "GCCでリンクまでの処理確認",
+    "uri": "/linker/link_gcc/"
+  },
+  {
+    "content": "実行形式ファイルのフォーマット 実行形式のファイルフォーマットには複数のフォーマットがある。\n昔は a.out (Assembler OUTput) 形式、 現在は ELF (Executable and Linking Format) 形式が多く利用されている。\n実行形式ファイルのセクション a.out 形式では、領域は text, data, bss の3つであり、領域に属性を持たせることが出来ない。 ELF 形式では、任意の数でセクションを確保でき、様々な属性を持たせることができる。\na.out 形式のセクションは size コマンドで確認できる。 size コマンドは、もともと a.out 形式用だったので3つの領域でサイズが示される。 ELF 形式は a.out 形式より多くのセクションで分けられる。\n$gcc main.c $size a.out text data bss dec hex filename 1568 600 8 2176 880 a.out 以下は、ELF形式の各セクションにC言語では何が格納されるかを示す。\n .text  実行コード   .data  グローバル変数 (0以外の初期値) 関数内部で定義している static 変数 (0以外の初期値) 関数外部で定義している static 変数 (0以外の初期値)   .bss (この領域は、Ｃ言語ではすべて0で初期化されるという規約がある)  グローバル変数 (初期値が0) グローバル変数 (初期値なし) static 変数 (初期値が0) static 変数 (初期値なし)   .rodata  const 宣言された変数 文字列リテラル    ",
+    "description": "",
+    "tags": null,
+    "title": "セクション",
+    "uri": "/linker/section/"
+  },
+  {
+    "content": "-f でプログラムファイルを指定する。\nBEGIN{ print \"START\" } { print \"---\" print $0 } END{ print \"END\" } $ awk -f プログラムファイル test.txt START --- A 1 A --- B 2 C --- D 3 D --- E 1 E END ",
+    "description": "",
+    "tags": null,
+    "title": "プログラムファイル読み込み",
+    "uri": "/command/awk/002-awk/"
+  },
+  {
+    "content": "make も予め定義されたマクロがあり使うことが出来る。 下記のコマンドでマクロを確認できる\n$ make -p  Note ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意  マクロの優先順位 参照できるマクロが複数あるため優先順位は意識すること。 優先順位が高い順に並べる。\n コマンドラインで定義されたもの Makefile 内で定義されたもの　 環境変数 makeで予め定義されているもの  マクロ文字列の置換 マクロ文字列を使うと簡単にファイル名などを変更することが可能。 下記では、${SRCS:.c=.o} で SRCS の .c を .o に変更している\n[Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ",
+    "description": "",
+    "tags": null,
+    "title": "マクロ",
+    "uri": "/makefile/002-makefile-macro/"
+  },
+  {
+    "content": "$ find . . ./001 ./001/001-01 ./001/001-01/001-01.txt ./001/001-02 ./002 ./003 ./003/003.txt ",
+    "description": "",
+    "tags": null,
+    "title": "検索位置のみを指定",
+    "uri": "/command/find/002-find/"
+  },
+  {
+    "content": "objdump コマンドを利用すると、ELF 形式のセクション情報が得られる。\n   オプション 説明     -f オブジェクトファイルのヘッダ全体から要約を表示する   -h オブジェクトファイルのセクションヘッダから要約を表示する   -t オブジェクトファイルのシンボルーテーブルエントリを表示する\nこれはnmコマンドと似ているが、出力フォーマットが異なる    $ objdump -f a.out a.out: file format elf64-x86-64 architecture: i386:x86-64, flags 0x00000150: HAS_SYMS, DYNAMIC, D_PAGED start address 0x0000000000001060 $ objdump -h a.out a.out: file format elf64-x86-64 Sections: Idx Name Size VMA LMA File off Algn 0 .interp 0000001c 0000000000000318 0000000000000318 00000318 2**0 CONTENTS, ALLOC, LOAD, READONLY, DATA 1 .note.gnu.property 00000020 0000000000000338 0000000000000338 00000338 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 2 .note.gnu.build-id 00000024 0000000000000358 0000000000000358 00000358 2**2 CONTENTS, ALLOC, LOAD, READONLY, DATA 3 .note.ABI-tag 00000020 000000000000037c 000000000000037c 0000037c 2**2 CONTENTS, ALLOC, LOAD, READONLY, DATA 4 .gnu.hash 00000024 00000000000003a0 00000000000003a0 000003a0 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 5 .dynsym 000000a8 00000000000003c8 00000000000003c8 000003c8 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 6 .dynstr 00000084 0000000000000470 0000000000000470 00000470 2**0 CONTENTS, ALLOC, LOAD, READONLY, DATA 7 .gnu.version 0000000e 00000000000004f4 00000000000004f4 000004f4 2**1 CONTENTS, ALLOC, LOAD, READONLY, DATA 8 .gnu.version_r 00000020 0000000000000508 0000000000000508 00000508 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 9 .rela.dyn 000000c0 0000000000000528 0000000000000528 00000528 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 10 .rela.plt 00000018 00000000000005e8 00000000000005e8 000005e8 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 11 .init 0000001b 0000000000001000 0000000000001000 00001000 2**2 CONTENTS, ALLOC, LOAD, READONLY, CODE 12 .plt 00000020 0000000000001020 0000000000001020 00001020 2**4 CONTENTS, ALLOC, LOAD, READONLY, CODE 13 .plt.got 00000010 0000000000001040 0000000000001040 00001040 2**4 CONTENTS, ALLOC, LOAD, READONLY, CODE 14 .plt.sec 00000010 0000000000001050 0000000000001050 00001050 2**4 CONTENTS, ALLOC, LOAD, READONLY, CODE 15 .text 00000185 0000000000001060 0000000000001060 00001060 2**4 CONTENTS, ALLOC, LOAD, READONLY, CODE 16 .fini 0000000d 00000000000011e8 00000000000011e8 000011e8 2**2 CONTENTS, ALLOC, LOAD, READONLY, CODE 17 .rodata 00000011 0000000000002000 0000000000002000 00002000 2**2 CONTENTS, ALLOC, LOAD, READONLY, DATA 18 .eh_frame_hdr 00000044 0000000000002014 0000000000002014 00002014 2**2 CONTENTS, ALLOC, LOAD, READONLY, DATA 19 .eh_frame 00000108 0000000000002058 0000000000002058 00002058 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 20 .init_array 00000008 0000000000003db8 0000000000003db8 00002db8 2**3 CONTENTS, ALLOC, LOAD, DATA 21 .fini_array 00000008 0000000000003dc0 0000000000003dc0 00002dc0 2**3 CONTENTS, ALLOC, LOAD, DATA 22 .dynamic 000001f0 0000000000003dc8 0000000000003dc8 00002dc8 2**3 CONTENTS, ALLOC, LOAD, DATA 23 .got 00000048 0000000000003fb8 0000000000003fb8 00002fb8 2**3 CONTENTS, ALLOC, LOAD, DATA 24 .data 00000010 0000000000004000 0000000000004000 00003000 2**3 CONTENTS, ALLOC, LOAD, DATA 25 .bss 00000008 0000000000004010 0000000000004010 00003010 2**0 ALLOC 26 .comment 0000002a 0000000000000000 0000000000000000 00003010 2**0 CONTENTS, READONLY objdump -t a.out a.out: file format elf64-x86-64 SYMBOL TABLE: 0000000000000318 l d .interp 0000000000000000 .interp 0000000000000338 l d .note.gnu.property 0000000000000000 .note.gnu.property 0000000000000358 l d .note.gnu.build-id 0000000000000000 .note.gnu.build-id 000000000000037c l d .note.ABI-tag 0000000000000000 .note.ABI-tag 00000000000003a0 l d .gnu.hash 0000000000000000 .gnu.hash 00000000000003c8 l d .dynsym 0000000000000000 .dynsym 0000000000000470 l d .dynstr 0000000000000000 .dynstr 00000000000004f2 l d .gnu.version 0000000000000000 .gnu.version 0000000000000500 l d .gnu.version_r 0000000000000000 .gnu.version_r 0000000000000520 l d .rela.dyn 0000000000000000 .rela.dyn 00000000000005f8 l d .rela.plt 0000000000000000 .rela.plt 0000000000001000 l d .init 0000000000000000 .init 0000000000001020 l d .plt 0000000000000000 .plt 0000000000001040 l d .plt.got 0000000000000000 .plt.got 0000000000001050 l d .plt.sec 0000000000000000 .plt.sec 0000000000001060 l d .text 0000000000000000 .text 00000000000011f8 l d .fini 0000000000000000 .fini 0000000000002000 l d .rodata 0000000000000000 .rodata 000000000000201c l d .eh_frame_hdr 0000000000000000 .eh_frame_hdr 0000000000002068 l d .eh_frame 0000000000000000 .eh_frame 0000000000003db8 l d .init_array 0000000000000000 .init_array 0000000000003dc0 l d .fini_array 0000000000000000 .fini_array 0000000000003dc8 l d .dynamic 0000000000000000 .dynamic 0000000000003fb8 l d .got 0000000000000000 .got 0000000000004000 l d .data 0000000000000000 .data 0000000000004038 l d .bss 0000000000000000 .bss 0000000000000000 l d .comment 0000000000000000 .comment 0000000000000000 l df *ABS* 0000000000000000 crtstuff.c 0000000000001090 l F .text 0000000000000000 deregister_tm_clones 00000000000010c0 l F .text 0000000000000000 register_tm_clones 0000000000001100 l F .text 0000000000000000 __do_global_dtors_aux 0000000000004038 l O .bss 0000000000000001 completed.8060 0000000000003dc0 l O .fini_array 0000000000000000 __do_global_dtors_aux_fini_array_entry 0000000000001140 l F .text 0000000000000000 frame_dummy 0000000000003db8 l O .init_array 0000000000000000 __frame_dummy_init_array_entry 0000000000000000 l df *ABS* 0000000000000000 main.c 0000000000004040 l O .bss 0000000000000004 static_global_inan 0000000000004044 l O .bss 0000000000000004 static_global_i0 0000000000004024 l O .data 0000000000000004 static_global_i1 0000000000004028 l O .data 0000000000000004 static_internal_i1.2333 0000000000004048 l O .bss 0000000000000004 static_internal_i0.2332 000000000000404c l O .bss 0000000000000004 static_internal_inan.2331 0000000000000000 l df *ABS* 0000000000000000 crtstuff.c 000000000000218c l O .eh_frame 0000000000000000 __FRAME_END__ 0000000000000000 l df *ABS* 0000000000000000 0000000000003dc0 l .init_array 0000000000000000 __init_array_end 0000000000003dc8 l O .dynamic 0000000000000000 _DYNAMIC 0000000000003db8 l .init_array 0000000000000000 __init_array_start 000000000000201c l .eh_frame_hdr 0000000000000000 __GNU_EH_FRAME_HDR 0000000000003fb8 l O .got 0000000000000000 _GLOBAL_OFFSET_TABLE_ 0000000000001000 l F .init 0000000000000000 _init 00000000000011f0 g F .text 0000000000000005 __libc_csu_fini 0000000000004050 g O .bss 0000000000000008 pnan 0000000000000000 w *UND* 0000000000000000 _ITM_deregisterTMCloneTable 0000000000004000 w .data 0000000000000000 data_start 0000000000002014 g O .rodata 0000000000000004 const_i0 0000000000000000 F *UND* 0000000000000000 puts@@GLIBC_2.2.5 000000000000403c g O .bss 0000000000000004 global_i0 0000000000004038 g .data 0000000000000000 _edata 0000000000004058 g O .bss 0000000000000004 const_inan 00000000000011f8 g F .fini 0000000000000000 .hidden _fini 0000000000000000 F *UND* 0000000000000000 __libc_start_main@@GLIBC_2.2.5 0000000000004000 g .data 0000000000000000 __data_start 0000000000000000 w *UND* 0000000000000000 __gmon_start__ 0000000000004008 g O .data 0000000000000000 .hidden __dso_handle 0000000000002000 g O .rodata 0000000000000004 _IO_stdin_used 0000000000001149 g F .text 0000000000000014 func 0000000000001180 g F .text 0000000000000065 __libc_csu_init 0000000000002018 g O .rodata 0000000000000004 const_i1 0000000000004060 g .bss 0000000000000000 _end 0000000000001060 g F .text 000000000000002f _start 0000000000004020 g O .data 0000000000000004 global_i1 0000000000004018 g O .data 0000000000000008 str 0000000000004038 g .bss 0000000000000000 __bss_start 000000000000115d g F .text 000000000000001e main 0000000000004030 g O .data 0000000000000008 p1 0000000000004010 g O .data 0000000000000001 char_1 0000000000004038 g O .data 0000000000000000 .hidden __TMC_END__ 0000000000000000 w *UND* 0000000000000000 _ITM_registerTMCloneTable 0000000000000000 w F *UND* 0000000000000000 __cxa_finalize@@GLIBC_2.2.5 000000000000405c g O .bss 0000000000000004 global_inan ",
+    "description": "",
+    "tags": null,
+    "title": "objdump でセクション確認",
+    "uri": "/linker/objdump/"
+  },
+  {
+    "content": "タイプで指定できる一覧。\n   タイプ 内容     b ブロック(バッファー)特別   c 文字(バッファーなし)特別   d ディレクトリ   p 名前付きパイプ   f 標準ファイル   l シンボリックリンク   s ソケット    1 2 3 4 5 6 7  $ find . -type d . ./001 ./001/001-01 ./001/001-02 ./002 ./003   1 2 3  $ find . -type f ./001/001-01/001-01.txt ./003/003.txt   ",
+    "description": "",
+    "tags": null,
+    "title": "ファイルタイプを指定",
+    "uri": "/command/find/003-find/"
+  },
+  {
+    "content": "if-elseやandなども使える。\n$ awk '{if($2==1) print $0}' test.txt A 1 A E 1 E ",
+    "description": "",
+    "tags": null,
+    "title": "制御構文",
+    "uri": "/command/awk/003-awk/"
+  },
+  {
+    "content": "   自動変数 内容 有効範囲     $@ 処理中ターゲット コマンド行で有効   $% ターゲットがアーカイブメンバのときのターゲットメンバ名    $\u003c 最初に記載した依存ファイルの名前 (ヘッダをソースより後ろに配置することでヘッダの更新に使える)    $^ 依存しているすべてのファイル    $? ターゲットよりタイムスタンプが新しい依存ファイル    $$@ 処理中のターゲット コンポーネントのみで使える    [Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c $? sub.o: sub.c ${CC} -c $? sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ■実行結果 $make cc -c main.c cc -c sub.c sub.h cc -o app main.o sub.o $ls Makefile app main.c main.o sub.c sub.h sub.h.gch sub.o \u003e\u003e sub.g.gch というファイルが出来てしまった。 ■確認 $make -p | less で, sub.h を検索すると、下記のルールが作成されていた。 Makefileで sub.o をターゲットとするルールは分かれているが、統合されていた。 $?はターゲットより新しい依存ファイルのため sub.g.gch というファイルが作られてしまった。 ■作成されていたルール sub.o: sub.c sub.h ${CC} -c $? .gchファイル ヘッダファイルもコンパイルができるらしい。 コンパイル済みヘッダとなり、.gchとして出力される。 このファイルを利用することで、ヘッダファイルの処理を省略できる。 ただし、コンパイル済みヘッダは１回のコンパイルで1つしか使えないらしい。 そのため、ヘッダーファイルに必要なヘッダをすべて記述するとかするらしい。\n",
+    "description": "",
+    "tags": null,
+    "title": "自動変数",
+    "uri": "/makefile/003-makefile-auto-variable/"
+  },
+  {
+    "content": "print でレコードを出力する場合は、カンマが OFS で指定した区切り文字に入れ替えられる。\nカンマで区切り OFSでフィールドが区切られる。\nBEGIN{ FS = \"%\" OFS =\"#\" } { print $1,$2,$3 } 次の実行結果では、%から#の区切りに変更される。\n$ echo 1%2:3%A%4 | awk -f sample.awk 1#2:3#A スペースで区切る場合(カンマで区切らない場合) OFSでフィールドが区切られない。\nBEGIN{ FS = \"%\" OFS =\"#\" } { print $1 $2 $3 } 次の実行結果では、OFSでフィールドが区切られていない。\n$ echo 1%2:3%A%4 | awk -f sample.awk 12:3A ",
+    "description": "",
+    "tags": null,
+    "title": "print 出力時のフィールド区切り",
+    "uri": "/command/awk/004-awk/"
+  },
+  {
+    "content": "1 2  $ find . -type f -name 003* ./003/003.txt   ",
+    "description": "",
+    "tags": null,
+    "title": "ファイル名を指定",
+    "uri": "/command/find/004-find/"
+  },
+  {
+    "content": "マップファイルで以下のコードで定義した変数や定数がどのセクションに配置されるか確認する。\n[main.c] char char_1 = 'a'; char *pnan; char *p1 = \"sample0\"; char str[] = \"sample1\"; int global_inan; int global_i0 = 0; int global_i1 = 1; static int static_global_inan; static int static_global_i0 = 0; static int static_global_i1 = 1; const int const_inan; const int const_i0 = 0; const int const_i1 = 1; int func() { int hoge = 0; return 0; } int main() { static int static_internal_inan; static int static_internal_i0 = 0; static int static_internal_i1 = 1; return 0; } リンカオプションで出力したマップファイルを確認する。 ただし、すべてを貼り付けると行数が多いため、変数名が現れている個所だけ抽出する。\ngcc -Wl,-Map=main.map main.c 変数が配置されたセクションを下表に示す。 外部に公開する必要のない定義は、マップファイルには現れていない。\n   定義 セクション     char char_1 = ‘a’ .data   char *pnan .bss   char *p1 = “sample0” .data   char str[] = “sample1” .data   int global_inan .bss   int global_i0 = 0 .bss   int global_i1 = 1 .data   static int static_global_inan -   static int static_global_i0 = 0 -   static int static_global_i1 = 1 -   const int const_inan .bss   const int const_i0 = 0 .rodata   const int const_i1 = 1 .rodata    [main.map] .rodata 0x0000000000002004 0x10 /tmp/cc9io07v.o 0x000000000000200c const_i0 0x0000000000002010 const_i1 .data 0x0000000000004010 0x1c /tmp/cc9io07v.o 0x0000000000004010 char_1 0x0000000000004018 str 0x0000000000004020 global_i1 *fill* 0x000000000000402c 0x4 .data.rel.local 0x0000000000004030 0x8 /tmp/cc9io07v.o 0x0000000000004030 p1 .bss 0x0000000000004038 0x1 /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o *fill* 0x0000000000004039 0x3 .bss 0x000000000000403c 0x14 /tmp/cc9io07v.o 0x000000000000403c global_i0 .bss 0x0000000000004050 0x0 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS) .bss 0x0000000000004050 0x0 /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o .bss 0x0000000000004050 0x0 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o *(COMMON) COMMON 0x0000000000004050 0x10 /tmp/cc9io07v.o 0x0000000000004050 pnan 0x0000000000004058 const_inan 0x000000000000405c global_inan 0x0000000000004060 . = ALIGN ((. != 0x0)?0x8:0x1) ",
+    "description": "",
+    "tags": null,
+    "title": "マップファイルでセクション確認",
+    "uri": "/linker/mapfile/"
+  },
+  {
+    "content": "複数ターゲットを指定するとどうなるか確認してみた。\n下記の場合は、最初のターゲット(app)のみがビルドされた。\nTARGET = app hoge SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ■実行結果 $ make cc -c main.c cc -c sub.c cc -o app main.o sub.o $ make hoge cc -o hoge main.o sub.o all ターゲットを作成することで、どちらもビルドされた。\n[Makefile] TARGET = app hoge SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} all: app hoge ${TARGET}: ${OBJS} ${CC} -o $@ ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ■実行結果 $ make cc -c main.c cc -c sub.c cc -o app main.o sub.o cc -o hoge main.o sub.o ",
+    "description": "",
+    "tags": null,
+    "title": "複数ターゲット",
+    "uri": "/makefile/004-makefile-multi-target/"
+  },
+  {
+    "content": "Home ",
+    "description": "",
+    "tags": null,
+    "title": "Home",
+    "uri": "/"
+  },
+  {
+    "content": "リンカー リンクまでの流れ GCCでリンクまでの処理確認 セクション objdump でセクション確認 マップファイルでセクション確認 nm でセクション確認 readelf でセクション確認 ABIとAPI リンカースクリプト ローダー その他  ",
+    "description": "",
+    "tags": null,
+    "title": "リンカー",
+    "uri": "/linker/"
+  },
+  {
+    "content": " 基本構文 プログラムファイル読み込み 制御構文 print 出力時のフィールド区切り 組み込み変数  ",
+    "description": "",
+    "tags": null,
+    "title": "awk",
+    "uri": "/command/awk/"
+  },
+  {
+    "content": "Command awk find grep xargs | (パイプ)  ",
+    "description": "",
+    "tags": null,
+    "title": "Command",
+    "uri": "/command/"
+  },
+  {
+    "content": " 基本構文 検索位置のみを指定 ファイルタイプを指定 ファイル名を指定  ",
+    "description": "",
+    "tags": null,
+    "title": "find",
+    "uri": "/command/find/"
+  },
+  {
+    "content": " 基本構文  ",
+    "description": "",
+    "tags": null,
+    "title": "grep",
+    "uri": "/command/grep/"
+  },
+  {
+    "content": "nm コマンドはオブジェクトファイルからシンボルをリストする。 nm コマンドで出力されるアルファベットについて以下に示す。 小文字の場合はローカル、大野字の場合はグローバルシンボルであることを示す。\n   文字 内容     A シンボルの値は絶対的であり、リンクで変更されない。   B,b シンボルは bss セクションにある。   C シンボルは共通。このシンボルは未初期化のデータである。リンク時、複数の共通シンボルは同じ名前で現れるかもしれない。もしシンボルがどこかで定義されている場合、共通シンボルは未定義の参照として扱われる。   D,d シンボルは data セクションにある。   G,g シンボルは小さなオブジェクトに対する初期化済みのデータセクションにある。オブジェクトファイルフォーマットは小さなデータオブジェクトデータに効率的にアクセスすることを許可する。 例えば、大きなグローバル配列に対して、グローバル int 変数である。   I シンボルは他のシンボルに対する間接的な参照である。   N シンボルはデバッグシンボルである。   n シンボルは読み込み専用のデータセクションにある。   p シンボルは stack unwind セクションにある。   R,r シンボルは読み込み専用のデータセクションにある。   S,s シンボルは小さなオブジェクトのための未初期化もしくは0初期化済みのデータセクションにある。   T,t シンボルはコードセクションにある。   U シンボルは未定義である。   u シンボルはユニークなグローバルシンボルである。   V,v シンボルは弱いオブジェクトである。弱く定義されたシンボルが通常定義のシンボルとリンクされた時、エラーなしで通常定義のシンボルが使われる。弱く定義されたシンボルがリンクされ、シンボルが定義されていない場合、弱いシンボルの値はエラーなしで0となる。   W,w シンボルは弱いオブジェクトシンボルとしてタグ付けされていない弱いシンボルである。弱く定義されたシンボルが通常定義されたシンボルとリンクされた時、エラーなしで通常定義シンボルが使われる。弱く定義されたシンボルがリンクされ、シンボルが定義されていない時、シンボルの値はエラーなしでシステム作法で決定される。    マップファイルでセクション確認 で利用したソースコードで作成した実行ファイルに対してnm コマンドを実行する。static などのファイルスコープもどのセクションに配置されるかわかる。\n   シンボル名 文字     func T   main T   const_i0 R   const_i1 R   char_1 D   str D   global_1i D   static_global_i1 d   static_internal_i1 d   p1 D   global_i0 B   static_global_inan b   static_global_i0 b   static_internal_i0 b   static_internal_inan b   pnan B   const_inan B   global_inan B    $ nm -n a.out w _ITM_deregisterTMCloneTable w _ITM_registerTMCloneTable w __cxa_finalize@@GLIBC_2.2.5 w __gmon_start__ U __libc_start_main@@GLIBC_2.2.5 0000000000001000 t _init 0000000000001040 T _start 0000000000001070 t deregister_tm_clones 00000000000010a0 t register_tm_clones 00000000000010e0 t __do_global_dtors_aux 0000000000001120 t frame_dummy 0000000000001129 T func 000000000000113d T main 0000000000001150 T __libc_csu_init 00000000000011c0 T __libc_csu_fini 00000000000011c8 T _fini 0000000000002000 R _IO_stdin_used 000000000000200c R const_i0 0000000000002010 R const_i1 0000000000002014 r __GNU_EH_FRAME_HDR 0000000000002164 r __FRAME_END__ 0000000000003df0 d __frame_dummy_init_array_entry 0000000000003df0 d __init_array_start 0000000000003df8 d __do_global_dtors_aux_fini_array_entry 0000000000003df8 d __init_array_end 0000000000003e00 d _DYNAMIC 0000000000003fc0 d _GLOBAL_OFFSET_TABLE_ 0000000000004000 D __data_start 0000000000004000 W data_start 0000000000004008 D __dso_handle 0000000000004010 D char_1 0000000000004018 D str 0000000000004020 D global_i1 0000000000004024 d static_global_i1 0000000000004028 d static_internal_i1.1930 0000000000004030 D p1 0000000000004038 D __TMC_END__ 0000000000004038 B __bss_start 0000000000004038 D _edata 0000000000004038 b completed.8060 000000000000403c B global_i0 0000000000004040 b static_global_inan 0000000000004044 b static_global_i0 0000000000004048 b static_internal_i0.1929 000000000000404c b static_internal_inan.1928 0000000000004050 B pnan 0000000000004058 B const_inan 000000000000405c B global_inan 0000000000004060 B _end ",
+    "description": "",
+    "tags": null,
+    "title": "nm でセクション確認",
+    "uri": "/linker/nm/"
+  },
+  {
+    "content": " 基本構文  ",
+    "description": "",
+    "tags": null,
+    "title": "xargs",
+    "uri": "/command/xargs/"
+  },
+  {
+    "content": " 基本構文  ",
+    "description": "",
+    "tags": null,
+    "title": "| (パイプ)",
+    "uri": "/command/pipe/"
+  },
+  {
+    "content": "オプションから変数を指定することもできる。\nmake -p makefile を読み込んで得られたデータベース　(規則と変数の値) を出力する。\nmake -n 実行するコマンドの表示だけを行う。\n変数に値を設定する $ make CFLAGS=-g cc -g -c -o main.o main.c cc -g -c -o sub.o sub.c cc -g -o app main.o sub.o $ make \"CFLAGS=-g -DDEBUG\" cc -g -DDEBUG -c -o main.o main.c cc -g -DDEBUG -c -o sub.o sub.c cc -g -DDEBUG -o app main.o sub.o 複数のオプションを設定する場合 $ make CFLAGS=-g LIB=-l cc -g -c -o main.o main.c cc -g -c -o sub.o sub.c cc -g -l -o app main.o sub.o [Makefile] TARGET = app SRCS = main.c sub.c OBJS = ${SRCS:.c=.o} # MAKEFLAGS += --no-builtin-rules # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u003c %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} $\u003c ${TARGET}: ${OBJS} ${LINK.c} ${OUTPUT_OPTION} ${OBJS} ${LIB} sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ",
+    "description": "",
+    "tags": null,
+    "title": "コマンドオプション",
+    "uri": "/makefile/005-makefile-option/"
+  },
+  {
+    "content": "   変数名 内容     FNR 現在処理しているファイルの入力レコード番号、処理するファイルが１つの場合は NR と同じ   FS 入力フィールドのセパレーター、デフォルトはスペース   NF 現在入力レコードのフィールド数   NR 現在処理している行番号   OFS 出力フィールドのセパレーター、デフォルトはスペース   ORS 出力レコードのセパレーター、デフォルトはスペース   RS 入力レコードのセパレーター、デフォルトは改行    FS BEGIN{ FS =\",\" } { print $2 } $ echo 1,2:3,4 | awk -f sample.awk 2:3 NF BEGIN{ FS=\",\" } { if(NF \u003c 3) { print NR\"#\",\"列が不足しています\" } else { print NR\"#\",$0 } } $ echo -e \"1,2:3*A,4\\na,b\\n7,8,9,10\" | awk -f sample.awk 1# 1,2:3*A,4 2# 列が不足しています 3# 7,8,9,10 NR BEGIN{ } { print NR\"#\", $0 } $ echo -e \"1,2:3*A,4\\na,b,c\" | awk -f sample.awk 1# 1,2:3*A,4 2# a,b,c OFS print 出力をスペースで区切ると、区切り文字として出力されない。\nBEGIN{ FS = \",\" OFS =\"%\" } { print $1 $2 $3 } $ echo 1,2:3*A,4 | awk -f sample.awk 12:3*A4 print 出力をカンマで区切ると、区切り文字が出力される。\nBEGIN{ FS = \",\" OFS =\"%\" } { print $1,$2,$3 } echo 1,2:3*A,4 | awk -f sample.awk 1%2:3*A%4 ",
+    "description": "",
+    "tags": null,
+    "title": "組み込み変数",
+    "uri": "/command/awk/005-awk/"
+  },
+  {
+    "content": "readelf は ELF 形式ファイルの情報を表示する。\n   オプション 説明     -a –file-header, –program-headers, –sections, –symbols, –relocs, –dynamic, –notes, –version-info –arch-specific, –unwind, –section-groups, –histogram を指定するのと等価   -h ファイルの先頭にある ELF ヘッダに含まれる情報を表示   -l ファイルのセグメントヘッダに含まれれる情報を表示   -S ファイルのセクションヘッダに含まれれる情報を表示   -g ファイルのセクショングループに含まれれる情報を表示   -s ファイルのシンボルテーブルセクションのエントリを表示   -x [number or name] 16進形式で指定されたセクションを表示       セクション名 内容     .text コードを配置   .data 初期値を持つ変数を配置   .bss 初期値を持たない変数を配置\nファイル中では実体を持たないが、ロード時にメモリ上に領域が確保される   .rodata 読み込み専用のデータを配置\nconstや文字列リテラル   .init プログラム実行時にmainより先に実行されるコードを配置   .fini プログラム終了時にexitの後に実行されるコードを配置   .symtab シンボルテーブル   .rel.XXX 再配置テーブル\nXXXは再配置するセクションの名前が入る   .strtab シンボル名などの可変長字列を配置   shstrtab セクション名を配置    $ readelf -h a.out ELF Header: Magic: 7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 Class: ELF64 Data: 2's complement, little endian Version: 1 (current) OS/ABI: UNIX - System V ABI Version: 0 Type: DYN (Shared object file) Machine: Advanced Micro Devices X86-64 Version: 0x1 Entry point address: 0x1080 Start of program headers: 64 (bytes into file) Start of section headers: 15096 (bytes into file) Flags: 0x0 Size of this header: 64 (bytes) Size of program headers: 56 (bytes) Number of program headers: 13 Size of section headers: 64 (bytes) Number of section headers: 31 Section header string table index: 30 $ readelf -l a.out Elf file type is DYN (Shared object file) Entry point 0x1060 There are 13 program headers, starting at offset 64 Program Headers: Type Offset VirtAddr PhysAddr FileSiz MemSiz Flags Align PHDR 0x0000000000000040 0x0000000000000040 0x0000000000000040 0x00000000000002d8 0x00000000000002d8 R 0x8 INTERP 0x0000000000000318 0x0000000000000318 0x0000000000000318 0x000000000000001c 0x000000000000001c R 0x1 [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2] LOAD 0x0000000000000000 0x0000000000000000 0x0000000000000000 0x0000000000000610 0x0000000000000610 R 0x1000 LOAD 0x0000000000001000 0x0000000000001000 0x0000000000001000 0x0000000000000205 0x0000000000000205 R E 0x1000 LOAD 0x0000000000002000 0x0000000000002000 0x0000000000002000 0x0000000000000190 0x0000000000000190 R 0x1000 LOAD 0x0000000000002db8 0x0000000000003db8 0x0000000000003db8 0x0000000000000280 0x00000000000002a8 RW 0x1000 DYNAMIC 0x0000000000002dc8 0x0000000000003dc8 0x0000000000003dc8 0x00000000000001f0 0x00000000000001f0 RW 0x8 NOTE 0x0000000000000338 0x0000000000000338 0x0000000000000338 0x0000000000000020 0x0000000000000020 R 0x8 NOTE 0x0000000000000358 0x0000000000000358 0x0000000000000358 0x0000000000000044 0x0000000000000044 R 0x4 GNU_PROPERTY 0x0000000000000338 0x0000000000000338 0x0000000000000338 0x0000000000000020 0x0000000000000020 R 0x8 GNU_EH_FRAME 0x000000000000201c 0x000000000000201c 0x000000000000201c 0x000000000000004c 0x000000000000004c R 0x4 GNU_STACK 0x0000000000000000 0x0000000000000000 0x0000000000000000 0x0000000000000000 0x0000000000000000 RW 0x10 GNU_RELRO 0x0000000000002db8 0x0000000000003db8 0x0000000000003db8 0x0000000000000248 0x0000000000000248 R 0x1 Section to Segment mapping: Segment Sections... 00 01 .interp 02 .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 03 .init .plt .plt.got .plt.sec .text .fini 04 .rodata .eh_frame_hdr .eh_frame 05 .init_array .fini_array .dynamic .got .data .bss 06 .dynamic 07 .note.gnu.property 08 .note.gnu.build-id .note.ABI-tag 09 .note.gnu.property 10 .eh_frame_hdr 11 12 .init_array .fini_array .dynamic .got readelf -S elfsamp.o There are 14 section headers, starting at offset 0x610: Section Headers: [Nr] Name Type Address Offset Size EntSize Flags Link Info Align [ 0] NULL 0000000000000000 00000000 0000000000000000 0000000000000000 0 0 0 [ 1] .text PROGBITS 0000000000000000 00000040 00000000000000a0 0000000000000000 AX 0 0 1 [ 2] .rela.text RELA 0000000000000000 00000400 0000000000000168 0000000000000018 I 11 1 8 [ 3] .data PROGBITS 0000000000000000 000000e0 0000000000000008 0000000000000000 WA 0 0 4 [ 4] .bss NOBITS 0000000000000000 000000e8 0000000000000004 0000000000000000 WA 0 0 4 [ 5] .rodata PROGBITS 0000000000000000 000000e8 000000000000000c 0000000000000000 A 0 0 4 [ 6] .comment PROGBITS 0000000000000000 000000f4 000000000000002b 0000000000000001 MS 0 0 1 [ 7] .note.GNU-stack PROGBITS 0000000000000000 0000011f 0000000000000000 0000000000000000 0 0 1 [ 8] .note.gnu.propert NOTE 0000000000000000 00000120 0000000000000020 0000000000000000 A 0 0 8 [ 9] .eh_frame PROGBITS 0000000000000000 00000140 0000000000000058 0000000000000000 A 0 0 8 [10] .rela.eh_frame RELA 0000000000000000 00000568 0000000000000030 0000000000000018 I 11 9 8 [11] .symtab SYMTAB 0000000000000000 00000198 0000000000000210 0000000000000018 12 13 8 [12] .strtab STRTAB 0000000000000000 000003a8 0000000000000053 0000000000000000 0 0 1 [13] .shstrtab STRTAB 0000000000000000 00000598 0000000000000074 0000000000000000 0 0 1 Key to Flags: W (write), A (alloc), X (execute), M (merge), S (strings), I (info), L (link order), O (extra OS processing required), G (group), T (TLS), C (compressed), x (unknown), o (OS specific), E (exclude), l (large), p (processor specific) -sオプションでシンボル情報も確認できる。 staticをつけたファイルスコープの変数や関数はLOCALにバインドされる。 グローバルスコープの変数や関数はGLOBALにバインドされる。 Ndxはセクション番号を示す。\nreadelf -s elfsamp.o Symbol table '.symtab' contains 22 entries: Num: Value Size Type Bind Vis Ndx Name 0: 0000000000000000 0 NOTYPE LOCAL DEFAULT UND 1: 0000000000000000 0 FILE LOCAL DEFAULT ABS elfsamp.c 2: 0000000000000000 0 SECTION LOCAL DEFAULT 1 3: 0000000000000000 0 SECTION LOCAL DEFAULT 3 4: 0000000000000000 0 SECTION LOCAL DEFAULT 4 5: 0000000000000000 4 OBJECT LOCAL DEFAULT 4 s1 6: 0000000000000000 4 OBJECT LOCAL DEFAULT 3 s2 7: 0000000000000000 0 SECTION LOCAL DEFAULT 5 8: 0000000000000000 75 FUNC LOCAL DEFAULT 1 sfunc 9: 0000000000000000 0 SECTION LOCAL DEFAULT 7 10: 0000000000000000 0 SECTION LOCAL DEFAULT 8 11: 0000000000000000 0 SECTION LOCAL DEFAULT 9 12: 0000000000000000 0 SECTION LOCAL DEFAULT 6 13: 0000000000000004 4 OBJECT GLOBAL DEFAULT COM g1 14: 0000000000000004 4 OBJECT GLOBAL DEFAULT 3 g2 15: 0000000000000000 4 OBJECT GLOBAL DEFAULT 5 g3 16: 0000000000000000 0 NOTYPE GLOBAL DEFAULT UND _GLOBAL_OFFSET_TABLE_ 17: 0000000000000000 0 NOTYPE GLOBAL DEFAULT UND efunc 18: 0000000000000000 0 NOTYPE GLOBAL DEFAULT UND e3 19: 000000000000004b 85 FUNC GLOBAL DEFAULT 1 gfunc 20: 0000000000000000 0 NOTYPE GLOBAL DEFAULT UND stdout 21: 0000000000000000 0 NOTYPE GLOBAL DEFAULT UND fwrit セクション番号を指定して、HEXダンプを出力できる。\nreadelf -x 12 elfsamp.o Hex dump of section '.strtab': 0x00000000 00656c66 73616d70 2e630073 31007332 .elfsamp.c.s1.s2 0x00000010 00736675 6e630067 31006732 00673300 .sfunc.g1.g2.g3. 0x00000020 5f474c4f 42414c5f 4f464653 45545f54 _GLOBAL_OFFSET_T 0x00000030 41424c45 5f006566 756e6300 65330067 ABLE_.efunc.e3.g 0x00000040 66756e63 00737464 6f757400 66777269 func.stdout.fwri 0x00000050 746500 te. ",
+    "description": "",
+    "tags": null,
+    "title": "readelf でセクション確認",
+    "uri": "/linker/readelf/"
+  },
+  {
+    "content": "ヘッダファイルの依存に対応する ヘッダファイルの更新でビルドされる Makefile を作成する。\n[sub_a.h] #ifndef __INCLUDE__SUB_A  #define __INCLUDE__SUB_A  void sub_a(void); void sub_A(void); #endif // __INCLUDE__SUB_A [sub_b.h] #ifndef __INCLUDE__SUB_B  #define __INCLUDE__SUB_B  void sub_b(void); #endif // __INCLUDE__SUB_B [sub_ab.c] #include \u003cstdio.h\u003e #include \"sub_a.h\" #include \"sub_b.h\" void sub_a(void) { printf(\"\u003e Call sub_a\\n\"); } void sub_b(void) { printf(\"\u003e Call sub_b\\n\"); } [parse.h] #ifndef __INCLUDE__PARSE_H  #define __INCLUDE__PARSE_H  void parse(void); #endif // __INCLUDE__PARSE_H [parse.c] #include \u003cstdio.h\u003e #include \"parse.h\" void parse(void) { printf(\"\u003e Call parse\\n\"); } [main.c] #include \"sub_a.h\" #include \"sub_b.h\" #include \"parse.h\" void main(void) { sub_a(); sub_b(); parse(); } ヘッダファイルの依存関係を考慮しない Makefile を作成すると以下のようになる。\n[Makefile] #ヘッダファイルの依存関係に対応する TARGET = app SRCS = main.c sub_ab.c parse.c OBJS = ${SRCS:.c=.o} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u003c %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} $\u003c ${TARGET}: ${OBJS} ${LINK.c} ${OUTPUT_OPTION} ${OBJS} clean: ${RM} *~ *.o ${TARGET} ビルド結果は下記になる\n$ make cc -c -o main.o main.c cc -c -o sub_ab.o sub_ab.c cc -c -o parse.o parse.c cc -o app main.o sub_ab.o parse.o ここで、 parse.h を更新して再ビルドしてみる。\n$ touch parse.h $ make make: 'app' は更新済みです. parse.o と parse.h の依存が書かれていないため make は更新が必要ない判断しているためである。\nファイル数が少なければひとつずつ対応できるが、さらに簡単に対応できる方法がある。\nコンパイラにはソースコードに必要なヘッダファイルがわかっているため、 コンパイラによっては依存するヘッダファイルの情報を出力してくれるものもある。\n-M オプション 標準ファイルも含めて依存関係がわかる。\n$ gcc -M sub_ab.c sub_ab.o: sub_ab.c /usr/include/stdc-predef.h /usr/include/stdio.h \\ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \\ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \\ /usr/include/x86_64-linux-gnu/bits/wordsize.h \\ /usr/include/x86_64-linux-gnu/bits/long-double.h \\ /usr/include/x86_64-linux-gnu/gnu/stubs.h \\ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \\ /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \\ /usr/include/x86_64-linux-gnu/bits/types.h \\ /usr/include/x86_64-linux-gnu/bits/typesizes.h \\ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \\ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \\ /usr/include/x86_64-linux-gnu/bits/libio.h \\ /usr/include/x86_64-linux-gnu/bits/_G_config.h \\ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \\ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \\ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \\ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h sub_a.h sub_b.h -MM オプション システムヘッダディレクトリにあるヘッダは対象外にして出力\n$ gcc -MM sub_ab.c sub_ab.o: sub_ab.c sub_a.h sub_b.h -MF file名 オプション -MMは標準出力だったが、指定したファイル名に依存関係を出力する\n$ gcc -MM sub_ab.c -MF sub.d $ cat sub.d sub_ab.o: sub_ab.c sub_a.h sub_b.h -MG オプション -MMは対象のヘッダが見つからない場合にエラーとなるが、 このオプションを使うとエラーとしない。 ヘッダファイルが自動生成される場合に使われる。\n-MP オプション 依存するヘッダファイルを偽のターゲットとして追加する\n-MD オプション -M は依存するヘッダファイルを調べるのみだが、 このオプションを使うとコンパイルも行われる。 なお、このオプションを使うと依存関係の結果が .d に出力される。\n-MMD オプション -MM は依存するヘッダファイルを調べるのみだが、 このオプションを使うとコンパイルも行われる。 なお、このオプションを使うと依存関係の結果が .d に出力される。\nヘッダファイル更新を考慮した Makefile これらを組み合わせて Makefile を書き直す。\n[Makefile] #ヘッダファイルの依存関係に対応する TARGET = app SRCS = main.c sub_ab.c parse.c OBJS = ${SRCS:.c=.o} DEPS = ${SRCS:.c=.d} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # # %.o: %.c  # $(COMPILE.C) $(OUTPUT_OPTION) $\u003c all: ${TARGET} # - を付けないと、.d がない場合にエラーとなる -include ${DEPS} # .d ファイルをインクルード %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} -MMD $\u003c ${TARGET}: ${OBJS} ${LINK.c} ${OUTPUT_OPTION} ${OBJS} clean: ${RM} *~ *.o ${TARGET} ${DEPS} 初回のビルドの場合、.dファイルが作成されておらず依存関係が不明でも問題ない。\n2回目以降のビルドの場合には、-MMD オプションにより依存関係が記載された .d ファイルが作成されている。\nこれを include で読み込むことでターゲットとコンポーネントの関係が読みこれる。\n■Make 前のファイル $ ls Makefile main.c parse.c parse.h sub_a.h sub_ab.c sub_b.h ■実行結果 $ make cc -c -o main.o -MMD main.c cc -c -o sub_ab.o -MMD sub_ab.c cc -c -o parse.o -MMD parse.c cc -o app main.o sub_ab.o parse.o $ ls Makefile main.c main.o parse.d parse.o sub_ab.c sub_ab.o app main.d parse.c parse.h sub_a.h sub_ab.d sub_b.h $ touch sub_a.h $ make cc -c -o main.o -MMD main.c cc -c -o sub_ab.o -MMD sub_ab.c cc -o app main.o sub_ab.o parse.o ■確認 $ ls Makefile main.c parse.c parse.h sub_a.h sub_ab.c sub_b.h $ make -p -n parse.o: parse.c \u003c== .h の依存関係はない。 # Implicit rule search has been done. # Implicit/static pattern stem: 'parse' # Last modified 2514-05-30 10:53:03.107374182 # File has been updated. # Successfully updated. # automatic # @ := parse.o # automatic # % := # automatic # * := parse # automatic # + := parse.c # automatic # | := # automatic # \u003c := parse.c # automatic # ^ := parse.c # automatic # ? := parse.c # variable set hash-table stats: # Load=8/32=25%, Rehash=0, Collisions=2/19=11% # recipe to execute (from 'Makefile', line 18): ${COMPILE.c} ${OUTPUT_OPTION} -MMD $\u003c $ make cc -c -o main.o -MMD main.c cc -c -o sub_ab.o -MMD sub_ab.c cc -c -o parse.o -MMD parse.c cc -o app main.o sub_ab.o parse.o $ ls Makefile main.c main.o parse.d parse.o sub_ab.c sub_ab.o app main.d parse.c parse.h sub_a.h sub_ab.d sub_b.h $ cat parse.d parse.o: parse.c parse.h $ make -p -n parse.o: parse.c parse.c parse.h \u003c==.h の依存関係が追加されている。 # Implicit rule search has been done. # Implicit/static pattern stem: 'parse' # Last modified 2021-02-11 00:54:28.0608391 # File has been updated. # Successfully updated. # recipe to execute (from 'Makefile', line 18): ${COMPILE.c} ${OUTPUT_OPTION} -MMD $\u003c .d ファイルが読み込まれて、.h の依存関係が追加されることが確認できた。\n",
+    "description": "",
+    "tags": null,
+    "title": "ヘッダファイル",
+    "uri": "/makefile/006-makefile-header/"
+  },
+  {
+    "content": "ABI (Application Binray Interface)\nABI = 「OSとアプリケーション間の規約」\nAPI = 「OSとプログラム間の規約」\n APIとしてのopenシステムコール\nC言語上からopenシステムコールを利用するには、適切な引数でopen関数を呼び出す ABIとしてのopenシステムコール\nOSのopenシステムコールを利用するには、各種レジスターに適切にパラメーターを設定してint 0x80 を実行する  OSが異なればABIも異なる。つまり、システムコールの呼び出し手順が異なることになる。\nUNIX系のOSの場合には、システムコールのAPIはPOSIX(Portable Operating Systen Interface for UNIX)で統一されている。 POSIXが定義しているのは、APIでありABIではない。 APIが共通であれば、バイナリレベルでの互換性はないが、ソースコードレベルでは互換性があるということになる。 したがって、ソースコードからコンパイルすれば、原則的には同じプログラムを異なるOSで動かすことができる。(open関数などがAPIの違いを吸収してくれる)\n",
+    "description": "",
+    "tags": null,
+    "title": "ABIとAPI",
+    "uri": "/linker/abiapi/"
+  },
+  {
+    "content": "とりあえずベタ書き。 シェルコマンドを使えばより簡単に書ける。\n. ├── Makefile ├── include │ ├── codec │ │ └── codec.h │ └── ui │ └── ui.h ├── lib │ ├── codec │ │ ├── Makefile │ │ └── codec.c │ └── ui │ ├── Makefile │ └── ui.c └── main.c [Makefile] TARGET := app SUB_TARGET := ui codec LIB_UI_DIR := lib/ui #lib/uiのソースコードを探索 LIB_UI_SRC := $(shell find ${LIB_UI_DIR} -type f -name \\*.c) LIB_UI_OBJS := ${LIB_UI_SRC:.c=.o} LIB_CODEC_DIR = lib/codec #lib/codecのソースコード探索 LIB_CODEC_SRC := $(shell find ${LIB_CODEC_DIR} -type f -name \\*.c) LIB_CODEC_OBJS := ${LIB_CODEC_SRC:.c=.o} INCLUDE_PATH = -Iinclude SRCS = main.c OBJS = ${SRCS:.c=.o} DEPS = ${SRCS:.c=.d} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u003c  all: ${SUB_TARGET} ${TARGET} ${SUB_TARGET}: ${MAKE} -C lib/$@ ${TARGET}: ${OBJS} ${LIB_UI_OBJS} ${LIB_CODEC_OBJS} ${LINK.c} ${OUTPUT_OPTION} ${OBJS} ${LIB_UI_OBJS} ${LIB_CODEC_OBJS} %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} ${INCLUDE_PATH} -MMD $\u003c clean: ${RM} *~ *.o ${TARGET} ${DEPS} ${MAKE} -C ${LIB_UI_DIR} clean ${MAKE} -C ${LIB_CODEC_DIR} clean  Note ターゲットの順番大事。TARGET を先にしていたことで SUB_TARGET が先に実施されずに意図しない処理になった。  [lib/codec/Makefile] #多段Makefile TARGET = codec.o INCLUDE_PATH = -I../../include SRCS = codec.c #OBJS = ${SRCS:.c=.o} DEPS = ${SRCS:.c=.d} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u003c  all: ${TARGET} -include ${DEPS} ${TARGET}: %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} ${INCLUDE_PATH} -MMD $\u003c clean: ${RM} *~ *.o ${TARGET} ${DEPS} [lib/ui/Makefile] #多段Makefile TARGET = ui.o INCLUDE_PATH = -I../../include SRCS = ui.c DEPS = ${SRCS:.c=.d} # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c # LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) # OUTPUT_OPTION = -o $@ # # %.o: %.c # $(COMPILE.C) $(OUTPUT_OPTION) $\u003c  all: ${TARGET} -include ${DEPS} %.o: %.c ${COMPILE.c} ${OUTPUT_OPTION} ${INCLUDE_PATH} -MMD $\u003c clean: ${RM} *~ *.o ${TARGET} ${DEPS} ",
+    "description": "",
+    "tags": null,
+    "title": "多段 Make",
+    "uri": "/makefile/007-makefile-multi-make/"
+  },
+  {
+    "content": "すべてのリンクはリンカースクリプトによって制御される。 このスクリプトはリンカーコマンド言語で記載されている。\nリンカースクリプトの主な目的は、 入力ファイルのセクションをどのように出力ファイルにマップするべきかを表現する。 そして、出力ファイルのメモリレイアウトを制御する。 ほとんどのリンカスクリプトはこれ以上のことは何もしない。\nスタートアップルーチン リンカースクリプトの ENTRY コマンドで指定できる。 main.c ではENTRY(_start)が指定されている。\nmain関数がエントリーポイントではないことが重要。\nリンカースクリプト仕様 https://progrunner.hatenablog.jp/entry/2019/01/19/233701 https://www.computex.co.jp/article/use_gcc_1.htm https://sourceware.org/binutils/docs/ld/Scripts.html#Scripts\nすべてのリンクはリンカースクリプトによって制御される。 このスクリプトはリンカーコマンド言語で記載されている。\nリンカースクリプトの主な目的は、 入力ファイルのセクションをどのように出力ファイルにマップするべきかを表現する。 そして、出力ファイルのメモリレイアウトを制御する。 ほとんどのリンカスクリプトはこれ以上のことは何もしない。\nしかしながら、必要があれば、 リンカスクリプトは多くの他の操作を実行するために直接リンカーを管理することも可能である。\nリンカーはいつもリンカースクリプトを使う。 もし、あなたが自分で提供しない場合、リンカーは実行可能なリンカーでコンパイルされたデフォルトスクリプトを使用する。 --verbose オプションを利用することで、デフォルトリンカースクリプトを表示できる。 -rや-Nは、デフォルトリンカースクリプトに影響を与える。\n-T オプションを使うことによって、あなた自身のリンカースクリプトを提供しても良い。 これを実施する時、あなたのリンカースクリプトはデフォルトスクリプトを置き換える。\nあなたはリンカーに入力ファイルとして指定することで、リンカースクリプトを暗黙的に使用することもできる。\nBasic Script Concept リンカースクリプトを説明するために、私たちはいくつかの基本的なコンセプトと語彙を定義する必要がある。\nリンカーは入力ファイルを一つの出力ファイルに結合する。 出力ファイルと各入力ファイルは、オブジェクトファイルフォーマットとして知られる特別なデータフォーマットである。 各ファイルはオブジェクトファイルと呼ばれる。 出力ファイルは、しばしば実行可能ファイルと呼ばれる。 しかし、我々の目的はそれをオブジェクトファイルと呼ぶことではない。各オブジェクトファイルはセクションのリストを持つ。 我々は入力セクションとして入力ファイル内のセクションを参照＠する。同様に、出力ファイルのセクションは出力のセクションである。\nオブジェクトファイルの各セクションは、名前とサイズを持つ。 ほとんどのセクションは、　セクションコンテンツとして知られる関連づけられたデータブロックも持つ。 セクションはlodableとマークされることもあり、これは実行ファイルが実行されるときにメモリにロードされるべきであることを示す。コンテンツを持たないセクションはallocatableとすることができる、これは、メモリ内の領域を確保しておくべきことを示す。しかし、特別なことがなければここにロードすべきではない、(いくつかのケースではこのメモリーはゼロにしなければならない) lodableではなくallocatableでもないセクションは、通常デバッグ情報が含まれている。\nlodableまたはallocatableである出力セッションは、 ２つのアドレスを持つ。 最初はVMAまたは仮想メモリのアドレスである。 これは出力ファイルの実行時にセクションが持つアドレスである。 次はLMAまたはロードメモリアドレスである。 ほとんどのケースでは、２つのアドレスは同じである。 これらが異なる例は、データセクションがROMにロードされ、プログラムの起動時にRAMにコピーする場合である。 (このテクニックは、ROMベースシステムでグローバル変数を初期化するためによく使われる)。この場合ROMアドレスはLMAになり、RAMアドレスはVMAになる。\nあなたは、-pオプションでobjedumpコマンド使用して、オブジェクトファイル内のセクションを見ることができる。\n全てのオブジェクトファイルは、シンボルテーブルとして知られる、シンボルのリストも持つ。シンボルは定義されている場合も、未定義である場合もある。各シンボルは名前をもち、各定義済みのシンボルは他の情報とともにアドレスを持つ。もし、あなたがCもしくはC＋＋プログラムをオブジェクトファイルにコンパイルする場合、すべての定義済み関数およびグローバル変数または静的変数に対して定義済みのシンボルを取得できる。入力ファイルで参照されるすべての定義済みの関数もしくはグローバル変数は、未定義のシンボルになる。\nnmコマンドオや-tオプションでobjdumpコマンド使用して、オブジェクトファイルのシンボルを見ることができる。\n3.2 Linker Script Format リンカースクリプトはテキストファイルである。\nあなたは一連のコマンドとしてリンカースクリプトを記述できる。 それぞれのコマンドは、キーワード(場合によっては引数に続く)、またはシンボルへの割り当てのいずれかである。 あなたはセミコロンを使用してコマンドを分割することもできる。 ホワイトスペースは一般的に無視される。\nファイルやフォーマット名のような文字列は、直接入力できる。 ファイル名にコンマなどの文字が含まれている場合、ファイル名を区切るのに役立つ。ファイル名を二重引用符で囲むことができる。\nC の場合と同様に、/* */ で区切って、リンカースクリプトにコメントを含めることができます。コメントは構文的に空白と同等である。\n3.3 Simple Linker Script Example 多くのリンカースクリプトはかなり単純である。\n最も単純で可能なリンカースクリプトは、ただ一つのコマンドSECTIONSを持つ。出力ファイルのメモリ配置を記述するためにSECTIONS コマンドを使う。\nSECTIONS コマンドは強力なコマンドである。ここでに簡単な使用法を記述する。コードと初期化データと未初期化データのみで構成されるプログラムで仮定してみる。これらは それぞれ、.txt、.data、.bssセクションにはいる。さらに、これらが入力ファイルに現れる唯一のセクションであると仮定する。\n例えば、コードが0x10000にロードされるべきで、データが0x8000000から開始されるべきであるとする。これを行うためのリンカスクリプトは以下である。\nSECTIONS { . = 0x10000; .text : {*(.dext)} . = 0x8000000; .data : {*(.data)} .bss : {*(.bss)} } SECTIONSキーワードとして、SSECTIONSコマンドを書いて、一連のシンボル割り当てと出力セクション記述が中括弧に囲まれている。\n上記の例のSECTIONSコマンドないにある最初の行は、位置カウンターである特別シンボルの'.‘の値を設定する。 別の方法で出力セクションのアドレスを指定しない場合 (別の方法については後述)、アドレスはロケーション カウンターの現在の値から設定される。 ロケーションカウンターは出力セクションのサイズでインクリメントされる。 SECTIONSの開始時点では、ロケーションカウンターの値は0である。\n2行目は出力セクションとして.txetを定義する。 コロンは必要な構文であるが、今は無視されるかもしれない。 出力セクション名の後にある中括弧内に、あなたはこの出力セクションに配置すべき入力セクションの名前をリストする。 *はどんなファイルにもマッチするワイルドカードである。 *(.text)はすべての入力ファイルのすべての.text入力セクションを意味する。\n出力セクション.txetが定義される時、配置カウンターは0x10000であるため、リンカーは出力ファイルの0x10000に.textセクションのアドレスをセットする。\n残りの行は入力ファイルの.dataと.bssセクションを定義する。 リンカーは0x8000000アドレスに.data出力セクションを配置する。 リンカースクリプトは.data出力セクションを配置した後、配置カウンターの値は0x8000000に.data出力セクションのサイズを加算した値である。 効果はリンカースクリプトはメモリの.data出力セクションの直後に.bss出力セクションを配置することである。\nリンカーはそれぞれの出力セクションが要求された並びを持つことを保証する。必要に応じて配置カウンターをインクリメントすることで。 例えば、.textと.dataに対して指定されたアドレスは、おそらく整列制約を満足できるが、リンカーは.dataと.bssセクションの間に小さなギャップを作成しなければならないかもしれない。\n3.4 Simple Linker Script Commands 3.4.1 Setting the Entry Point 最小はentry pointと呼ばれるプログラムを実行するための最初の命令。 entry pointを設定するために、ENTRYリンカースクリプトコマンドを使用できる。 引数はシンボル名である。\nENTRY(symbol) entry pointを設定する方法はいくつかある。 リンカーは次の各方法を順番に試し、それらのうちの一つが成功したときに停止することで、entry pointを設定する。\n -eのentryコマンドラインオプション リンカースクリプト内のENTRY(symbol) ターゲット指定されたシンボルの値、もし定義されている場合。 多くのターゲットでは、これはstartである。しかし、例えばPEまたはBeOSがベースのシステムは、可能なエントリシンボルのリストを確認し、最初に見つかったものと一致する。 .text セクションの最初のバイトのアドレスが、もしあるなら。 アドレスは0  3.4.2 Commands Dealing with Files いくつかのリンカースクリプトコマンドはファイルを処理する。\nINCLUDE filename 現段階ではリンカースクリプトのfilenameを含む。 ファイルはカレントディレクトリから検索され、-Lオプションでディレクトリの指定できる。 10レベルの深さまでINCLUDEを呼ぶことができる。\nINCLUDE命令はMEMORYまたはSECTGIONSコマンド、もしくは出力セクション記述のあるトップレベルに配置することができる、\nINPUT(file, file, ...) INPUT(file file ...) ここからは訳していない。\n",
+    "description": "",
+    "tags": null,
+    "title": "リンカースクリプト",
+    "uri": "/linker/linkerscript/"
+  },
+  {
+    "content": "makeで使うことのできる演算子を記載する。\n   演算子 内容     = 変数が使われる度に評価される。シェルコマンドを代入している場合、変数を使う度に評価される。   := 一度だけ評価するため、定数として使える。   ?= 変数が定義されていないときのみ := として機能する   += 加算代入演算子。    ",
+    "description": "",
+    "tags": null,
+    "title": "代入演算子",
+    "uri": "/makefile/008-makefile-assign-operate/"
+  },
+  {
+    "content": "プログラムの実行にはいくつかの情報が必要である。 例えば以下の情報で、これらは実行形式のヘッダに格納されている。\n どのようなセクションがあるのか、またそのサイズ どのアドレスに展開すべきか、どのアドレスから実行するべきか  ローダーはヘッダの情報を読み込み、情報にしたがってセクションをメモリに展開する。 そして、指定されたメモリのアドレスから実行を開始する。\n配列とポインタの明確な違い 配列の実体は、.data に配置される。 ポインタの場合は、文字列\nchar str1[] = \"ABC\"; char *str2 = \"DEF\"; 複数のオブジェクトを1つにまとめる たとえば、２つのオブジェクトふぁいるから作成したアーカイブファイルがあるとする。 このオブジェクト間でグローバル変数を利用しているとする。 この時、objcpyの--localaize-sympleでグローバル変数をファイルスコープにする場合を考える。 この時、グローバル変数を定義したオブジェクトファイルでは、ファイルスコープになるが、宣言している側のオブジェクトファイルでは変数が未定義となる。\nこれを解決する一つの手段が、ldの-rで２つのオブジェクトを1つにまとめる方法。\nアライメント わかりやすいとおもう https://hirokuma.blog/?p=1691\n##キャッシュのヒット率\n関連のあるライブラリ同士をメモリ上で近くに配置すれば、キャッシュのヒット率があがる。\nライブラリと依存関係 ライブラリに依存関係がある場合、参照する側を参照される側よりも先に書く必要がある。 リンク時に、リンクすべきファイルをすべて指定してもundefined referenceと表示される。 GNU ld の下記の動作条件が影響している。\n1　オブジェクトファイルは無条件でリンクされる ２ ライブラリは、アーカイブ内のオブジェクトファイル単位で、リンクの必要・不要が判断される。\nこの２があるため、リンクすべきファイルをすべて指定してもリンクが失敗する。\nリンカースクリプト仕様 https://progrunner.hatenablog.jp/entry/2019/01/19/233701 https://www.computex.co.jp/article/use_gcc_1.htm https://sourceware.org/binutils/docs/ld/Scripts.html#Scripts\nすべてのリンクはリンカースクリプトによって制御される。 このスクリプトはリンカーコマンド言語で記載されている。\nリンカースクリプトの主な目的は、 入力ファイルのセクションをどのように出力ファイルにマップするべきかを表現する。 そして、出力ファイルのメモリレイアウトを制御する。 ほとんどのリンカスクリプトはこれ以上のことは何もしない。\nしかしながら、必要があれば、 リンカスクリプトは多くの他の操作を実行するために直接リンカーを管理することも可能である。\nリンカーはいつもリンカースクリプトを使う。 もし、あなたが自分で提供しない場合、リンカーは実行可能なリンカーでコンパイルされたデフォルトスクリプトを使用する。 --verbose オプションを利用することで、デフォルトリンカースクリプトを表示できる。 -rや-Nは、デフォルトリンカースクリプトに影響を与える。\n-T オプションを使うことによって、あなた自身のリンカースクリプトを提供しても良い。 これを実施する時、あなたのリンカースクリプトはデフォルトスクリプトを置き換える。\nあなたはリンカーに入力ファイルとして指定することで、リンカースクリプトを暗黙的に使用することもできる。\nBasic Script Concept リンカースクリプトを説明するために、私たちはいくつかの基本的なコンセプトと語彙を定義する必要がある。\nリンカーは入力ファイルを一つの出力ファイルに結合する。 出力ファイルと各入力ファイルは、オブジェクトファイルフォーマットとして知られる特別なデータフォーマットである。 各ファイルはオブジェクトファイルと呼ばれる。 出力ファイルは、しばしば実行可能ファイルと呼ばれる。 しかし、我々の目的はそれをオブジェクトファイルと呼ぶことではない。各オブジェクトファイルはセクションのリストを持つ。 我々は入力セクションとして入力ファイル内のセクションを参照＠する。同様に、出力ファイルのセクションは出力のセクションである。\nオブジェクトファイルの各セクションは、名前とサイズを持つ。 ほとんどのセクションは、　セクションコンテンツとして知られる関連づけられたデータブロックも持つ。 セクションはlodableとマークされることもあり、これは実行ファイルが実行されるときにメモリにロードされるべきであることを示す。コンテンツを持たないセクションはallocatableとすることができる、これは、メモリ内の領域を確保しておくべきことを示す。しかし、特別なことがなければここにロードすべきではない、(いくつかのケースではこのメモリーはゼロにしなければならない) lodableではなくallocatableでもないセクションは、通常デバッグ情報が含まれている。\nlodableまたはallocatableである出力セッションは、 ２つのアドレスを持つ。 最初はVMAまたは仮想メモリのアドレスである。 これは出力ファイルの実行時にセクションが持つアドレスである。 次はLMAまたはロードメモリアドレスである。 ほとんどのケースでは、２つのアドレスは同じである。 これらが異なる例は、データセクションがROMにロードされ、プログラムの起動時にRAMにコピーする場合である。 (このテクニックは、ROMベースシステムでグローバル変数を初期化するためによく使われる)。この場合ROMアドレスはLMAになり、RAMアドレスはVMAになる。\nあなたは、-pオプションでobjedumpコマンド使用して、オブジェクトファイル内のセクションを見ることができる。\n全てのオブジェクトファイルは、シンボルテーブルとして知られる、シンボルのリストも持つ。シンボルは定義されている場合も、未定義である場合もある。各シンボルは名前をもち、各定義済みのシンボルは他の情報とともにアドレスを持つ。もし、あなたがCもしくはC＋＋プログラムをオブジェクトファイルにコンパイルする場合、すべての定義済み関数およびグローバル変数または静的変数に対して定義済みのシンボルを取得できる。入力ファイルで参照されるすべての定義済みの関数もしくはグローバル変数は、未定義のシンボルになる。\nnmコマンドオや-tオプションでobjdumpコマンド使用して、オブジェクトファイルのシンボルを見ることができる。\n3.2 Linker Script Format リンカースクリプトはテキストファイルである。\nあなたは一連のコマンドとしてリンカースクリプトを記述できる。 それぞれのコマンドは、キーワード(場合によっては引数に続く)、またはシンボルへの割り当てのいずれかである。 あなたはセミコロンを使用してコマンドを分割することもできる。 ホワイトスペースは一般的に無視される。\nファイルやフォーマット名のような文字列は、直接入力できる。 ファイル名にコンマなどの文字が含まれている場合、ファイル名を区切るのに役立つ。ファイル名を二重引用符で囲むことができる。\nC の場合と同様に、/* */ で区切って、リンカースクリプトにコメントを含めることができます。コメントは構文的に空白と同等である。\n3.3 Simple Linker Script Example 多くのリンカースクリプトはかなり単純である。\n最も単純で可能なリンカースクリプトは、ただ一つのコマンドSECTIONSを持つ。出力ファイルのメモリ配置を記述するためにSECTIONS コマンドを使う。\nSECTIONS コマンドは強力なコマンドである。ここでに簡単な使用法を記述する。コードと初期化データと未初期化データのみで構成されるプログラムで仮定してみる。これらは それぞれ、.txt、.data、.bssセクションにはいる。さらに、これらが入力ファイルに現れる唯一のセクションであると仮定する。\n例えば、コードが0x10000にロードされるべきで、データが0x8000000から開始されるべきであるとする。これを行うためのリンカスクリプトは以下である。\nSECTIONS { . = 0x10000; .text : {*(.dext)} . = 0x8000000; .data : {*(.data)} .bss : {*(.bss)} } SECTIONSキーワードとして、SSECTIONSコマンドを書いて、一連のシンボル割り当てと出力セクション記述が中括弧に囲まれている。\n上記の例のSECTIONSコマンドないにある最初の行は、位置カウンターである特別シンボルの'.‘の値を設定する。 別の方法で出力セクションのアドレスを指定しない場合 (別の方法については後述)、アドレスはロケーション カウンターの現在の値から設定される。 ロケーションカウンターは出力セクションのサイズでインクリメントされる。 SECTIONSの開始時点では、ロケーションカウンターの値は0である。\n2行目は出力セクションとして.txetを定義する。 コロンは必要な構文であるが、今は無視されるかもしれない。 出力セクション名の後にある中括弧内に、あなたはこの出力セクションに配置すべき入力セクションの名前をリストする。 *はどんなファイルにもマッチするワイルドカードである。 *(.text)はすべての入力ファイルのすべての.text入力セクションを意味する。\n出力セクション.txetが定義される時、配置カウンターは0x10000であるため、リンカーは出力ファイルの0x10000に.textセクションのアドレスをセットする。\n残りの行は入力ファイルの.dataと.bssセクションを定義する。 リンカーは0x8000000アドレスに.data出力セクションを配置する。 リンカースクリプトは.data出力セクションを配置した後、配置カウンターの値は0x8000000に.data出力セクションのサイズを加算した値である。 効果はリンカースクリプトはメモリの.data出力セクションの直後に.bss出力セクションを配置することである。\nリンカーはそれぞれの出力セクションが要求された並びを持つことを保証する。必要に応じて配置カウンターをインクリメントすることで。 例えば、.textと.dataに対して指定されたアドレスは、おそらく整列制約を満足できるが、リンカーは.dataと.bssセクションの間に小さなギャップを作成しなければならないかもしれない。\n3.4 Simple Linker Script Commands 3.4.1 Setting the Entry Point 最小はentry pointと呼ばれるプログラムを実行するための最初の命令。 entry pointを設定するために、ENTRYリンカースクリプトコマンドを使用できる。 引数はシンボル名である。\nENTRY(symbol) entry pointを設定する方法はいくつかある。 リンカーは次の各方法を順番に試し、それらのうちの一つが成功したときに停止することで、entry pointを設定する。\n -eのentryコマンドラインオプション リンカースクリプト内のENTRY(symbol) ターゲット指定されたシンボルの値、もし定義されている場合。 多くのターゲットでは、これはstartである。しかし、例えばPEまたはBeOSがベースのシステムは、可能なエントリシンボルのリストを確認し、最初に見つかったものと一致する。 .text セクションの最初のバイトのアドレスが、もしあるなら。 アドレスは0  3.4.2 Commands Dealing with Files いくつかのリンカースクリプトコマンドはファイルを処理する。\nINCLUDE filename 現段階ではリンカースクリプトのfilenameを含む。 ファイルはカレントディレクトリから検索され、-Lオプションでディレクトリの指定できる。 10レベルの深さまでINCLUDEを呼ぶことができる。\nINCLUDE命令はMEMORYまたはSECTGIONSコマンド、もしくは出力セクション記述のあるトップレベルに配置することができる、\nINPUT(file, file, ...) INPUT(file file ...) ここからは訳していない。\n",
+    "description": "",
+    "tags": null,
+    "title": "ローダー",
+    "uri": "/linker/loader/"
+  },
+  {
+    "content": "   自動変数 内容     CFLAGS Cコンパイラに与える追加のフラグ   CXXFLAGS C++コンパイラに与える追加のフラグ   CPPFLAGS Cプリプロセッサに与える追加フラグ、プログラムに使われる。   LDFLAGS -Lのようなリンカーを実行をサポートする時にコンパイラに与えられる追加フラグ。代わりにライブラリ(-lfoo)は LDLIBS 変数に追加するべき。   LDLIBS ライブラリフラグや名前をコンパイラに与える、リンカーが実行される時にサポートする。 -Lのようなライブラリではないリンカーフラグは LDFLAGS 変数に与える。    ",
+    "description": "",
+    "tags": null,
+    "title": "変数",
+    "uri": "/makefile/009-makefile-variables/"
+  },
+  {
+    "content": "配列とポインタの明確な違い 配列の実体は、.data に配置される。 ポインタの場合は、.rodata に配置される。\nchar str1[] = \"ABC\"; char *str2 = \"DEF\"; 複数のオブジェクトを1つにまとめる たとえば、２つのオブジェクトふぁいるから作成したアーカイブファイルがあるとする。 このオブジェクト間でグローバル変数を利用しているとする。 この時、objcpyの--localaize-sympleでグローバル変数をファイルスコープにする場合を考える。 この時、グローバル変数を定義したオブジェクトファイルでは、ファイルスコープになるが、宣言している側のオブジェクトファイルでは変数が未定義となる。\nこれを解決する一つの手段が、ldの-rで２つのオブジェクトを1つにまとめる方法。\nライブラリと依存関係 ライブラリに依存関係がある場合、参照する側を参照される側よりも先に書く必要がある。 リンク時に、リンクすべきファイルをすべて指定してもundefined referenceと表示される。 GNU ld の下記の動作条件が影響している。\n オブジェクトファイルは無条件でリンクされる ライブラリは、アーカイブ内のオブジェクトファイル単位で、リンクの必要・不要が判断される。  この２があるため、リンクすべきファイルをすべて指定してもリンクが失敗する。\n",
+    "description": "",
+    "tags": null,
+    "title": "その他",
+    "uri": "/linker/other/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Makefile",
+    "uri": "/makefile/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Categories",
+    "uri": "/categories/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Tags",
+    "uri": "/tags/"
+  }
+]

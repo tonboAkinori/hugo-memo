@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>自動変数 :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636174611" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -96,10 +94,10 @@
           <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
           <li data-nav-id="/command/pipe/" title="| (パイプ)" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/">| (パイプ)</a><ul>
           <li data-nav-id="/command/pipe/001-pipe/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/001-pipe/">基本構文</a></li></ul></li></ul></li>
-          <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
+          <li data-nav-id="/makefile/" title="Makefile" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
           <li data-nav-id="/makefile/001-makefile/" title="基本文法" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">基本文法</a></li>
           <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
-          <li data-nav-id="/makefile/003-makefile-auto-variable/" title="自動変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">自動変数</a></li>
+          <li data-nav-id="/makefile/003-makefile-auto-variable/" title="自動変数" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">自動変数</a></li>
           <li data-nav-id="/makefile/004-makefile-multi-target/" title="複数ターゲット" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/">複数ターゲット</a></li>
           <li data-nav-id="/makefile/005-makefile-option/" title="コマンドオプション" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">コマンドオプション</a></li>
           <li data-nav-id="/makefile/006-makefile-header/" title="ヘッダファイル" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">ヘッダファイル</a></li>
@@ -115,23 +113,131 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/"><span itemprop="name">Makefile</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/" aria-disabled="true"><span itemprop="name">自動変数</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gchファイル">.gchファイル</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>自動変数</h1>
 
+<table>
+<thead>
+<tr>
+<th>自動変数</th>
+<th>内容</th>
+<th>有効範囲</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$@</td>
+<td>処理中ターゲット</td>
+<td>コマンド行で有効</td>
+</tr>
+<tr>
+<td>$%</td>
+<td>ターゲットがアーカイブメンバのときのターゲットメンバ名</td>
+<td></td>
+</tr>
+<tr>
+<td>$&lt;</td>
+<td>最初に記載した依存ファイルの名前 <br> (ヘッダをソースより後ろに配置することでヘッダの更新に使える)</td>
+<td></td>
+</tr>
+<tr>
+<td>$^</td>
+<td>依存しているすべてのファイル</td>
+<td></td>
+</tr>
+<tr>
+<td>$?</td>
+<td>ターゲットよりタイムスタンプが新しい依存ファイル</td>
+<td></td>
+</tr>
+<tr>
+<td>$$@</td>
+<td>処理中のターゲット</td>
+<td>コンポーネントのみで使える</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">   <span style="color:#f92672">[</span>Makefile<span style="color:#f92672">]</span>
+   TARGET <span style="color:#f92672">=</span> app 
+   SRCS <span style="color:#f92672">=</span> main.c sub.c
+   OBJS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.o<span style="color:#e6db74">}</span>
 
-<h3 id="home">Home</h3>
+   <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>: <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -o $@ <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
 
+   main.o: main.c
+	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -c $?
 
-        </div> 
+   sub.o: sub.c
+	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -c $?
+
+   sub.o: sub.h
+
+   clean:
+	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   ■実行結果
+   $make
+   cc -c main.c
+   cc -c sub.c sub.h
+   cc -o app main.o sub.o
+
+   $ls
+   Makefile  app  main.c  main.o  sub.c  sub.h  sub.h.gch  sub.o
+   &gt;&gt; sub.g.gch というファイルが出来てしまった。
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   ■確認
+   $make -p | less
+   で, sub.h を検索すると、下記のルールが作成されていた。
+   Makefileで sub.o をターゲットとするルールは分かれているが、統合されていた。
+   $?はターゲットより新しい依存ファイルのため sub.g.gch というファイルが作られてしまった。
+
+   ■作成されていたルール
+   sub.o: sub.c sub.h
+        ${CC} -c $?
+</code></pre></div><h3 id="gchファイル">.gchファイル</h3>
+<p>ヘッダファイルもコンパイルができるらしい。
+コンパイル済みヘッダとなり、.gchとして出力される。
+このファイルを利用することで、ヘッダファイルの処理を省略できる。
+ただし、コンパイル済みヘッダは１回のコンパイルで1つしか使えないらしい。
+そのため、ヘッダーファイルに必要なヘッダをすべて記述するとかするらしい。</p>
+
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/" title="Command"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/" title="マクロ"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/" title="複数ターゲット"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>組み込み変数 :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636174611" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/command/awk/005-awk/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -78,13 +76,13 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/command/" title="Command" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
-          <li data-nav-id="/command/awk/" title="awk" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/">awk</a><ul>
+          <li data-nav-id="/command/" title="Command" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
+          <li data-nav-id="/command/awk/" title="awk" class="dd-item parent alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/">awk</a><ul>
           <li data-nav-id="/command/awk/001-awk/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/001-awk/">基本構文</a></li>
           <li data-nav-id="/command/awk/002-awk/" title="プログラムファイル読み込み" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/002-awk/">プログラムファイル読み込み</a></li>
           <li data-nav-id="/command/awk/003-awk/" title="制御構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/003-awk/">制御構文</a></li>
           <li data-nav-id="/command/awk/004-awk/" title="print 出力時のフィールド区切り" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/004-awk/">print 出力時のフィールド区切り</a></li>
-          <li data-nav-id="/command/awk/005-awk/" title="組み込み変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/005-awk/">組み込み変数</a></li></ul></li>
+          <li data-nav-id="/command/awk/005-awk/" title="組み込み変数" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/005-awk/">組み込み変数</a></li></ul></li>
           <li data-nav-id="/command/find/" title="find" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/">find</a><ul>
           <li data-nav-id="/command/find/001-find/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/001-find/">基本構文</a></li>
           <li data-nav-id="/command/find/002-find/" title="検索位置のみを指定" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/002-find/">検索位置のみを指定</a></li>
@@ -115,23 +113,147 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="4" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/"><span itemprop="name">Command</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/awk/"><span itemprop="name">awk</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/awk/005-awk/" aria-disabled="true"><span itemprop="name">組み込み変数</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#fs">FS</a></li>
+        <li><a href="#nf">NF</a></li>
+        <li><a href="#nr">NR</a></li>
+        <li><a href="#ofs">OFS</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>組み込み変数</h1>
 
-
-<h3 id="home">Home</h3>
-
-
-        </div> 
+<table>
+<thead>
+<tr>
+<th>変数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FNR</td>
+<td>現在処理しているファイルの入力レコード番号、処理するファイルが１つの場合は NR と同じ</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>入力フィールドのセパレーター、デフォルトはスペース</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>現在入力レコードのフィールド数</td>
+</tr>
+<tr>
+<td>NR</td>
+<td>現在処理している行番号</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td>出力フィールドのセパレーター、デフォルトはスペース</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td>出力レコードのセパレーター、デフォルトはスペース</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>入力レコードのセパレーター、デフォルトは改行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fs">FS</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+    FS =&#34;,&#34;
+}
+{
+    print $2
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ echo 1,2:3,4 | awk -f sample.awk
+2:3
+</code></pre></div><h3 id="nf">NF</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+    FS=&#34;,&#34;
+}
+{
+    if(NF &lt; 3)
+    {
+        print NR&#34;#&#34;,&#34;列が不足しています&#34;
+    }
+    else
+    {
+        print NR&#34;#&#34;,$0
+    }
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ echo -e <span style="color:#e6db74">&#34;1,2:3*A,4\na,b\n7,8,9,10&#34;</span>  | awk -f sample.awk
+1# 1,2:3*A,4
+2# 列が不足しています
+3# 7,8,9,10
+</code></pre></div><h3 id="nr">NR</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+}
+{
+    print NR&#34;#&#34;, $0
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ echo -e <span style="color:#e6db74">&#34;1,2:3*A,4\na,b,c&#34;</span>  | awk -f sample.awk
+1# 1,2:3*A,4
+2# a,b,c
+</code></pre></div><h3 id="ofs">OFS</h3>
+<p><code>print</code> 出力をスペースで区切ると、区切り文字として出力されない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+    FS = &#34;,&#34;
+    OFS =&#34;%&#34;
+}
+{
+    print $1 $2 $3
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">$ echo 1,2:3*A,4 | awk -f sample.awk
+12:3*A4
+</code></pre></div><p><code>print</code> 出力をカンマで区切ると、区切り文字が出力される。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">BEGIN{
+    FS = &#34;,&#34;
+    OFS =&#34;%&#34;
+}
+{
+    print $1,$2,$3
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">echo 1,2:3*A,4 | awk -f sample.awk
+1%2:3*A%4
+</code></pre></div>
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/" title="Command"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/command/awk/004-awk/" title="print 出力時のフィールド区切り"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/find/" title="find"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

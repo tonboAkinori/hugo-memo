@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>基本構文 :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636174611" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -78,7 +76,7 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/command/" title="Command" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
+          <li data-nav-id="/command/" title="Command" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
           <li data-nav-id="/command/awk/" title="awk" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/">awk</a><ul>
           <li data-nav-id="/command/awk/001-awk/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/001-awk/">基本構文</a></li>
           <li data-nav-id="/command/awk/002-awk/" title="プログラムファイル読み込み" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/002-awk/">プログラムファイル読み込み</a></li>
@@ -92,8 +90,8 @@
           <li data-nav-id="/command/find/004-find/" title="ファイル名を指定" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/004-find/">ファイル名を指定</a></li></ul></li>
           <li data-nav-id="/command/grep/" title="grep" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/">grep</a><ul>
           <li data-nav-id="/command/grep/001-grep/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/001-grep/">基本構文</a></li></ul></li>
-          <li data-nav-id="/command/xargs/" title="xargs" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/">xargs</a><ul>
-          <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
+          <li data-nav-id="/command/xargs/" title="xargs" class="dd-item parent alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/">xargs</a><ul>
+          <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
           <li data-nav-id="/command/pipe/" title="| (パイプ)" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/">| (パイプ)</a><ul>
           <li data-nav-id="/command/pipe/001-pipe/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/001-pipe/">基本構文</a></li></ul></li></ul></li>
           <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
@@ -115,23 +113,83 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="4" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/"><span itemprop="name">Command</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/xargs/"><span itemprop="name">xargs</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/" aria-disabled="true"><span itemprop="name">基本構文</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>基本構文</h1>
 
-
-<h3 id="home">Home</h3>
-
-
-        </div> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">xargs [command [initial-arguments]]
+</code></pre></div><p>標準入力を読み込みコマンドラインを作成し、それを実行する。</p>
+<p>このコマンドは、標準入力から空白や改行で区切られた一連の項目を読み込み(空白はダブルクォートなどで保護できる)、<br>
+それを引数で指定した command を1回以上実行する。<br>
+command に対して指定した引数があれば、標準入力から読み込んだ項目はその後ろに追加される。</p>
+<p>次に、<strong>xargs</strong> を用いる場合、用いない場合での動作の違いを確認した。</p>
+<h4 id="cat-コマンドの概要">cat コマンドの概要</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">cat [File...]
+</code></pre></div><p>指定したFILEの内容を標準出力へ出力する。
+FILEが一つも与えられないと標準入力から読み込む。</p>
+<h4 id="cat-コマンドを用いた動作確認">cat コマンドを用いた動作確認</h4>
+<p>aaa.txt に以下の内容を記載して確認した。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">hoge
+</code></pre></div><h5 id="xargs-を用いない場合">xargs を用いない場合</h5>
+<p><code>aaa.txt</code> が標準入力として与えられる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ echo aaa.txt | cat
+aaa.txt
+</code></pre></div><h5 id="xargs-を用いる場合">xargs を用いる場合</h5>
+<p><code>aaa.txt</code> がFILEとして与えられる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ echo aaa.txt | xargs cat
+hoge
+</code></pre></div><h4 id="grep-コマンドを用いた動作確認">grep コマンドを用いた動作確認</h4>
+<p>aaa.txt に以下の内容を記載して確認した。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">hoge
+</code></pre></div><h5 id="xargs-を用いない場合-1">xargs を用いない場合</h5>
+<p><code>aaa.txt</code> が標準入力として与えられる。<br>
+このため、ファイルの内容ではなく文字列 aaa.txt とマッチする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ echo aaa.txt | grep aaa
+aaa.txt
+</code></pre></div><h5 id="xargs-を用いる場合-1">xargs を用いる場合</h5>
+<p><code>aaa.txt</code> が FILE として与えられる。<br>
+このため、ファイルの内容とマッチする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ echo aaa.txt | xargs grep hoge
+hoge
+</code></pre></div>
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/" title="Command"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/command/xargs/" title="xargs"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/pipe/" title="| (パイプ)"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

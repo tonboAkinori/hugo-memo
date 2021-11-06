@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Content on Tonbo</title>
+    <title>Command on Tonbo</title>
     <link>https://tonboAkinori.github.io/hugo-memo/command/</link>
-    <description>Recent content in Content on Tonbo</description>
+    <description>Recent content in Command on Tonbo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2021 tonbo </copyright>
     <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/command/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>find</title>
-      <link>https://tonboAkinori.github.io/hugo-memo/command/001-find/</link>
+      <title>awk</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/awk/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      <guid>https://tonboAkinori.github.io/hugo-memo/command/001-find/</guid>
-      <description>ディレクトリやファイルの再帰的な検索
-find &amp;lt;検索位置&amp;gt; &amp;lt;expression&amp;gt; 検索を試したディレクトリ構造
-. ├── 001 │ ├── 001-01 │ │ └── 001-01.txt │ └── 001-02 ├── 002 └── 003 └── 003.txt 通常 $ find . . ./001 ./001/001-01 ./001/001-01/001-01.txt ./001/001-02 ./002 ./003 ./003/003.txt ファイルタイプを指定 タイプで指定できる一覧。
-   タイプ 内容     b ブロック(バッファー)特別   c 文字(バッファーなし)特別   d ディレクトリ   p 名前付きパイプ   f 標準ファイル   l シンボリックリンク   s ソケット    1 2 3 4 5 6 7  $ find .</description>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/awk/</guid>
+      <description> 基本構文 プログラムファイル読み込み 制御構文 print 出力時のフィールド区切り 組み込み変数  </description>
     </item>
     <item>
-      <title>awk</title>
-      <link>https://tonboAkinori.github.io/hugo-memo/command/002-awk/</link>
+      <title>find</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/find/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
-      <guid>https://tonboAkinori.github.io/hugo-memo/command/002-awk/</guid>
-      <description>空白やタブで区切られたテキストを処理するコマンド。 演算機能もあり、プログラミング言語としても使用される。
-基本構文 awk &amp;#39; BEGIN{ 最初に実行されるブロック } { メインブロック } END{ 最後に実行されるブロック } &amp;#39; 処理するファイルの内容は下記とする。
-A 1 A B 2 C D 3 D E 1 E $ awk &amp;#39;BEGIN{print &amp;#34;=== Start ===&amp;#34;}{print $0}END{print &amp;#34;=== End ===&amp;#34;}&amp;#39; test.txt === Start === A 1 A B 2 C D 3 D E 1 E === End === スクリプトの読み込み -f でスクリプトを指定する。
-BEGIN{ print &amp;#34;START&amp;#34; } { print &amp;#34;---&amp;#34; print $0 } END{ print &amp;#34;END&amp;#34; } $ awk -f スクリプトファイル test.</description>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/find/</guid>
+      <description> 基本構文 検索位置のみを指定 ファイルタイプを指定 ファイル名を指定  </description>
+    </item>
+    <item>
+      <title>grep</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/grep/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/grep/</guid>
+      <description> 基本構文  </description>
+    </item>
+    <item>
+      <title>xargs</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/xargs/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/xargs/</guid>
+      <description> 基本構文  </description>
+    </item>
+    <item>
+      <title>| (パイプ)</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/pipe/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/pipe/</guid>
+      <description> 基本構文  </description>
     </item>
   </channel>
 </rss>

@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>マクロ :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636174611" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -96,9 +94,9 @@
           <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
           <li data-nav-id="/command/pipe/" title="| (パイプ)" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/">| (パイプ)</a><ul>
           <li data-nav-id="/command/pipe/001-pipe/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/001-pipe/">基本構文</a></li></ul></li></ul></li>
-          <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
+          <li data-nav-id="/makefile/" title="Makefile" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
           <li data-nav-id="/makefile/001-makefile/" title="基本文法" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">基本文法</a></li>
-          <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
+          <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
           <li data-nav-id="/makefile/003-makefile-auto-variable/" title="自動変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">自動変数</a></li>
           <li data-nav-id="/makefile/004-makefile-multi-target/" title="複数ターゲット" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/">複数ターゲット</a></li>
           <li data-nav-id="/makefile/005-makefile-option/" title="コマンドオプション" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">コマンドオプション</a></li>
@@ -115,23 +113,88 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/"><span itemprop="name">Makefile</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/" aria-disabled="true"><span itemprop="name">マクロ</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#マクロの優先順位">マクロの優先順位</a></li>
+        <li><a href="#マクロ文字列の置換">マクロ文字列の置換</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>マクロ</h1>
 
+<p>make も予め定義されたマクロがあり使うことが出来る。
+下記のコマンドでマクロを確認できる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ make -p
+</code></pre></div>
+<div class="notices note">
+    <div class="label">Note</div>
+ただし、 Makefile のある場所で実施すると Makefile の定義が反映されるので注意
 
-<h3 id="home">Home</h3>
+</div>
+<h3 id="マクロの優先順位">マクロの優先順位</h3>
+<p>参照できるマクロが複数あるため優先順位は意識すること。
+優先順位が高い順に並べる。</p>
+<ol>
+<li>コマンドラインで定義されたもの</li>
+<li>Makefile 内で定義されたもの　</li>
+<li>環境変数</li>
+<li>makeで予め定義されているもの</li>
+</ol>
+<h3 id="マクロ文字列の置換">マクロ文字列の置換</h3>
+<p>マクロ文字列を使うと簡単にファイル名などを変更することが可能。
+下記では、<code>${SRCS:.c=.o}</code> で SRCS の .c を .o に変更している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">   <span style="color:#f92672">[</span>Makefile<span style="color:#f92672">]</span>
+   TARGET <span style="color:#f92672">=</span> app 
+   SRCS <span style="color:#f92672">=</span> main.c sub.c
+   OBJS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.o<span style="color:#e6db74">}</span>
 
+   <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>: <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+        <span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
 
-        </div> 
+   main.o: main.c
+	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -c main.c
+
+   sub.o: sub.c
+	<span style="color:#e6db74">${</span>CC<span style="color:#e6db74">}</span> -c sub.c
+
+   sub.o: sub.h
+
+   clean:
+	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>
+</code></pre></div>
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/" title="Command"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/" title="基本文法"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/" title="自動変数"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

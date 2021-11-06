@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>コマンドオプション :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636174611" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -96,12 +94,12 @@
           <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
           <li data-nav-id="/command/pipe/" title="| (パイプ)" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/">| (パイプ)</a><ul>
           <li data-nav-id="/command/pipe/001-pipe/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/001-pipe/">基本構文</a></li></ul></li></ul></li>
-          <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
+          <li data-nav-id="/makefile/" title="Makefile" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
           <li data-nav-id="/makefile/001-makefile/" title="基本文法" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">基本文法</a></li>
           <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
           <li data-nav-id="/makefile/003-makefile-auto-variable/" title="自動変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">自動変数</a></li>
           <li data-nav-id="/makefile/004-makefile-multi-target/" title="複数ターゲット" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/">複数ターゲット</a></li>
-          <li data-nav-id="/makefile/005-makefile-option/" title="コマンドオプション" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">コマンドオプション</a></li>
+          <li data-nav-id="/makefile/005-makefile-option/" title="コマンドオプション" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">コマンドオプション</a></li>
           <li data-nav-id="/makefile/006-makefile-header/" title="ヘッダファイル" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">ヘッダファイル</a></li>
           <li data-nav-id="/makefile/007-makefile-multi-make/" title="多段 Make" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/">多段 Make</a></li>
           <li data-nav-id="/makefile/008-makefile-assign-operate/" title="代入演算子" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/">代入演算子</a></li>
@@ -115,23 +113,94 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/"><span itemprop="name">Makefile</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/" aria-disabled="true"><span itemprop="name">コマンドオプション</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#make--p">make -p</a></li>
+        <li><a href="#make--n">make -n</a></li>
+        <li><a href="#変数に値を設定する">変数に値を設定する</a></li>
+        <li><a href="#複数のオプションを設定する場合">複数のオプションを設定する場合</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>コマンドオプション</h1>
+
+<p>オプションから変数を指定することもできる。</p>
+<h3 id="make--p">make -p</h3>
+<p>makefile を読み込んで得られたデータベース　(規則と変数の値) を出力する。</p>
+<h3 id="make--n">make -n</h3>
+<p>実行するコマンドの表示だけを行う。</p>
+<h3 id="変数に値を設定する">変数に値を設定する</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ make CFLAGS=-g
+   cc -g   -c -o main.o main.c
+   cc -g   -c -o sub.o sub.c
+   cc -g    -o app main.o sub.o
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ make &#34;CFLAGS=-g -DDEBUG&#34;
+   cc -g -DDEBUG   -c -o main.o main.c
+   cc -g -DDEBUG   -c -o sub.o sub.c
+   cc -g -DDEBUG    -o app main.o sub.o
+</code></pre></div><h3 id="複数のオプションを設定する場合">複数のオプションを設定する場合</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ make CFLAGS=-g LIB=-l
+   cc -g   -c -o main.o main.c
+   cc -g   -c -o sub.o sub.c
+   cc -g  -l  -o app main.o sub.o
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">   <span style="color:#f92672">[</span>Makefile<span style="color:#f92672">]</span>
+   TARGET <span style="color:#f92672">=</span> app
+   SRCS <span style="color:#f92672">=</span> main.c sub.c
+   OBJS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.o<span style="color:#e6db74">}</span>
+   <span style="color:#75715e"># MAKEFLAGS += --no-builtin-rules</span>
+
+   <span style="color:#75715e"># COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c</span>
+   <span style="color:#75715e"># LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)</span>
+   <span style="color:#75715e"># OUTPUT_OPTION = -o $@</span>
+
+   <span style="color:#75715e"># %.o: %.c</span>
+   <span style="color:#75715e"># $(COMPILE.C) $(OUTPUT_OPTION) $&lt;</span>
+
+   %.o: %.c
+	<span style="color:#e6db74">${</span>COMPILE.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> $&lt;
 
 
-<h3 id="home">Home</h3>
+   <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>: <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+	<span style="color:#e6db74">${</span>LINK.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>LIB<span style="color:#e6db74">}</span>
 
+   sub.o: sub.h
 
-        </div> 
+   clean:
+	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>
+</code></pre></div>
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/" title="Command"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/" title="複数ターゲット"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/" title="ヘッダファイル"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

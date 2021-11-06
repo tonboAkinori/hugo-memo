@@ -7,17 +7,17 @@
     <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/command/index.xml" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Content :: Tonbo</title>
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1633702931" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1633702931" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1633702931" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/perfect-scrollbar.min.css?1633702931" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/auto-complete.css?1633702931" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/theme.css?1633702931" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/theme-blue.css?1633702931" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/variant.css?1633702931" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/print.css?1633702931" rel="stylesheet" media="print">
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/jquery.min.js?1633702931"></script>
+    <title>Command :: Tonbo</title>
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636174611" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636174611" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636174611" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/perfect-scrollbar.min.css?1636174611" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/auto-complete.css?1636174611" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/theme.css?1636174611" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/theme-blue.css?1636174611" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/variant.css?1636174611" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/print.css?1636174611" rel="stylesheet" media="print">
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/jquery.min.js?1636174611"></script>
     <style>
       :root #header + #content > #left > #rlblock_left{
         display:none !important;
@@ -57,8 +57,8 @@
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="https://tonboAkinori.github.io/hugo-memo/js/lunr.min.js?1633702931"></script>
-        <script src="https://tonboAkinori.github.io/hugo-memo/js/auto-complete.js?1633702931"></script>
+        <script src="https://tonboAkinori.github.io/hugo-memo/js/lunr.min.js?1636174611"></script>
+        <script src="https://tonboAkinori.github.io/hugo-memo/js/auto-complete.js?1636174611"></script>
         <!-- hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic: -->
         <!-- https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72 -->
         <script>
@@ -66,7 +66,7 @@
           var root_url="https://tonboAkinori.github.io/hugo-memo/";
           var baseUri=root_url.replace(/\/$/, '');
         </script>
-        <script src="https://tonboAkinori.github.io/hugo-memo/js/search.js?1633702931"></script>
+        <script src="https://tonboAkinori.github.io/hugo-memo/js/search.js?1636174611"></script>
       </div>
       <div id="homelinks">
         <ul>
@@ -77,9 +77,34 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/command/" title="Content" class="dd-item active parent"><a href="https://tonboAkinori.github.io/hugo-memo/command/"><b>X. </b>Content</a><ul>
-          <li data-nav-id="/command/001-find/" title="find" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/001-find/">find</a></li>
-          <li data-nav-id="/command/002-awk/" title="awk" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/002-awk/">awk</a></li></ul></li>
+          <li data-nav-id="/command/" title="Command" class="dd-item active parent"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
+          <li data-nav-id="/command/awk/" title="awk" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/">awk</a><ul>
+          <li data-nav-id="/command/awk/001-awk/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/001-awk/">基本構文</a></li>
+          <li data-nav-id="/command/awk/002-awk/" title="プログラムファイル読み込み" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/002-awk/">プログラムファイル読み込み</a></li>
+          <li data-nav-id="/command/awk/003-awk/" title="制御構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/003-awk/">制御構文</a></li>
+          <li data-nav-id="/command/awk/004-awk/" title="print 出力時のフィールド区切り" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/004-awk/">print 出力時のフィールド区切り</a></li>
+          <li data-nav-id="/command/awk/005-awk/" title="組み込み変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/005-awk/">組み込み変数</a></li></ul></li>
+          <li data-nav-id="/command/find/" title="find" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/">find</a><ul>
+          <li data-nav-id="/command/find/001-find/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/001-find/">基本構文</a></li>
+          <li data-nav-id="/command/find/002-find/" title="検索位置のみを指定" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/002-find/">検索位置のみを指定</a></li>
+          <li data-nav-id="/command/find/003-find/" title="ファイルタイプを指定" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/003-find/">ファイルタイプを指定</a></li>
+          <li data-nav-id="/command/find/004-find/" title="ファイル名を指定" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/004-find/">ファイル名を指定</a></li></ul></li>
+          <li data-nav-id="/command/grep/" title="grep" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/">grep</a><ul>
+          <li data-nav-id="/command/grep/001-grep/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/001-grep/">基本構文</a></li></ul></li>
+          <li data-nav-id="/command/xargs/" title="xargs" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/">xargs</a><ul>
+          <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
+          <li data-nav-id="/command/pipe/" title="| (パイプ)" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/">| (パイプ)</a><ul>
+          <li data-nav-id="/command/pipe/001-pipe/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/001-pipe/">基本構文</a></li></ul></li></ul></li>
+          <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
+          <li data-nav-id="/makefile/001-makefile/" title="基本文法" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">基本文法</a></li>
+          <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
+          <li data-nav-id="/makefile/003-makefile-auto-variable/" title="自動変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">自動変数</a></li>
+          <li data-nav-id="/makefile/004-makefile-multi-target/" title="複数ターゲット" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/">複数ターゲット</a></li>
+          <li data-nav-id="/makefile/005-makefile-option/" title="コマンドオプション" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">コマンドオプション</a></li>
+          <li data-nav-id="/makefile/006-makefile-header/" title="ヘッダファイル" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">ヘッダファイル</a></li>
+          <li data-nav-id="/makefile/007-makefile-multi-make/" title="多段 Make" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/">多段 Make</a></li>
+          <li data-nav-id="/makefile/008-makefile-assign-operate/" title="代入演算子" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/">代入演算子</a></li>
+          <li data-nav-id="/makefile/009-makefile-variables/" title="変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/009-makefile-variables/">変数</a></li></ul></li>
         </ul>
         <div id="footer">
 	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
@@ -98,8 +123,8 @@
             </span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Content</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/" aria-disabled="true"><span itemprop="name">Content</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/" aria-disabled="true"><span itemprop="name">Command</span></a></li>
             </ol>
           </div>
         </div>
@@ -108,9 +133,16 @@
        <div id="chapter">
         <main id="body-inner">
 
-<h3 id="chapter-command">Chapter Command</h3>
-<h1 id="some-chapter-title">Some Chapter title</h1>
-<p>Command</p>
+<h3 id="command">Command</h3>
+
+
+<ul class="children children-li children-sort-">
+<li><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/" >awk</a></li>
+<li><a href="https://tonboAkinori.github.io/hugo-memo/command/find/" >find</a></li>
+<li><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/" >grep</a></li>
+<li><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/" >xargs</a></li>
+<li><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/" >| (パイプ)</a></li>
+</ul>
 
           <footer class=" footline">
           </footer>
@@ -118,25 +150,25 @@
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/" title="Content"><i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/001-find/" title="find"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/" title="Home"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/awk/" title="awk"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/clipboard.min.js?1633702931"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/perfect-scrollbar.min.js?1633702931"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/perfect-scrollbar.jquery.min.js?1633702931"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/jquery.svg.pan.zoom.js?1633702931"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/featherlight.min.js?1633702931"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/modernizr.custom-3.6.0.js?1633702931"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/mermaid.min.js?1633702931"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/clipboard.min.js?1636174611"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/perfect-scrollbar.min.js?1636174611"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/perfect-scrollbar.jquery.min.js?1636174611"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/jquery.svg.pan.zoom.js?1636174611"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/featherlight.min.js?1636174611"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/modernizr.custom-3.6.0.js?1636174611"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/mermaid.min.js?1636174611"></script>
     <script>
       if (typeof mermaid != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/relearn.js?1633702931"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/relearn.js?1636174611"></script>
   </body>
 </html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awk on Tonbo</title>
+    <link>https://tonboAkinori.github.io/hugo-memo/command/awk/</link>
+    <description>Recent content in awk on Tonbo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2021 tonbo </copyright>
+    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/command/awk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基本構文</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/awk/001-awk/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/awk/001-awk/</guid>
+      <description>空白やタブで区切られたテキストを処理するコマンド。 演算機能もあり、プログラミング言語としても使用される。
+awk &amp;#39; BEGIN{ 最初に実行されるブロック } { メインブロック } END{ 最後に実行されるブロック } &amp;#39; 処理するファイルの内容は下記とする。
+A 1 A B 2 C D 3 D E 1 E $ awk &amp;#39;BEGIN{print &amp;#34;=== Start ===&amp;#34;}{print $0}END{print &amp;#34;=== End ===&amp;#34;}&amp;#39; test.txt === Start === A 1 A B 2 C D 3 D E 1 E === End === </description>
+    </item>
+    <item>
+      <title>プログラムファイル読み込み</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/awk/002-awk/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/awk/002-awk/</guid>
+      <description>-f でプログラムファイルを指定する。
+BEGIN{ print &amp;#34;START&amp;#34; } { print &amp;#34;---&amp;#34; print $0 } END{ print &amp;#34;END&amp;#34; } $ awk -f プログラムファイル test.txt START --- A 1 A --- B 2 C --- D 3 D --- E 1 E END </description>
+    </item>
+    <item>
+      <title>制御構文</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/awk/003-awk/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/awk/003-awk/</guid>
+      <description>if-elseやandなども使える。
+$ awk &amp;#39;{if($2==1) print $0}&amp;#39; test.txt A 1 A E 1 E </description>
+    </item>
+    <item>
+      <title>print 出力時のフィールド区切り</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/awk/004-awk/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/awk/004-awk/</guid>
+      <description>print でレコードを出力する場合は、カンマが OFS で指定した区切り文字に入れ替えられる。
+カンマで区切り OFSでフィールドが区切られる。
+BEGIN{ FS = &amp;#34;%&amp;#34; OFS =&amp;#34;#&amp;#34; } { print $1,$2,$3 } 次の実行結果では、%から#の区切りに変更される。
+$ echo 1%2:3%A%4 | awk -f sample.awk 1#2:3#A スペースで区切る場合(カンマで区切らない場合) OFSでフィールドが区切られない。
+BEGIN{ FS = &amp;#34;%&amp;#34; OFS =&amp;#34;#&amp;#34; } { print $1 $2 $3 } 次の実行結果では、OFSでフィールドが区切られていない。
+$ echo 1%2:3%A%4 | awk -f sample.awk 12:3A </description>
+    </item>
+    <item>
+      <title>組み込み変数</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/command/awk/005-awk/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/command/awk/005-awk/</guid>
+      <description>変数名 内容     FNR 現在処理しているファイルの入力レコード番号、処理するファイルが１つの場合は NR と同じ   FS 入力フィールドのセパレーター、デフォルトはスペース   NF 現在入力レコードのフィールド数   NR 現在処理している行番号   OFS 出力フィールドのセパレーター、デフォルトはスペース   ORS 出力レコードのセパレーター、デフォルトはスペース   RS 入力レコードのセパレーター、デフォルトは改行    FS BEGIN{ FS =&amp;#34;,&amp;#34; } { print $2 } $ echo 1,2:3,4 | awk -f sample.awk 2:3 NF BEGIN{ FS=&amp;#34;,&amp;#34; } { if(NF &amp;lt; 3) { print NR&amp;#34;#&amp;#34;,&amp;#34;列が不足しています&amp;#34; } else { print NR&amp;#34;#&amp;#34;,$0 } } $ echo -e &amp;#34;1,2:3*A,4\na,b\n7,8,9,10&amp;#34; | awk -f sample.</description>
+    </item>
+  </channel>
+</rss>

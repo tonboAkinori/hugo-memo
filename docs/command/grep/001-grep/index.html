@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>基本構文 :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636174611" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/command/grep/001-grep/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -78,7 +76,7 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/command/" title="Command" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
+          <li data-nav-id="/command/" title="Command" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/command/">Command</a><ul>
           <li data-nav-id="/command/awk/" title="awk" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/">awk</a><ul>
           <li data-nav-id="/command/awk/001-awk/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/001-awk/">基本構文</a></li>
           <li data-nav-id="/command/awk/002-awk/" title="プログラムファイル読み込み" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/awk/002-awk/">プログラムファイル読み込み</a></li>
@@ -90,8 +88,8 @@
           <li data-nav-id="/command/find/002-find/" title="検索位置のみを指定" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/002-find/">検索位置のみを指定</a></li>
           <li data-nav-id="/command/find/003-find/" title="ファイルタイプを指定" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/003-find/">ファイルタイプを指定</a></li>
           <li data-nav-id="/command/find/004-find/" title="ファイル名を指定" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/find/004-find/">ファイル名を指定</a></li></ul></li>
-          <li data-nav-id="/command/grep/" title="grep" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/">grep</a><ul>
-          <li data-nav-id="/command/grep/001-grep/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/001-grep/">基本構文</a></li></ul></li>
+          <li data-nav-id="/command/grep/" title="grep" class="dd-item parent alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/">grep</a><ul>
+          <li data-nav-id="/command/grep/001-grep/" title="基本構文" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/command/grep/001-grep/">基本構文</a></li></ul></li>
           <li data-nav-id="/command/xargs/" title="xargs" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/">xargs</a><ul>
           <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
           <li data-nav-id="/command/pipe/" title="| (パイプ)" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/">| (パイプ)</a><ul>
@@ -115,23 +113,44 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="4" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/"><span itemprop="name">Command</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/grep/"><span itemprop="name">grep</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/command/grep/001-grep/" aria-disabled="true"><span itemprop="name">基本構文</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents"></nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>基本構文</h1>
 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">grep PATTERN [FILE...]
+</code></pre></div><p>パターンにマッチする行を表示する。</p>
+<p>ファイルが指定されない場合や、ファイル名の代わりに <code>-</code> が指定されている場合は標準入力から検索する</p>
 
-<h3 id="home">Home</h3>
-
-
-        </div> 
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/" title="Command"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/command/grep/" title="grep"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/xargs/" title="xargs"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

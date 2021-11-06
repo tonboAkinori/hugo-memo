@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/index.xml" title="Tonbo" />
-    <link rel="alternate" type="application/json" href="https://tonboAkinori.github.io/hugo-memo/index.json" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>Home :: Tonbo</title>
+    <title>ヘッダファイル :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1636174611" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1636174611" rel="stylesheet">
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -96,13 +94,13 @@
           <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
           <li data-nav-id="/command/pipe/" title="| (パイプ)" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/">| (パイプ)</a><ul>
           <li data-nav-id="/command/pipe/001-pipe/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/001-pipe/">基本構文</a></li></ul></li></ul></li>
-          <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
+          <li data-nav-id="/makefile/" title="Makefile" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
           <li data-nav-id="/makefile/001-makefile/" title="基本文法" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">基本文法</a></li>
           <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
           <li data-nav-id="/makefile/003-makefile-auto-variable/" title="自動変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">自動変数</a></li>
           <li data-nav-id="/makefile/004-makefile-multi-target/" title="複数ターゲット" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/">複数ターゲット</a></li>
           <li data-nav-id="/makefile/005-makefile-option/" title="コマンドオプション" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">コマンドオプション</a></li>
-          <li data-nav-id="/makefile/006-makefile-header/" title="ヘッダファイル" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">ヘッダファイル</a></li>
+          <li data-nav-id="/makefile/006-makefile-header/" title="ヘッダファイル" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">ヘッダファイル</a></li>
           <li data-nav-id="/makefile/007-makefile-multi-make/" title="多段 Make" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/">多段 Make</a></li>
           <li data-nav-id="/makefile/008-makefile-assign-operate/" title="代入演算子" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/">代入演算子</a></li>
           <li data-nav-id="/makefile/009-makefile-variables/" title="変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/009-makefile-variables/">変数</a></li></ul></li>
@@ -115,23 +113,293 @@
     <div id="body">
       <div id="overlay"></div>
       <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/"><span itemprop="name">Makefile</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/" aria-disabled="true"><span itemprop="name">ヘッダファイル</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ヘッダファイルの依存に対応する">ヘッダファイルの依存に対応する</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+        </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
+          <h1>ヘッダファイル</h1>
 
+<h3 id="ヘッダファイルの依存に対応する">ヘッダファイルの依存に対応する</h3>
+<p>ヘッダファイルの更新でビルドされる Makefile を作成する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">  [sub_a.h]
+  <span style="color:#75715e">#ifndef __INCLUDE__SUB_A
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">#define __INCLUDE__SUB_A
+</span><span style="color:#75715e"></span>
+  <span style="color:#66d9ef">void</span> sub_a(<span style="color:#66d9ef">void</span>);
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sub_A</span>(<span style="color:#66d9ef">void</span>);
 
-<h3 id="home">Home</h3>
+  <span style="color:#75715e">#endif </span><span style="color:#75715e">// __INCLUDE__SUB_A
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">   [sub_b.h]
+   <span style="color:#75715e">#ifndef __INCLUDE__SUB_B
+</span><span style="color:#75715e"></span>   <span style="color:#75715e">#define __INCLUDE__SUB_B
+</span><span style="color:#75715e"></span>
+   <span style="color:#66d9ef">void</span> sub_b(<span style="color:#66d9ef">void</span>);
 
+   <span style="color:#75715e">#endif </span><span style="color:#75715e">// __INCLUDE__SUB_B
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">   [sub_ab.c]
+   <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>   <span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sub_a.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>   <span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sub_b.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+   <span style="color:#66d9ef">void</span> sub_a(<span style="color:#66d9ef">void</span>)
+   {
+     printf(<span style="color:#e6db74">&#34;&gt; Call sub_a</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+   }
 
-        </div> 
+   <span style="color:#66d9ef">void</span> sub_b(<span style="color:#66d9ef">void</span>)
+   {
+     printf(<span style="color:#e6db74">&#34;&gt; Call sub_b</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+   }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">   [parse.h]
+   <span style="color:#75715e">#ifndef __INCLUDE__PARSE_H
+</span><span style="color:#75715e"></span>   <span style="color:#75715e">#define __INCLUDE__PARSE_H
+</span><span style="color:#75715e"></span>
+   <span style="color:#66d9ef">void</span> parse(<span style="color:#66d9ef">void</span>);
+
+   <span style="color:#75715e">#endif </span><span style="color:#75715e">// __INCLUDE__PARSE_H
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">  [parse.c] 
+  <span style="color:#960050;background-color:#1e0010">#</span>include <span style="color:#f92672">&lt;</span>stdio.h<span style="color:#f92672">&gt;</span>
+  <span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;parse.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+  <span style="color:#66d9ef">void</span> parse(<span style="color:#66d9ef">void</span>)
+  {
+    printf(<span style="color:#e6db74">&#34;&gt; Call parse</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+  }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">   [main.c]
+   <span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sub_a.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>   <span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sub_b.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>   <span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;parse.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+   <span style="color:#66d9ef">void</span> main(<span style="color:#66d9ef">void</span>)
+   {
+     sub_a();
+     sub_b();
+     parse();
+   }
+</code></pre></div><p>ヘッダファイルの依存関係を考慮しない Makefile を作成すると以下のようになる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">   <span style="color:#f92672">[</span>Makefile<span style="color:#f92672">]</span>
+   <span style="color:#75715e">#ヘッダファイルの依存関係に対応する</span>
+   TARGET <span style="color:#f92672">=</span> app
+   SRCS <span style="color:#f92672">=</span> main.c sub_ab.c parse.c 
+   OBJS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.o<span style="color:#e6db74">}</span>
+
+   <span style="color:#75715e"># COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c</span>
+   <span style="color:#75715e"># LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)</span>
+   <span style="color:#75715e"># OUTPUT_OPTION = -o $@</span>
+
+   <span style="color:#75715e"># %.o: %.c</span>
+   <span style="color:#75715e"># $(COMPILE.C) $(OUTPUT_OPTION) $&lt;</span>
+
+   %.o: %.c
+	<span style="color:#e6db74">${</span>COMPILE.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> $&lt;
+
+   <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>: <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+	<span style="color:#e6db74">${</span>LINK.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+
+   clean:
+	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>
+</code></pre></div><p>ビルド結果は下記になる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ make
+   cc    -c -o main.o main.c
+   cc    -c -o sub_ab.o sub_ab.c
+   cc    -c -o parse.o parse.c
+   cc     -o app main.o sub_ab.o parse.o
+</code></pre></div><p>ここで、 parse.h を更新して再ビルドしてみる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ touch parse.h
+   $ make
+   make: &#39;app&#39; は更新済みです.
+</code></pre></div><p>parse.o と parse.h の依存が書かれていないため
+make は更新が必要ない判断しているためである。</p>
+<p>ファイル数が少なければひとつずつ対応できるが、さらに簡単に対応できる方法がある。</p>
+<p>コンパイラにはソースコードに必要なヘッダファイルがわかっているため、
+コンパイラによっては依存するヘッダファイルの情報を出力してくれるものもある。</p>
+<h4 id="-m-オプション">-M オプション</h4>
+<p>標準ファイルも含めて依存関係がわかる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ gcc -M sub_ab.c 
+   sub_ab.o: sub_ab.c /usr/include/stdc-predef.h /usr/include/stdio.h \
+   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+   /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+   /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
+   /usr/include/x86_64-linux-gnu/bits/types.h \
+   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+   /usr/include/x86_64-linux-gnu/bits/libio.h \
+   /usr/include/x86_64-linux-gnu/bits/_G_config.h \
+   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+   /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
+   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+   /usr/include/x86_64-linux-gnu/bits/sys_errlist.h sub_a.h sub_b.h
+</code></pre></div><h4 id="-mm-オプション">-MM オプション</h4>
+<p>システムヘッダディレクトリにあるヘッダは対象外にして出力</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ gcc -MM sub_ab.c 
+   sub_ab.o: sub_ab.c sub_a.h sub_b.h
+</code></pre></div><h4 id="-mf-file名-オプション">-MF file名 オプション</h4>
+<p>-MMは標準出力だったが、指定したファイル名に依存関係を出力する</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   $ gcc -MM sub_ab.c -MF sub.d
+   $ cat sub.d 
+   sub_ab.o: sub_ab.c sub_a.h sub_b.h
+</code></pre></div><h4 id="-mg-オプション">-MG オプション</h4>
+<p>-MMは対象のヘッダが見つからない場合にエラーとなるが、
+このオプションを使うとエラーとしない。
+ヘッダファイルが自動生成される場合に使われる。</p>
+<h4 id="-mp-オプション">-MP オプション</h4>
+<p>依存するヘッダファイルを偽のターゲットとして追加する</p>
+<h4 id="-md-オプション">-MD オプション</h4>
+<p>-M は依存するヘッダファイルを調べるのみだが、
+このオプションを使うとコンパイルも行われる。
+なお、このオプションを使うと依存関係の結果が .d に出力される。</p>
+<h4 id="-mmd-オプション">-MMD オプション</h4>
+<p>-MM は依存するヘッダファイルを調べるのみだが、
+このオプションを使うとコンパイルも行われる。
+なお、このオプションを使うと依存関係の結果が .d に出力される。</p>
+<h4 id="ヘッダファイル更新を考慮した-makefile">ヘッダファイル更新を考慮した Makefile</h4>
+<p>これらを組み合わせて Makefile を書き直す。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">   <span style="color:#f92672">[</span>Makefile<span style="color:#f92672">]</span>
+   <span style="color:#75715e">#ヘッダファイルの依存関係に対応する</span>
+   TARGET <span style="color:#f92672">=</span> app
+   SRCS <span style="color:#f92672">=</span> main.c sub_ab.c parse.c 
+   OBJS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.o<span style="color:#e6db74">}</span>
+   DEPS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.d<span style="color:#e6db74">}</span>  
+
+   <span style="color:#75715e"># COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c</span>
+   <span style="color:#75715e"># LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)</span>
+   <span style="color:#75715e"># OUTPUT_OPTION = -o $@</span>
+   <span style="color:#75715e">#</span>
+   <span style="color:#75715e"># %.o: %.c </span>
+   <span style="color:#75715e"># $(COMPILE.C) $(OUTPUT_OPTION) $&lt;</span>
+
+   all: <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>
+
+   <span style="color:#75715e"># - を付けないと、.d がない場合にエラーとなる</span>
+   -include <span style="color:#e6db74">${</span>DEPS<span style="color:#e6db74">}</span> <span style="color:#75715e"># .d ファイルをインクルード</span>
+
+   %.o: %.c 
+	<span style="color:#e6db74">${</span>COMPILE.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> -MMD $&lt;
+
+   <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>: <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+	<span style="color:#e6db74">${</span>LINK.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span>
+
+   clean:
+	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>DEPS<span style="color:#e6db74">}</span>
+</code></pre></div><p>初回のビルドの場合、.dファイルが作成されておらず依存関係が不明でも問題ない。</p>
+<p>2回目以降のビルドの場合には、<code>-MMD</code> オプションにより依存関係が記載された .d ファイルが作成されている。<br>
+これを <code>include</code> で読み込むことでターゲットとコンポーネントの関係が読みこれる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">■Make 前のファイル
+$ ls
+Makefile  main.c  parse.c  parse.h  sub_a.h  sub_ab.c  sub_b.h
+
+■実行結果
+$ make
+cc    -c -o main.o -MMD main.c
+cc    -c -o sub_ab.o -MMD sub_ab.c
+cc    -c -o parse.o -MMD parse.c
+cc     -o app main.o sub_ab.o parse.o
+
+$ ls
+Makefile  main.c  main.o   parse.d  parse.o  sub_ab.c  sub_ab.o
+app       main.d  parse.c  parse.h  sub_a.h  sub_ab.d  sub_b.h
+
+$ touch sub_a.h 
+$ make
+cc    -c -o main.o -MMD main.c
+cc    -c -o sub_ab.o -MMD sub_ab.c
+cc     -o app main.o sub_ab.o parse.o
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">■確認
+$ ls
+Makefile  main.c  parse.c  parse.h  sub_a.h  sub_ab.c  sub_b.h
+
+$ make -p -n
+parse.o: parse.c &lt;== .h の依存関係はない。
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: &#39;parse&#39;
+#  Last modified 2514-05-30 10:53:03.107374182
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := parse.o
+# automatic
+# % :=
+# automatic
+# * := parse
+# automatic
+# + := parse.c
+# automatic
+# | :=
+# automatic
+# &lt; := parse.c
+# automatic
+# ^ := parse.c
+# automatic
+# ? := parse.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/19=11%
+#  recipe to execute (from &#39;Makefile&#39;, line 18):
+        ${COMPILE.c} ${OUTPUT_OPTION} -MMD $&lt;
+
+$ make
+cc    -c -o main.o -MMD main.c
+cc    -c -o sub_ab.o -MMD sub_ab.c
+cc    -c -o parse.o -MMD parse.c
+cc     -o app main.o sub_ab.o parse.o
+
+$ ls
+Makefile  main.c  main.o   parse.d  parse.o  sub_ab.c  sub_ab.o
+app       main.d  parse.c  parse.h  sub_a.h  sub_ab.d  sub_b.h
+
+$ cat parse.d
+parse.o: parse.c parse.h
+
+$ make -p -n 
+parse.o: parse.c parse.c parse.h &lt;==.h の依存関係が追加されている。
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: &#39;parse&#39;
+#  Last modified 2021-02-11 00:54:28.0608391
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from &#39;Makefile&#39;, line 18):
+        ${COMPILE.c} ${OUTPUT_OPTION} -MMD $&lt;
+</code></pre></div><p><code>.d</code> ファイルが読み込まれて、.h の依存関係が追加されることが確認できた。</p>
+
+          <footer class="footline">
+          </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/command/" title="Command"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/" title="コマンドオプション"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/" title="多段 Make"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

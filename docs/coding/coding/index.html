@@ -6,7 +6,7 @@
     <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>多段 Make :: Tonbo</title>
+    <title>コーディング :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1650196932" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1650196932" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1650196932" rel="stylesheet">
@@ -23,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/coding/coding/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -76,8 +76,8 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/coding/" title="コーディング" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/coding/">コーディング</a><ul>
-          <li data-nav-id="/coding/coding/" title="コーディング" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/coding/coding/">コーディング</a></li></ul></li>
+          <li data-nav-id="/coding/" title="コーディング" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/coding/">コーディング</a><ul>
+          <li data-nav-id="/coding/coding/" title="コーディング" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/coding/coding/">コーディング</a></li></ul></li>
           <li data-nav-id="/linker/" title="リンカー" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/">リンカー</a><ul>
           <li data-nav-id="/linker/link/" title="リンクまでの流れ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link/">リンクまでの流れ</a></li>
           <li data-nav-id="/linker/link_gcc/" title="GCCでリンクまでの処理確認" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link_gcc/">GCCでリンクまでの処理確認</a></li>
@@ -113,14 +113,14 @@
           <li data-nav-id="/pysics/electric_current/" title="電流" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/electric_current/">電流</a></li>
           <li data-nav-id="/pysics/ohm/" title="オームの法則" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/ohm/">オームの法則</a></li>
           <li data-nav-id="/pysics/kirch1/" title="キルヒホッフの法則" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/kirch1/">キルヒホッフの法則</a></li></ul></li>
-          <li data-nav-id="/makefile/" title="Makefile" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
+          <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
           <li data-nav-id="/makefile/001-makefile/" title="基本文法" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">基本文法</a></li>
           <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
           <li data-nav-id="/makefile/003-makefile-auto-variable/" title="自動変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">自動変数</a></li>
           <li data-nav-id="/makefile/004-makefile-multi-target/" title="複数ターゲット" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/004-makefile-multi-target/">複数ターゲット</a></li>
           <li data-nav-id="/makefile/005-makefile-option/" title="コマンドオプション" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">コマンドオプション</a></li>
           <li data-nav-id="/makefile/006-makefile-header/" title="ヘッダファイル" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">ヘッダファイル</a></li>
-          <li data-nav-id="/makefile/007-makefile-multi-make/" title="多段 Make" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/">多段 Make</a></li>
+          <li data-nav-id="/makefile/007-makefile-multi-make/" title="多段 Make" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/">多段 Make</a></li>
           <li data-nav-id="/makefile/008-makefile-assign-operate/" title="代入演算子" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/">代入演算子</a></li>
           <li data-nav-id="/makefile/009-makefile-variables/" title="変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/009-makefile-variables/">変数</a></li></ul></li>
         </ul>
@@ -143,147 +143,232 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
                 <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/"><span itemprop="name">Makefile</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/" aria-disabled="true"><span itemprop="name">多段 Make</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/coding/"><span itemprop="name">コーディング</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/coding/coding/" aria-disabled="true"><span itemprop="name">コーディング</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#理解しやすいコード">理解しやすいコード</a></li>
+    <li><a href="#名前には情報を付加する">名前には情報を付加する</a></li>
+    <li><a href="#誤解されない名前を付ける">誤解されない名前を付ける</a></li>
+    <li><a href="#美しいレイアウトを目指す">美しいレイアウトを目指す</a></li>
+    <li><a href="#コメントは正確で簡潔にする">コメントは正確で簡潔にする</a></li>
+    <li><a href="#制御フローを読みやすくする">制御フローを読みやすくする</a></li>
+    <li><a href="#巨大な式を分割する">巨大な式を分割する</a></li>
+    <li><a href="#無関係な下位問題を抽出する">無関係な下位問題を抽出する</a></li>
+    <li><a href="#短いコードを書く">短いコードを書く</a></li>
+    <li><a href="#テストと読みやすさ">テストと読みやすさ</a>
+      <ul>
+        <li><a href="#テスト容易性の低いコード">テスト容易性の低いコード</a></li>
+        <li><a href="#テスト容易性の高いコード">テスト容易性の高いコード</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>多段 Make</h1>
+          <h1>コーディング</h1>
 
-<p>とりあえずベタ書き。
-シェルコマンドを使えばより簡単に書ける。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">   .
-   ├── Makefile
-   ├── include
-   │   ├── codec
-   │   │   └── codec.h
-   │   └── ui
-   │       └── ui.h
-   ├── lib
-   │   ├── codec
-   │   │   ├── Makefile
-   │   │   └── codec.c
-   │   └── ui
-   │       ├── Makefile
-   │       └── ui.c
-   └── main.c
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile"><span style="color:#960050;background-color:#1e0010">[Makefile]</span>
-TARGET <span style="color:#f92672">:=</span> app
-SUB_TARGET <span style="color:#f92672">:=</span> ui codec
+<h2 id="理解しやすいコード">理解しやすいコード</h2>
+<ul>
+<li><strong>他人</strong>が理解しやすいコードを書く<br>
+数か月後の自分はもはや他人である</li>
+</ul>
+<h2 id="名前には情報を付加する">名前には情報を付加する</h2>
+<ul>
+<li>
+<p>明確な単語を選ぶ<br>
+<strong>get</strong> や <strong>stop</strong> などは明確ではない。
+例えば、取り消しできないなら <strong>kill</strong>、あとから再生できるなら <strong>pasue</strong> などが候補となる。</p>
+</li>
+<li>
+<p>汎用的な名前を避ける<br>
+<strong>retval</strong> には「戻り値」という情報以外何もない。
+良い名前とは変数の目的や値を表す。</p>
+</li>
+<li>
+<p>イテレータが複数ある場合はインデックスも明確にする<br>
+インデックスの最初の文字をインデックスと揃える。</p>
+</li>
+</ul>
+<pre><code>class[i].student[j] = name;
+ ↓ に修正するだけで、インデックスが逆の場合に気づくことができる。
+class[ci].studnet[si] = name;
+</code></pre><ul>
+<li>値に単位を付加する<br>
+時間やバイト数のように計測できるものには名前に単位を付加する。</li>
+</ul>
+<pre><code>delay_ms
+size_mb
+max_kbps
+</code></pre><h2 id="誤解されない名前を付ける">誤解されない名前を付ける</h2>
+<ul>
+<li>限界値を含めるときは <strong>min</strong> と <strong>max</strong> を使う</li>
+<li>範囲を指定するときは <strong>first</strong> と <strong>last</strong> を使う</li>
+<li>包含/排他的範囲には <strong>begin</strong> と <strong>end</strong> を使う</li>
+<li>ブール値の名前
+<ul>
+<li>頭に <strong>is</strong>、<strong>has</strong>、<strong>can</strong>、<strong>shuld</strong>をつける</li>
+<li>否定形はなるべく避ける</li>
+</ul>
+</li>
+</ul>
+<h2 id="美しいレイアウトを目指す">美しいレイアウトを目指す</h2>
+<ul>
+<li>似ているコードは似ているように見せる</li>
+<li>関連するコードはまとめてブロックにする
+<ul>
+<li>宣言をブロックにまとめる</li>
+<li>コードを段落に分割する</li>
+</ul>
+</li>
+</ul>
+<pre><code>[宣言をブロックにまとめる]
+/* ハンドラ関数 */
+handler-x(int ctrl);
+handler-y(int ctrl);
 
-LIB_UI_DIR <span style="color:#f92672">:=</span> lib/ui
-<span style="color:#75715e">#lib/uiのソースコードを探索
-</span><span style="color:#75715e"></span>LIB_UI_SRC <span style="color:#f92672">:=</span> <span style="color:#66d9ef">$(</span>shell find <span style="color:#e6db74">${</span>LIB_UI_DIR<span style="color:#e6db74">}</span> -type f -name <span style="color:#ae81ff">\*</span>.c<span style="color:#66d9ef">)</span>
-LIB_UI_OBJS <span style="color:#f92672">:=</span> <span style="color:#e6db74">${</span>LIB_UI_SRC:.c=.o<span style="color:#e6db74">}</span>
+/* ユーティリティ関数 */
+utility-x(int util);
+utility-y(int util);
+</code></pre><pre><code>[コードを段落に分割する]
+/* 日時取得 */
+get_datetime();
 
-LIB_CODEC_DIR <span style="color:#f92672">=</span> lib/codec
-<span style="color:#75715e">#lib/codecのソースコード探索
-</span><span style="color:#75715e"></span>LIB_CODEC_SRC <span style="color:#f92672">:=</span> <span style="color:#66d9ef">$(</span>shell find <span style="color:#e6db74">${</span>LIB_CODEC_DIR<span style="color:#e6db74">}</span> -type f -name <span style="color:#ae81ff">\*</span>.c<span style="color:#66d9ef">)</span>
-LIB_CODEC_OBJS <span style="color:#f92672">:=</span> <span style="color:#e6db74">${</span>LIB_CODEC_SRC:.c=.o<span style="color:#e6db74">}</span>
+/* ユーザー情報取得 */
+read_file();
+search_username(file);
+</code></pre><h2 id="コメントは正確で簡潔にする">コメントは正確で簡潔にする</h2>
+<ul>
+<li>あいまいな代名詞は避ける
+<ul>
+<li>「それ」などの代名詞は名詞を使い正確にする</li>
+</ul>
+</li>
+<li>歯切れの悪い文章は見直す
+<ul>
+<li>[見直し前] xxxかどうかによって優先度を変更する</li>
+<li>[見直し後] zzzであれば優先度を高くする</li>
+</ul>
+</li>
+<li>コードの意図は高レベルで記載する
+<ul>
+<li>[詳細レベル] listを逆順にイテレートする</li>
+<li>[高レベル] 得点の高い順に並べる</li>
+</ul>
+</li>
+</ul>
+<h2 id="制御フローを読みやすくする">制御フローを読みやすくする</h2>
+<ul>
+<li>条件式の並び順
+<ul>
+<li>if ( 変化する値 &gt;= あまり変化しない値)</li>
+</ul>
+</li>
+<li>基本的には if/else を使う。三項演算子は簡潔になる場合だけ使う
+<ul>
+<li>行を短くするより、理解にかかる時間が短い方を選択する</li>
+</ul>
+</li>
+<li>do/while ループは避ける
+<ul>
+<li>繰り返し条件が下にあり、コードを2回読むことになる</li>
+</ul>
+</li>
+<li>関数から早く返す</li>
+<li>ネストを浅くする</li>
+</ul>
+<h2 id="巨大な式を分割する">巨大な式を分割する</h2>
+<ul>
+<li>ドモルガンの法則を使う</li>
+<li>簡潔な名前で式を説明する</li>
+</ul>
+<pre><code>if (list.split() == &quot;root&quot;)
+ ↓ 説明変数を追加して書き換える
+user_name = list.split();
+if (user_name == &quot;root&quot;)
+</code></pre><h2 id="無関係な下位問題を抽出する">無関係な下位問題を抽出する</h2>
+<ol>
+<li>コードの高レベルの目標を意識する</li>
+<li>高レベルの目標に直接効果があるのか考える</li>
+<li>無関係の下位問題を解決しているのか考える</li>
+<li>無関係の下位問題を解決しているコードが多ければ関数化する</li>
+</ol>
+<h2 id="短いコードを書く">短いコードを書く</h2>
+<ul>
+<li>汎用的なユーティリティーコードを作る</li>
+<li>未使用のコードは削除する</li>
+<li>プロジェクトをサブプロジェクトに分割する</li>
+</ul>
+<h2 id="テストと読みやすさ">テストと読みやすさ</h2>
+<ul>
+<li>エラーメッセージを読みやすくする</li>
+<li>大切でないものをユーザーから隠し、大切なものを目立たせる</li>
+</ul>
+<pre><code>[見直し前]
+user[0].name = &quot;aaa&quot;;
+user[0].class = 'A'
+user[0].score = 10;
+user[1].name = &quot;bbb&quot;;
+user[1].class = 'B'
+user[1].score = 20;
+user[2].name = &quot;ccc&quot;;
+user[2].class = 'C'
+user[2].score = 30;
 
-INCLUDE_PATH <span style="color:#f92672">=</span> -Iinclude
+SortUserScore(user); /* テスト対象 */
 
-SRCS <span style="color:#f92672">=</span> main.c 
-OBJS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.o<span style="color:#e6db74">}</span>
-DEPS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.d<span style="color:#e6db74">}</span>  
+assert(user[0].score == 30);
+assert(user[1].score == 20);
+assert(user[2].score == 10);
+</code></pre><pre><code>[見直し後]
+MakeUserScore(&amp;user[0], &quot;aaa&quot;, 'A', 10);
+MakeUserScore(&amp;user[1], &quot;bbb&quot;, 'B', 20);
+MakeUserScore(&amp;user[2], &quot;ccc&quot;, 'C', 30);
 
-<span style="color:#75715e"># COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
-</span><span style="color:#75715e"># LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
-</span><span style="color:#75715e"># OUTPUT_OPTION = -o $@
-</span><span style="color:#75715e">#
-</span><span style="color:#75715e"># %.o: %.c 
-</span><span style="color:#75715e"># $(COMPILE.C) $(OUTPUT_OPTION) $&lt;
-</span><span style="color:#75715e"></span>
-<span style="color:#a6e22e">all</span><span style="color:#f92672">:</span> ${SUB_TARGET} ${TARGET} 
+SortUserScore(user); /* テスト対象 */
 
-<span style="color:#a6e22e">${SUB_TARGET}</span><span style="color:#f92672">:</span>
-	<span style="color:#e6db74">${</span>MAKE<span style="color:#e6db74">}</span> -C lib/$@
+assert(user[0].score == 30);
+assert(user[1].score == 20);
+assert(user[2].score == 10);
+</code></pre><h3 id="テスト容易性の低いコード">テスト容易性の低いコード</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>テスト容易性</th>
+<th>設計問題</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>グローバル変数を使っている</td>
+<td>グローバル変数をテスト毎に初期化が必要</td>
+<td>どの関数にどんな副作用があるのか分かりにくい</td>
+</tr>
+<tr>
+<td>多数の外部コンポーネントに依存している</td>
+<td>最初に足場の設定が必要になる</td>
+<td>依存しているものが落ちるとシステムが付けなくなる。任意の変更にどんな影響があるか理解するのが難しい</td>
+</tr>
+</tbody>
+</table>
+<h3 id="テスト容易性の高いコード">テスト容易性の高いコード</h3>
 
-<span style="color:#a6e22e">${TARGET}</span><span style="color:#f92672">:</span> ${OBJS} ${LIB_UI_OBJS} ${LIB_CODEC_OBJS}
-	<span style="color:#e6db74">${</span>LINK.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OBJS<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>LIB_UI_OBJS<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>LIB_CODEC_OBJS<span style="color:#e6db74">}</span> 
-
-
-<span style="color:#a6e22e">%.o</span><span style="color:#f92672">:</span> %.c 
-	<span style="color:#e6db74">${</span>COMPILE.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>INCLUDE_PATH<span style="color:#e6db74">}</span> -MMD $&lt;
-
-
-<span style="color:#a6e22e">clean</span><span style="color:#f92672">:</span>
-	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>DEPS<span style="color:#e6db74">}</span> 
-	<span style="color:#e6db74">${</span>MAKE<span style="color:#e6db74">}</span> -C <span style="color:#e6db74">${</span>LIB_UI_DIR<span style="color:#e6db74">}</span> clean
-	<span style="color:#e6db74">${</span>MAKE<span style="color:#e6db74">}</span> -C <span style="color:#e6db74">${</span>LIB_CODEC_DIR<span style="color:#e6db74">}</span> clean
-</code></pre></div>
-<div class="notices note">
-    <div class="label">Note</div>
-ターゲットの順番大事。TARGET を先にしていたことで SUB_TARGET が先に実施されずに意図しない処理になった。 
-
-</div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile"><span style="color:#960050;background-color:#1e0010">[lib/codec/Makefile]</span>
-<span style="color:#75715e">#多段Makefile
-</span><span style="color:#75715e"></span>TARGET <span style="color:#f92672">=</span> codec.o
-INCLUDE_PATH <span style="color:#f92672">=</span> -I../../include
-
-SRCS <span style="color:#f92672">=</span> codec.c 
-<span style="color:#75715e">#OBJS = ${SRCS:.c=.o}
-</span><span style="color:#75715e"></span>DEPS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.d<span style="color:#e6db74">}</span>  
-
-<span style="color:#75715e"># COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
-</span><span style="color:#75715e"># LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
-</span><span style="color:#75715e"># OUTPUT_OPTION = -o $@
-</span><span style="color:#75715e">#
-</span><span style="color:#75715e"># %.o: %.c 
-</span><span style="color:#75715e"># $(COMPILE.C) $(OUTPUT_OPTION) $&lt;
-</span><span style="color:#75715e"></span>
-<span style="color:#a6e22e">all</span><span style="color:#f92672">:</span> ${TARGET} 
-
-<span style="color:#960050;background-color:#1e0010">-include</span> <span style="color:#960050;background-color:#1e0010">${DEPS}</span>
-
-<span style="color:#a6e22e">${TARGET}</span><span style="color:#f92672">:</span>
-
-<span style="color:#a6e22e">%.o</span><span style="color:#f92672">:</span> %.c 
-	<span style="color:#e6db74">${</span>COMPILE.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>INCLUDE_PATH<span style="color:#e6db74">}</span> -MMD $&lt;
-
-<span style="color:#a6e22e">clean</span><span style="color:#f92672">:</span>
-	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>DEPS<span style="color:#e6db74">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile"><span style="color:#960050;background-color:#1e0010">[lib/ui/Makefile]</span>
-<span style="color:#75715e">#多段Makefile
-</span><span style="color:#75715e"></span>TARGET <span style="color:#f92672">=</span> ui.o
-INCLUDE_PATH <span style="color:#f92672">=</span> -I../../include
-
-SRCS <span style="color:#f92672">=</span> ui.c 
-DEPS <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>SRCS:.c=.d<span style="color:#e6db74">}</span>  
-
-<span style="color:#75715e"># COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
-</span><span style="color:#75715e"># LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
-</span><span style="color:#75715e"># OUTPUT_OPTION = -o $@
-</span><span style="color:#75715e">#
-</span><span style="color:#75715e"># %.o: %.c 
-</span><span style="color:#75715e"># $(COMPILE.C) $(OUTPUT_OPTION) $&lt;
-</span><span style="color:#75715e"></span>
-<span style="color:#a6e22e">all</span><span style="color:#f92672">:</span> ${TARGET}
-
-<span style="color:#960050;background-color:#1e0010">-include</span> <span style="color:#960050;background-color:#1e0010">${DEPS}</span>
-
-<span style="color:#a6e22e">%.o</span><span style="color:#f92672">:</span> %.c 
-	<span style="color:#e6db74">${</span>COMPILE.c<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>OUTPUT_OPTION<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>INCLUDE_PATH<span style="color:#e6db74">}</span> -MMD $&lt;
-
-<span style="color:#a6e22e">clean</span><span style="color:#f92672">:</span>
-	<span style="color:#e6db74">${</span>RM<span style="color:#e6db74">}</span> *~ *.o <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>DEPS<span style="color:#e6db74">}</span>  
-</code></pre></div>
           <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/" title="ヘッダファイル"><i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/" title="代入演算子"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/coding/" title="コーディング"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/linker/" title="リンカー"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

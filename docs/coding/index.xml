@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>コーディング on Tonbo</title>
+    <link>https://tonboAkinori.github.io/hugo-memo/coding/</link>
+    <description>Recent content in コーディング on Tonbo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2021 tonbo </copyright>
+    <lastBuildDate>Sun, 03 Oct 2021 02:41:21 +0000</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>コーディング</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/coding/coding/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/coding/coding/</guid>
+      <description>理解しやすいコード  他人が理解しやすいコードを書く
+数か月後の自分はもはや他人である  名前には情報を付加する   明確な単語を選ぶ
+get や stop などは明確ではない。 例えば、取り消しできないなら kill、あとから再生できるなら pasue などが候補となる。
+  汎用的な名前を避ける
+retval には「戻り値」という情報以外何もない。 良い名前とは変数の目的や値を表す。
+  イテレータが複数ある場合はインデックスも明確にする
+インデックスの最初の文字をインデックスと揃える。
+  class[i].student[j] = name; ↓ に修正するだけで、インデックスが逆の場合に気づくことができる。 class[ci].studnet[si] = name;  値に単位を付加する
+時間やバイト数のように計測できるものには名前に単位を付加する。  delay_ms size_mb max_kbps 誤解されない名前を付ける  限界値を含めるときは min と max を使う 範囲を指定するときは first と last を使う 包含/排他的範囲には begin と end を使う ブール値の名前  頭に is、has、can、shuldをつける 否定形はなるべく避ける    美しいレイアウトを目指す  似ているコードは似ているように見せる 関連するコードはまとめてブロックにする  宣言をブロックにまとめる コードを段落に分割する    [宣言をブロックにまとめる] /* ハンドラ関数 */ handler-x(int ctrl); handler-y(int ctrl); /* ユーティリティ関数 */ utility-x(int util); utility-y(int util); [コードを段落に分割する] /* 日時取得 */ get_datetime(); /* ユーザー情報取得 */ read_file(); search_username(file); コメントは正確で簡潔にする  あいまいな代名詞は避ける  「それ」などの代名詞は名詞を使い正確にする   歯切れの悪い文章は見直す  [見直し前] xxxかどうかによって優先度を変更する [見直し後] zzzであれば優先度を高くする   コードの意図は高レベルで記載する  [詳細レベル] listを逆順にイテレートする [高レベル] 得点の高い順に並べる    制御フローを読みやすくする  条件式の並び順  if ( 変化する値 &amp;gt;= あまり変化しない値)   基本的には if/else を使う。三項演算子は簡潔になる場合だけ使う  行を短くするより、理解にかかる時間が短い方を選択する   do/while ループは避ける  繰り返し条件が下にあり、コードを2回読むことになる   関数から早く返す ネストを浅くする  巨大な式を分割する  ドモルガンの法則を使う 簡潔な名前で式を説明する  if (list.</description>
+    </item>
+  </channel>
+</rss>

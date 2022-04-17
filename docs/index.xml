@@ -9,6 +9,13 @@
     <copyright>Copyright © 2021 tonbo </copyright>
     <lastBuildDate>Sun, 03 Oct 2021 02:41:21 +0000</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>コーディング</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/coding/</link>
+      <pubDate>Sun, 03 Oct 2021 02:41:21 +0000</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/coding/</guid>
+      <description>コーディング コーディング  </description>
+    </item>
+    <item>
       <title>リンカー</title>
       <link>https://tonboAkinori.github.io/hugo-memo/linker/</link>
       <pubDate>Sun, 03 Oct 2021 02:41:21 +0000</pubDate>
@@ -21,6 +28,13 @@
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       <guid>https://tonboAkinori.github.io/hugo-memo/command/</guid>
       <description>Command awk find grep xargs | (パイプ)  </description>
+    </item>
+    <item>
+      <title>物理</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/pysics/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/pysics/</guid>
+      <description>物理 電荷/電子 電流 オームの法則 キルヒホッフの法則  </description>
     </item>
     <item>
       <title>Makefile</title>

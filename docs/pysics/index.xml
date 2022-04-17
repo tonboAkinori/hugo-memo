@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>物理 on Tonbo</title>
+    <link>https://tonboAkinori.github.io/hugo-memo/pysics/</link>
+    <description>Recent content in 物理 on Tonbo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2021 tonbo </copyright>
+    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/pysics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>電荷/電子</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/pysics/electric_charge/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/pysics/electric_charge/</guid>
+      <description> すべての物質は原子からできている 原子核の周囲を電子がまわっている 電子は負、陽子は正の電気を持っている 原子は中性 (電子の持つ負の電気量 = 陽子の持つ正の電気量) 電気を持つ粒子(電子や粒子)のことを電荷と呼ぶ  電荷の量 = 電気量    </description>
+    </item>
+    <item>
+      <title>電流</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/pysics/electric_current/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/pysics/electric_current/</guid>
+      <description>負の電荷を持つ電子が導体中を移動することで電流が流れる。
+ 電流の流れる向き (+) -&amp;gt; (-) 電子の流れる向き (-) -&amp;gt; (+)  ある導体の断面で t [s]間に、Q[C]の電荷が通過した場合、 電流の大きさI[A]は I = Q/tで表せる。</description>
+    </item>
+    <item>
+      <title>オームの法則</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/pysics/ohm/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/pysics/ohm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>キルヒホッフの法則</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/pysics/kirch1/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/pysics/kirch1/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

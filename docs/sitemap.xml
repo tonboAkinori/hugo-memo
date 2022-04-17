@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/coding/coding/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
@@ -22,6 +26,10 @@
   </url>
   <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/pysics/electric_charge/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   <url>
@@ -48,7 +56,19 @@
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/pysics/electric_current/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/linker/objdump/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/pysics/ohm/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/pysics/kirch1/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   <url>
@@ -81,6 +101,10 @@
   </url>
   <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/</loc>
+    <lastmod>2021-10-03T02:41:21+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/coding/</loc>
     <lastmod>2021-10-03T02:41:21+00:00</lastmod>
   </url>
   <url>
@@ -117,6 +141,10 @@
   </url>
   <url>
     <loc>https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url>
+  <url>
+    <loc>https://tonboAkinori.github.io/hugo-memo/pysics/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url>
   <url>

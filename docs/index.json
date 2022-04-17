@@ -1,5 +1,12 @@
 [
   {
+    "content": "理解しやすいコード  他人が理解しやすいコードを書く\n数か月後の自分はもはや他人である  名前には情報を付加する   明確な単語を選ぶ\nget や stop などは明確ではない。 例えば、取り消しできないなら kill、あとから再生できるなら pasue などが候補となる。\n  汎用的な名前を避ける\nretval には「戻り値」という情報以外何もない。 良い名前とは変数の目的や値を表す。\n  イテレータが複数ある場合はインデックスも明確にする\nインデックスの最初の文字をインデックスと揃える。\n  class[i].student[j] = name; ↓ に修正するだけで、インデックスが逆の場合に気づくことができる。 class[ci].studnet[si] = name;  値に単位を付加する\n時間やバイト数のように計測できるものには名前に単位を付加する。  delay_ms size_mb max_kbps 誤解されない名前を付ける  限界値を含めるときは min と max を使う 範囲を指定するときは first と last を使う 包含/排他的範囲には begin と end を使う ブール値の名前  頭に is、has、can、shuldをつける 否定形はなるべく避ける    美しいレイアウトを目指す  似ているコードは似ているように見せる 関連するコードはまとめてブロックにする  宣言をブロックにまとめる コードを段落に分割する    [宣言をブロックにまとめる] /* ハンドラ関数 */ handler-x(int ctrl); handler-y(int ctrl); /* ユーティリティ関数 */ utility-x(int util); utility-y(int util); [コードを段落に分割する] /* 日時取得 */ get_datetime(); /* ユーザー情報取得 */ read_file(); search_username(file); コメントは正確で簡潔にする  あいまいな代名詞は避ける  「それ」などの代名詞は名詞を使い正確にする   歯切れの悪い文章は見直す  [見直し前] xxxかどうかによって優先度を変更する [見直し後] zzzであれば優先度を高くする   コードの意図は高レベルで記載する  [詳細レベル] listを逆順にイテレートする [高レベル] 得点の高い順に並べる    制御フローを読みやすくする  条件式の並び順  if ( 変化する値 \u003e= あまり変化しない値)   基本的には if/else を使う。三項演算子は簡潔になる場合だけ使う  行を短くするより、理解にかかる時間が短い方を選択する   do/while ループは避ける  繰り返し条件が下にあり、コードを2回読むことになる   関数から早く返す ネストを浅くする  巨大な式を分割する  ドモルガンの法則を使う 簡潔な名前で式を説明する  if (list.split() == \"root\") ↓ 説明変数を追加して書き換える user_name = list.split(); if (user_name == \"root\") 無関係な下位問題を抽出する  コードの高レベルの目標を意識する 高レベルの目標に直接効果があるのか考える 無関係の下位問題を解決しているのか考える 無関係の下位問題を解決しているコードが多ければ関数化する  短いコードを書く  汎用的なユーティリティーコードを作る 未使用のコードは削除する プロジェクトをサブプロジェクトに分割する  テストと読みやすさ  エラーメッセージを読みやすくする 大切でないものをユーザーから隠し、大切なものを目立たせる  [見直し前] user[0].name = \"aaa\"; user[0].class = 'A' user[0].score = 10; user[1].name = \"bbb\"; user[1].class = 'B' user[1].score = 20; user[2].name = \"ccc\"; user[2].class = 'C' user[2].score = 30; SortUserScore(user); /* テスト対象 */ assert(user[0].score == 30); assert(user[1].score == 20); assert(user[2].score == 10); [見直し後] MakeUserScore(\u0026user[0], \"aaa\", 'A', 10); MakeUserScore(\u0026user[1], \"bbb\", 'B', 20); MakeUserScore(\u0026user[2], \"ccc\", 'C', 30); SortUserScore(user); /* テスト対象 */ assert(user[0].score == 30); assert(user[1].score == 20); assert(user[2].score == 10); テスト容易性の低いコード    特性 テスト容易性 設計問題     グローバル変数を使っている グローバル変数をテスト毎に初期化が必要 どの関数にどんな副作用があるのか分かりにくい   多数の外部コンポーネントに依存している 最初に足場の設定が必要になる 依存しているものが落ちるとシステムが付けなくなる。任意の変更にどんな影響があるか理解するのが難しい    テスト容易性の高いコード ",
+    "description": "",
+    "tags": null,
+    "title": "コーディング",
+    "uri": "/coding/coding/"
+  },
+  {
     "content": "Makefileの基本的な文法は下記になる\nターゲット：コンポーネント コマンド(コンポーネントからターゲット作成する方法を記述する) Makefileの文法確認 (1) [sub.h] #ifndef __INCLUDE_SUB_H_  #define __INCLUDE_SUB_H_  void Greeting(char* str); #endif // __INCLUDE_SUB_H_ [sub.c] #include \u003cstdio.h\u003e #include \"sub.h\" void Greeting(char* str) { printf(\"\u003e %s\\n\", str); } [main.c] #include \"sub.h\" void main(void) { Greeting(\"Hello world!\"); } [Makefile] TARGET = app #CC = OBJS = main.o sub.o ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c clean: ${RM} *~ *.o ${TARGET} ■実行結果 $make cc -c main.c cc -c sub.c cc -o app main.o sub.o Makefileの文法確認(2) (1)の記述では、ヘッダファイルの sub.h が更新されてもターゲットは更新されない。 Makefile に記載されている依存関係が .c ファイルだけのため。\n$make cc -c main.c cc -c sub.c cc -o app main.o sub.o $ touch sub.h $ make make: 'app' は更新済みです. $ emacs Makefile \u003c- 下記にMakefileを書き直し $ make cc -c sub.c cc -o app main.o sub.o [Makefile] TARGET = app #CC = OBJS = main.o sub.o ${TARGET}: ${OBJS} ${CC} -o ${TARGET} ${OBJS} main.o: main.c ${CC} -c main.c sub.o: sub.c ${CC} -c sub.c sub.o: sub.h clean: ${RM} *~ *.o ${TARGET} ",
     "description": "",
     "tags": null,
@@ -40,6 +47,13 @@
     "tags": null,
     "title": "基本構文",
     "uri": "/command/xargs/001-xargs/"
+  },
+  {
+    "content": " すべての物質は原子からできている 原子核の周囲を電子がまわっている 電子は負、陽子は正の電気を持っている 原子は中性 (電子の持つ負の電気量 = 陽子の持つ正の電気量) 電気を持つ粒子(電子や粒子)のことを電荷と呼ぶ  電荷の量 = 電気量    ",
+    "description": "",
+    "tags": null,
+    "title": "電荷/電子",
+    "uri": "/pysics/electric_charge/"
   },
   {
     "content": "通常のコンパイラは、ファイル単位でコンパイルし「オブジェクトファイル」と呼ばれるファイルを作成する。\n最終的にオブジェクトファイルが結合されるときに、実際の関数呼び出しに置き換えられる。\nこの結合作業を「リンク」と呼ぶ。\nスタートアップルーチン 標準ライブラリの関数が利用されていない場合でも、 実行できる形式にするために スタートアップルーチン と呼ばれる初期化を行うプログラムがリンクされる。\nスタートアップルーチンでは、レジスタの初期化や main 関数への引数設定や各種初期化が行われる。\nプログラムで最初に実行されるのは、main 関数ではなくスタートアップルーチンである。\n",
@@ -84,11 +98,32 @@
     "uri": "/command/find/002-find/"
   },
   {
+    "content": "負の電荷を持つ電子が導体中を移動することで電流が流れる。\n 電流の流れる向き (+) -\u003e (-) 電子の流れる向き (-) -\u003e (+)  ある導体の断面で t [s]間に、Q[C]の電荷が通過した場合、 電流の大きさI[A]は I = Q/tで表せる。\n",
+    "description": "",
+    "tags": null,
+    "title": "電流",
+    "uri": "/pysics/electric_current/"
+  },
+  {
     "content": "objdump コマンドを利用すると、ELF 形式のセクション情報が得られる。\n   オプション 説明     -f オブジェクトファイルのヘッダ全体から要約を表示する   -h オブジェクトファイルのセクションヘッダから要約を表示する   -t オブジェクトファイルのシンボルーテーブルエントリを表示する\nこれはnmコマンドと似ているが、出力フォーマットが異なる    $ objdump -f a.out a.out: file format elf64-x86-64 architecture: i386:x86-64, flags 0x00000150: HAS_SYMS, DYNAMIC, D_PAGED start address 0x0000000000001060 $ objdump -h a.out a.out: file format elf64-x86-64 Sections: Idx Name Size VMA LMA File off Algn 0 .interp 0000001c 0000000000000318 0000000000000318 00000318 2**0 CONTENTS, ALLOC, LOAD, READONLY, DATA 1 .note.gnu.property 00000020 0000000000000338 0000000000000338 00000338 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 2 .note.gnu.build-id 00000024 0000000000000358 0000000000000358 00000358 2**2 CONTENTS, ALLOC, LOAD, READONLY, DATA 3 .note.ABI-tag 00000020 000000000000037c 000000000000037c 0000037c 2**2 CONTENTS, ALLOC, LOAD, READONLY, DATA 4 .gnu.hash 00000024 00000000000003a0 00000000000003a0 000003a0 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 5 .dynsym 000000a8 00000000000003c8 00000000000003c8 000003c8 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 6 .dynstr 00000084 0000000000000470 0000000000000470 00000470 2**0 CONTENTS, ALLOC, LOAD, READONLY, DATA 7 .gnu.version 0000000e 00000000000004f4 00000000000004f4 000004f4 2**1 CONTENTS, ALLOC, LOAD, READONLY, DATA 8 .gnu.version_r 00000020 0000000000000508 0000000000000508 00000508 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 9 .rela.dyn 000000c0 0000000000000528 0000000000000528 00000528 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 10 .rela.plt 00000018 00000000000005e8 00000000000005e8 000005e8 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 11 .init 0000001b 0000000000001000 0000000000001000 00001000 2**2 CONTENTS, ALLOC, LOAD, READONLY, CODE 12 .plt 00000020 0000000000001020 0000000000001020 00001020 2**4 CONTENTS, ALLOC, LOAD, READONLY, CODE 13 .plt.got 00000010 0000000000001040 0000000000001040 00001040 2**4 CONTENTS, ALLOC, LOAD, READONLY, CODE 14 .plt.sec 00000010 0000000000001050 0000000000001050 00001050 2**4 CONTENTS, ALLOC, LOAD, READONLY, CODE 15 .text 00000185 0000000000001060 0000000000001060 00001060 2**4 CONTENTS, ALLOC, LOAD, READONLY, CODE 16 .fini 0000000d 00000000000011e8 00000000000011e8 000011e8 2**2 CONTENTS, ALLOC, LOAD, READONLY, CODE 17 .rodata 00000011 0000000000002000 0000000000002000 00002000 2**2 CONTENTS, ALLOC, LOAD, READONLY, DATA 18 .eh_frame_hdr 00000044 0000000000002014 0000000000002014 00002014 2**2 CONTENTS, ALLOC, LOAD, READONLY, DATA 19 .eh_frame 00000108 0000000000002058 0000000000002058 00002058 2**3 CONTENTS, ALLOC, LOAD, READONLY, DATA 20 .init_array 00000008 0000000000003db8 0000000000003db8 00002db8 2**3 CONTENTS, ALLOC, LOAD, DATA 21 .fini_array 00000008 0000000000003dc0 0000000000003dc0 00002dc0 2**3 CONTENTS, ALLOC, LOAD, DATA 22 .dynamic 000001f0 0000000000003dc8 0000000000003dc8 00002dc8 2**3 CONTENTS, ALLOC, LOAD, DATA 23 .got 00000048 0000000000003fb8 0000000000003fb8 00002fb8 2**3 CONTENTS, ALLOC, LOAD, DATA 24 .data 00000010 0000000000004000 0000000000004000 00003000 2**3 CONTENTS, ALLOC, LOAD, DATA 25 .bss 00000008 0000000000004010 0000000000004010 00003010 2**0 ALLOC 26 .comment 0000002a 0000000000000000 0000000000000000 00003010 2**0 CONTENTS, READONLY objdump -t a.out a.out: file format elf64-x86-64 SYMBOL TABLE: 0000000000000318 l d .interp 0000000000000000 .interp 0000000000000338 l d .note.gnu.property 0000000000000000 .note.gnu.property 0000000000000358 l d .note.gnu.build-id 0000000000000000 .note.gnu.build-id 000000000000037c l d .note.ABI-tag 0000000000000000 .note.ABI-tag 00000000000003a0 l d .gnu.hash 0000000000000000 .gnu.hash 00000000000003c8 l d .dynsym 0000000000000000 .dynsym 0000000000000470 l d .dynstr 0000000000000000 .dynstr 00000000000004f2 l d .gnu.version 0000000000000000 .gnu.version 0000000000000500 l d .gnu.version_r 0000000000000000 .gnu.version_r 0000000000000520 l d .rela.dyn 0000000000000000 .rela.dyn 00000000000005f8 l d .rela.plt 0000000000000000 .rela.plt 0000000000001000 l d .init 0000000000000000 .init 0000000000001020 l d .plt 0000000000000000 .plt 0000000000001040 l d .plt.got 0000000000000000 .plt.got 0000000000001050 l d .plt.sec 0000000000000000 .plt.sec 0000000000001060 l d .text 0000000000000000 .text 00000000000011f8 l d .fini 0000000000000000 .fini 0000000000002000 l d .rodata 0000000000000000 .rodata 000000000000201c l d .eh_frame_hdr 0000000000000000 .eh_frame_hdr 0000000000002068 l d .eh_frame 0000000000000000 .eh_frame 0000000000003db8 l d .init_array 0000000000000000 .init_array 0000000000003dc0 l d .fini_array 0000000000000000 .fini_array 0000000000003dc8 l d .dynamic 0000000000000000 .dynamic 0000000000003fb8 l d .got 0000000000000000 .got 0000000000004000 l d .data 0000000000000000 .data 0000000000004038 l d .bss 0000000000000000 .bss 0000000000000000 l d .comment 0000000000000000 .comment 0000000000000000 l df *ABS* 0000000000000000 crtstuff.c 0000000000001090 l F .text 0000000000000000 deregister_tm_clones 00000000000010c0 l F .text 0000000000000000 register_tm_clones 0000000000001100 l F .text 0000000000000000 __do_global_dtors_aux 0000000000004038 l O .bss 0000000000000001 completed.8060 0000000000003dc0 l O .fini_array 0000000000000000 __do_global_dtors_aux_fini_array_entry 0000000000001140 l F .text 0000000000000000 frame_dummy 0000000000003db8 l O .init_array 0000000000000000 __frame_dummy_init_array_entry 0000000000000000 l df *ABS* 0000000000000000 main.c 0000000000004040 l O .bss 0000000000000004 static_global_inan 0000000000004044 l O .bss 0000000000000004 static_global_i0 0000000000004024 l O .data 0000000000000004 static_global_i1 0000000000004028 l O .data 0000000000000004 static_internal_i1.2333 0000000000004048 l O .bss 0000000000000004 static_internal_i0.2332 000000000000404c l O .bss 0000000000000004 static_internal_inan.2331 0000000000000000 l df *ABS* 0000000000000000 crtstuff.c 000000000000218c l O .eh_frame 0000000000000000 __FRAME_END__ 0000000000000000 l df *ABS* 0000000000000000 0000000000003dc0 l .init_array 0000000000000000 __init_array_end 0000000000003dc8 l O .dynamic 0000000000000000 _DYNAMIC 0000000000003db8 l .init_array 0000000000000000 __init_array_start 000000000000201c l .eh_frame_hdr 0000000000000000 __GNU_EH_FRAME_HDR 0000000000003fb8 l O .got 0000000000000000 _GLOBAL_OFFSET_TABLE_ 0000000000001000 l F .init 0000000000000000 _init 00000000000011f0 g F .text 0000000000000005 __libc_csu_fini 0000000000004050 g O .bss 0000000000000008 pnan 0000000000000000 w *UND* 0000000000000000 _ITM_deregisterTMCloneTable 0000000000004000 w .data 0000000000000000 data_start 0000000000002014 g O .rodata 0000000000000004 const_i0 0000000000000000 F *UND* 0000000000000000 puts@@GLIBC_2.2.5 000000000000403c g O .bss 0000000000000004 global_i0 0000000000004038 g .data 0000000000000000 _edata 0000000000004058 g O .bss 0000000000000004 const_inan 00000000000011f8 g F .fini 0000000000000000 .hidden _fini 0000000000000000 F *UND* 0000000000000000 __libc_start_main@@GLIBC_2.2.5 0000000000004000 g .data 0000000000000000 __data_start 0000000000000000 w *UND* 0000000000000000 __gmon_start__ 0000000000004008 g O .data 0000000000000000 .hidden __dso_handle 0000000000002000 g O .rodata 0000000000000004 _IO_stdin_used 0000000000001149 g F .text 0000000000000014 func 0000000000001180 g F .text 0000000000000065 __libc_csu_init 0000000000002018 g O .rodata 0000000000000004 const_i1 0000000000004060 g .bss 0000000000000000 _end 0000000000001060 g F .text 000000000000002f _start 0000000000004020 g O .data 0000000000000004 global_i1 0000000000004018 g O .data 0000000000000008 str 0000000000004038 g .bss 0000000000000000 __bss_start 000000000000115d g F .text 000000000000001e main 0000000000004030 g O .data 0000000000000008 p1 0000000000004010 g O .data 0000000000000001 char_1 0000000000004038 g O .data 0000000000000000 .hidden __TMC_END__ 0000000000000000 w *UND* 0000000000000000 _ITM_registerTMCloneTable 0000000000000000 w F *UND* 0000000000000000 __cxa_finalize@@GLIBC_2.2.5 000000000000405c g O .bss 0000000000000004 global_inan ",
     "description": "",
     "tags": null,
     "title": "objdump でセクション確認",
     "uri": "/linker/objdump/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "オームの法則",
+    "uri": "/pysics/ohm/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "キルヒホッフの法則",
+    "uri": "/pysics/kirch1/"
   },
   {
     "content": "タイプで指定できる一覧。\n   タイプ 内容     b ブロック(バッファー)特別   c 文字(バッファーなし)特別   d ディレクトリ   p 名前付きパイプ   f 標準ファイル   l シンボリックリンク   s ソケット    1 2 3 4 5 6 7  $ find . -type d . ./001 ./001/001-01 ./001/001-02 ./002 ./003   1 2 3  $ find . -type f ./001/001-01/001-01.txt ./003/003.txt   ",
@@ -145,6 +180,13 @@
     "tags": null,
     "title": "Home",
     "uri": "/"
+  },
+  {
+    "content": "コーディング コーディング  ",
+    "description": "",
+    "tags": null,
+    "title": "コーディング",
+    "uri": "/coding/"
   },
   {
     "content": "リンカー リンクまでの流れ GCCでリンクまでの処理確認 セクション objdump でセクション確認 マップファイルでセクション確認 nm でセクション確認 readelf でセクション確認 ABIとAPI リンカースクリプト ローダー その他  ",
@@ -208,6 +250,13 @@
     "tags": null,
     "title": "コマンドオプション",
     "uri": "/makefile/005-makefile-option/"
+  },
+  {
+    "content": "物理 電荷/電子 電流 オームの法則 キルヒホッフの法則  ",
+    "description": "",
+    "tags": null,
+    "title": "物理",
+    "uri": "/pysics/"
   },
   {
     "content": "   変数名 内容     FNR 現在処理しているファイルの入力レコード番号、処理するファイルが１つの場合は NR と同じ   FS 入力フィールドのセパレーター、デフォルトはスペース   NF 現在入力レコードのフィールド数   NR 現在処理している行番号   OFS 出力フィールドのセパレーター、デフォルトはスペース   ORS 出力レコードのセパレーター、デフォルトはスペース   RS 入力レコードのセパレーター、デフォルトは改行    FS BEGIN{ FS =\",\" } { print $2 } $ echo 1,2:3,4 | awk -f sample.awk 2:3 NF BEGIN{ FS=\",\" } { if(NF \u003c 3) { print NR\"#\",\"列が不足しています\" } else { print NR\"#\",$0 } } $ echo -e \"1,2:3*A,4\\na,b\\n7,8,9,10\" | awk -f sample.awk 1# 1,2:3*A,4 2# 列が不足しています 3# 7,8,9,10 NR BEGIN{ } { print NR\"#\", $0 } $ echo -e \"1,2:3*A,4\\na,b,c\" | awk -f sample.awk 1# 1,2:3*A,4 2# a,b,c OFS print 出力をスペースで区切ると、区切り文字として出力されない。\nBEGIN{ FS = \",\" OFS =\"%\" } { print $1 $2 $3 } $ echo 1,2:3*A,4 | awk -f sample.awk 12:3*A4 print 出力をカンマで区切ると、区切り文字が出力される。\nBEGIN{ FS = \",\" OFS =\"%\" } { print $1,$2,$3 } echo 1,2:3*A,4 | awk -f sample.awk 1%2:3*A%4 ",

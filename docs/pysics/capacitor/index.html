@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.80.0" />
-    <link rel="alternate" type="application/rss+xml" href="https://tonboAkinori.github.io/hugo-memo/coding/index.xml" title="Tonbo" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>コーディング :: Tonbo</title>
+    <title>コンデンサの仕組み :: Tonbo</title>
     <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1653573216" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1653573216" rel="stylesheet">
     <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1653573216" rel="stylesheet">
@@ -24,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/coding/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/pysics/capacitor/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -77,7 +76,7 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/coding/" title="コーディング" class="dd-item active parent"><a href="https://tonboAkinori.github.io/hugo-memo/coding/">コーディング</a><ul>
+          <li data-nav-id="/coding/" title="コーディング" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/coding/">コーディング</a><ul>
           <li data-nav-id="/coding/coding/" title="コーディング" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/coding/coding/">コーディング</a></li></ul></li>
           <li data-nav-id="/linker/" title="リンカー" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/">リンカー</a><ul>
           <li data-nav-id="/linker/link/" title="リンクまでの流れ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/linker/link/">リンクまでの流れ</a></li>
@@ -109,12 +108,12 @@
           <li data-nav-id="/command/xargs/001-xargs/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/xargs/001-xargs/">基本構文</a></li></ul></li>
           <li data-nav-id="/command/pipe/" title="| (パイプ)" class="dd-item alwaysopen"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/">| (パイプ)</a><ul>
           <li data-nav-id="/command/pipe/001-pipe/" title="基本構文" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/command/pipe/001-pipe/">基本構文</a></li></ul></li></ul></li>
-          <li data-nav-id="/pysics/" title="物理" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/">物理</a><ul>
+          <li data-nav-id="/pysics/" title="物理" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/">物理</a><ul>
           <li data-nav-id="/pysics/electric_charge/" title="電荷/電子" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/electric_charge/">電荷/電子</a></li>
           <li data-nav-id="/pysics/electric_current/" title="電流" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/electric_current/">電流</a></li>
           <li data-nav-id="/pysics/ohm/" title="オームの法則" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/ohm/">オームの法則</a></li>
           <li data-nav-id="/pysics/kirch1/" title="キルヒホッフの法則" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/kirch1/">キルヒホッフの法則</a></li>
-          <li data-nav-id="/pysics/capacitor/" title="コンデンサの仕組み" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/capacitor/">コンデンサの仕組み</a></li></ul></li>
+          <li data-nav-id="/pysics/capacitor/" title="コンデンサの仕組み" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/capacitor/">コンデンサの仕組み</a></li></ul></li>
           <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
           <li data-nav-id="/makefile/001-makefile/" title="基本文法" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">基本文法</a></li>
           <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
@@ -141,33 +140,35 @@
                 <i class="fas fa-bars"></i>
               </a>
             </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/coding/" aria-disabled="true"><span itemprop="name">コーディング</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/pysics/"><span itemprop="name">物理</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/pysics/capacitor/" aria-disabled="true"><span itemprop="name">コンデンサの仕組み</span></a></li>
             </ol>
           </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents"></nav>
+              </div>
+            </div>
         </div>
         <div id="head-tags">
         </div>
-       <div id="chapter">
         <main id="body-inner">
+          <h1>コンデンサの仕組み</h1>
 
-<h2 id="コーディング">コーディング</h2>
+<p><img src="https://tonboAkinori.github.io/hugo-memo/images/%E3%82%B3%E3%83%B3%E3%83%87%E3%83%B3%E3%82%B51.png?" alt="This is Images">
+<img src="https://tonboAkinori.github.io/hugo-memo/images/%E3%82%B3%E3%83%B3%E3%83%87%E3%83%B3%E3%82%B52.png?" alt="This is Images"></p>
 
-
-<ul class="children children-li children-sort-">
-<li><a href="https://tonboAkinori.github.io/hugo-memo/coding/coding/" >コーディング</a></li><ul></ul>
-</ul>
-
-          <footer class=" footline">
+          <footer class="footline">
           </footer>
-        </div> 
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/" title="Home"><i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/coding/coding/" title="コーディング"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/pysics/kirch1/" title="キルヒホッフの法則"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/makefile/" title="Makefile"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

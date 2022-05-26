@@ -119,13 +119,6 @@
     "uri": "/pysics/ohm/"
   },
   {
-    "content": "",
-    "description": "",
-    "tags": null,
-    "title": "キルヒホッフの法則",
-    "uri": "/pysics/kirch1/"
-  },
-  {
     "content": "タイプで指定できる一覧。\n   タイプ 内容     b ブロック(バッファー)特別   c 文字(バッファーなし)特別   d ディレクトリ   p 名前付きパイプ   f 標準ファイル   l シンボリックリンク   s ソケット    1 2 3 4 5 6 7  $ find . -type d . ./001 ./001/001-01 ./001/001-02 ./002 ./003   1 2 3  $ find . -type f ./001/001-01/001-01.txt ./003/003.txt   ",
     "description": "",
     "tags": null,
@@ -152,6 +145,13 @@
     "tags": null,
     "title": "print 出力時のフィールド区切り",
     "uri": "/command/awk/004-awk/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "キルヒホッフの法則",
+    "uri": "/pysics/kirch1/"
   },
   {
     "content": "1 2  $ find . -type f -name 003* ./003/003.txt   ",
@@ -252,7 +252,14 @@
     "uri": "/makefile/005-makefile-option/"
   },
   {
-    "content": "物理 電荷/電子 電流 オームの法則 キルヒホッフの法則  ",
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "コンデンサの仕組み",
+    "uri": "/pysics/capacitor/"
+  },
+  {
+    "content": "物理 電荷/電子 電流 オームの法則 キルヒホッフの法則 コンデンサの仕組み  ",
     "description": "",
     "tags": null,
     "title": "物理",

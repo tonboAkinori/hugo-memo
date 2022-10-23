@@ -6,24 +6,24 @@
     <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
     <link rel="icon" href="https://tonboAkinori.github.io/hugo-memo/images/favicon.png" type="image/png">
-    <title>代入演算子 :: Tonbo</title>
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1666503967" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1666503967" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1666503967" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/perfect-scrollbar.min.css?1666503967" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/auto-complete.css?1666503967" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/theme.css?1666503967" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/theme-blue.css?1666503967" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/variant.css?1666503967" rel="stylesheet">
-    <link href="https://tonboAkinori.github.io/hugo-memo/css/print.css?1666503967" rel="stylesheet" media="print">
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/jquery.min.js?1666503967"></script>
+    <title>ポインタのconst :: Tonbo</title>
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/nucleus.css?1666503961" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/fontawesome-all.min.css?1666503961" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/featherlight.min.css?1666503961" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/perfect-scrollbar.min.css?1666503961" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/auto-complete.css?1666503961" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/theme.css?1666503961" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/theme-blue.css?1666503961" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/variant.css?1666503961" rel="stylesheet">
+    <link href="https://tonboAkinori.github.io/hugo-memo/css/print.css?1666503961" rel="stylesheet" media="print">
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/jquery.min.js?1666503961"></script>
     <style>
       :root #header + #content > #left > #rlblock_left{
         display:none !important;
       }
     </style>
   </head>
-  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/">
+  <body class="" data-url="https://tonboAkinori.github.io/hugo-memo/c_language/const-pointer/">
     <nav id="sidebar" class="">
       <div id="header-wrapper">
         <div id="header">
@@ -56,8 +56,8 @@
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="https://tonboAkinori.github.io/hugo-memo/js/lunr.min.js?1666503967"></script>
-        <script src="https://tonboAkinori.github.io/hugo-memo/js/auto-complete.js?1666503967"></script>
+        <script src="https://tonboAkinori.github.io/hugo-memo/js/lunr.min.js?1666503961"></script>
+        <script src="https://tonboAkinori.github.io/hugo-memo/js/auto-complete.js?1666503961"></script>
         <!-- hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic: -->
         <!-- https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72 -->
         <script>
@@ -65,7 +65,7 @@
           var root_url="https://tonboAkinori.github.io/hugo-memo/";
           var baseUri=root_url.replace(/\/$/, '');
         </script>
-        <script src="https://tonboAkinori.github.io/hugo-memo/js/search.js?1666503967"></script>
+        <script src="https://tonboAkinori.github.io/hugo-memo/js/search.js?1666503961"></script>
       </div>
       <div id="homelinks">
         <ul>
@@ -76,9 +76,9 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/c_language/" title="C言語" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/c_language/">C言語</a><ul>
+          <li data-nav-id="/c_language/" title="C言語" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/c_language/">C言語</a><ul>
           <li data-nav-id="/c_language/const/" title="const" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/c_language/const/">const</a></li>
-          <li data-nav-id="/c_language/const-pointer/" title="ポインタのconst" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/c_language/const-pointer/">ポインタのconst</a></li>
+          <li data-nav-id="/c_language/const-pointer/" title="ポインタのconst" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/c_language/const-pointer/">ポインタのconst</a></li>
           <li data-nav-id="/c_language/structure/" title="構造体" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/c_language/structure/">構造体</a></li>
           <li data-nav-id="/c_language/fudo_seisu/" title="浮動小数点型と整数型" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/c_language/fudo_seisu/">浮動小数点型と整数型</a></li></ul></li>
           <li data-nav-id="/coding/" title="コーディング" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/coding/">コーディング</a><ul>
@@ -119,7 +119,7 @@
           <li data-nav-id="/pysics/ohm/" title="オームの法則" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/ohm/">オームの法則</a></li>
           <li data-nav-id="/pysics/kirch1/" title="キルヒホッフの法則" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/kirch1/">キルヒホッフの法則</a></li>
           <li data-nav-id="/pysics/capacitor/" title="コンデンサの仕組み" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/pysics/capacitor/">コンデンサの仕組み</a></li></ul></li>
-          <li data-nav-id="/makefile/" title="Makefile" class="dd-item parent"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
+          <li data-nav-id="/makefile/" title="Makefile" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/">Makefile</a><ul>
           <li data-nav-id="/makefile/001-makefile/" title="基本文法" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/001-makefile/">基本文法</a></li>
           <li data-nav-id="/makefile/002-makefile-macro/" title="マクロ" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/002-makefile-macro/">マクロ</a></li>
           <li data-nav-id="/makefile/003-makefile-auto-variable/" title="自動変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/003-makefile-auto-variable/">自動変数</a></li>
@@ -127,7 +127,7 @@
           <li data-nav-id="/makefile/005-makefile-option/" title="コマンドオプション" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/005-makefile-option/">コマンドオプション</a></li>
           <li data-nav-id="/makefile/006-makefile-header/" title="ヘッダファイル" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/006-makefile-header/">ヘッダファイル</a></li>
           <li data-nav-id="/makefile/007-makefile-multi-make/" title="多段 Make" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/">多段 Make</a></li>
-          <li data-nav-id="/makefile/008-makefile-assign-operate/" title="代入演算子" class="dd-item active"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/">代入演算子</a></li>
+          <li data-nav-id="/makefile/008-makefile-assign-operate/" title="代入演算子" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/">代入演算子</a></li>
           <li data-nav-id="/makefile/009-makefile-variables/" title="変数" class="dd-item"><a href="https://tonboAkinori.github.io/hugo-memo/makefile/009-makefile-variables/">変数</a></li></ul></li>
         </ul>
         <div id="footer">
@@ -149,73 +149,153 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
                 <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/"><span itemprop="name">Home</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/"><span itemprop="name">Makefile</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/makefile/008-makefile-assign-operate/" aria-disabled="true"><span itemprop="name">代入演算子</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/c_language/"><span itemprop="name">C言語</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="https://tonboAkinori.github.io/hugo-memo/c_language/const-pointer/" aria-disabled="true"><span itemprop="name">ポインタのconst</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ポインタ変数の-const">ポインタ変数の const</a>
+      <ul>
+        <li><a href="#ポインタが指すアドレスにある値">ポインタが指すアドレスにある値</a></li>
+        <li><a href="#ポインタ指すアドレス">ポインタ指すアドレス</a></li>
+        <li><a href="#ポインタが指すアドレスとポインタが指すアドレスにある値">ポインタが指すアドレスとポインタが指すアドレスにある値</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>代入演算子</h1>
+          <h1>ポインタのconst</h1>
 
-<p>makeで使うことのできる演算子を記載する。</p>
+<h2 id="ポインタ変数の-const">ポインタ変数の const</h2>
+<p>const を指定する位置により const の効果対象が異なる。</p>
 <table>
 <thead>
 <tr>
-<th>演算子</th>
-<th>内容</th>
+<th>const 位置</th>
+<th>const 効果対象</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>=</td>
-<td>変数が使われる度に評価される。シェルコマンドを代入している場合、変数を使う度に評価される。</td>
+<td><strong>const</strong> char* sample</td>
+<td>ポインタが指すアドレスにある値</td>
 </tr>
 <tr>
-<td>:=</td>
-<td>一度だけ評価するため、定数として使える。</td>
+<td>char <strong>const</strong> *sample</td>
+<td>ポインタが指すアドレスにある値</td>
 </tr>
 <tr>
-<td>?=</td>
-<td>変数が定義されていないときのみ := として機能する</td>
+<td>char* <strong>const</strong> sample</td>
+<td>ポインタが指すアドレス</td>
 </tr>
 <tr>
-<td>+=</td>
-<td>加算代入演算子。</td>
+<td><strong>const</strong> char* <strong>const</strong> sample</td>
+<td>ポインタが指すアドレスとポインタが指すアドレスにある値</td>
 </tr>
 </tbody>
 </table>
+<h3 id="ポインタが指すアドレスにある値">ポインタが指すアドレスにある値</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>sample <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sample&#34;</span>;
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>out <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;out&#34;</span>;
 
+    sample[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;z&#39;</span>;
+    sample <span style="color:#f92672">=</span> out;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ gcc const.c
+const.c: In function ‘main’:
+const.c:35:15: error: assignment of read-only location ‘*sample’
+   35 |     sample[0] = &#39;z&#39;;
+      |               ^
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">char</span> <span style="color:#66d9ef">const</span> <span style="color:#f92672">*</span>sample <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sample&#34;</span>;
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>out <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;out&#34;</span>;
+
+    sample[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;z&#39;</span>;
+    sample <span style="color:#f92672">=</span> out;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ gcc const.c
+const.c: In function ‘main’:
+const.c:22:15: error: assignment of read-only location ‘*sample’
+   22 |     sample[0] = &#39;z&#39;;
+      |               ^
+</code></pre></div><h3 id="ポインタ指すアドレス">ポインタ指すアドレス</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">const</span> sample <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sample&#34;</span>;
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>out <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;out&#34;</span>;
+
+    sample[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;z&#39;</span>;
+    sample <span style="color:#f92672">=</span> out;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ gcc const.c
+const.c: In function ‘main’:
+const.c:11:12: error: assignment of read-only variable ‘sample’
+   11 |     sample = out;
+      |            ^
+</code></pre></div><h3 id="ポインタが指すアドレスとポインタが指すアドレスにある値">ポインタが指すアドレスとポインタが指すアドレスにある値</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">const</span> sample <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sample&#34;</span>;
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>out <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;out&#34;</span>;
+
+    sample[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;z&#39;</span>;
+    sample <span style="color:#f92672">=</span> out;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">$ gcc const.c 
+const.c: In function ‘main’:
+const.c:9:15: error: assignment of read-only location ‘*sample’
+    9 |     sample[0] = &#39;z&#39;;
+      |               ^
+const.c:10:12: error: assignment of read-only variable ‘sample’
+   10 |     sample = out;
+      |            ^
+</code></pre></div>
           <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/makefile/007-makefile-multi-make/" title="多段 Make"><i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/makefile/009-makefile-variables/" title="変数"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="https://tonboAkinori.github.io/hugo-memo/c_language/const/" title="const"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://tonboAkinori.github.io/hugo-memo/c_language/structure/" title="構造体"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/clipboard.min.js?1666503967"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/perfect-scrollbar.min.js?1666503967"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/perfect-scrollbar.jquery.min.js?1666503967"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/jquery.svg.pan.zoom.js?1666503967"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/featherlight.min.js?1666503967"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/modernizr.custom-3.6.0.js?1666503967"></script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/mermaid.min.js?1666503967"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/clipboard.min.js?1666503962"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/perfect-scrollbar.min.js?1666503962"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/perfect-scrollbar.jquery.min.js?1666503962"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/jquery.svg.pan.zoom.js?1666503962"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/featherlight.min.js?1666503962"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/modernizr.custom-3.6.0.js?1666503962"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/mermaid.min.js?1666503962"></script>
     <script>
       if (typeof mermaid != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="https://tonboAkinori.github.io/hugo-memo/js/relearn.js?1666503967"></script>
+    <script src="https://tonboAkinori.github.io/hugo-memo/js/relearn.js?1666503962"></script>
   </body>
 </html>

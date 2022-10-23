@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C言語 on Tonbo</title>
+    <link>https://tonboAkinori.github.io/hugo-memo/c_language/</link>
+    <description>Recent content in C言語 on Tonbo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2021 tonbo </copyright>
+    <lastBuildDate>Sun, 03 Oct 2021 02:41:21 +0000</lastBuildDate><atom:link href="https://tonboAkinori.github.io/hugo-memo/c_language/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>const</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/const/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/const/</guid>
+      <description>const 変数を読み取り専用にできる。
+#include &amp;lt;stdio.h&amp;gt; int main(void) { const int x = 10; x = 11; /* ★コンパイルエラーとなる */ } $ gcc const.c const.c: In function ‘main’: const.c:6:7: error: assignment of read-only variable ‘x’ 6 | x = 11; | ^ 配列も読み取り専用にできる。
+#include &amp;lt;stdio.h&amp;gt; int main(void) { const int array[3] = {1,2,3}; array[2] = 5; } $ gcc const.c const.c: In function ‘main’: const.c:6:14: error: assignment of read-only location ‘array[2]’ 6 | array[2] = 5; | ^ 構造体を読み取り専用にできる。</description>
+    </item>
+    <item>
+      <title>ポインタのconst</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/const-pointer/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/const-pointer/</guid>
+      <description>ポインタ変数の const const を指定する位置により const の効果対象が異なる。
+   const 位置 const 効果対象     const char* sample ポインタが指すアドレスにある値   char const *sample ポインタが指すアドレスにある値   char* const sample ポインタが指すアドレス   const char* const sample ポインタが指すアドレスとポインタが指すアドレスにある値    ポインタが指すアドレスにある値 #include &amp;lt;stdio.h&amp;gt; int main(void) { const char *sample = &amp;#34;sample&amp;#34;; char *out = &amp;#34;out&amp;#34;; sample[0] = &amp;#39;z&amp;#39;; sample = out; return 0; } $ gcc const.c const.</description>
+    </item>
+    <item>
+      <title>構造体</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/structure/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/structure/</guid>
+      <description>構造体の代入 同じ型の構造体は代入可能である。
+#include &amp;lt;stdio.h&amp;gt; typedef struct{ int a; char c; }ST_SAMPLE; int main(void) { ST_SAMPLE si = {-1, &amp;#39;c&amp;#39;}; ST_SAMPLE so; so = si; printf(&amp;#34;so.a = %d\n&amp;#34;, so.a); printf(&amp;#34;so.c = %c\n&amp;#34;, so.c); return 0; } $ ./a.out so.a = -1 so.c = c 構造体の初期化 初期化子リスト 波括弧で括ったリストで初期化する。
+#include&amp;lt;stdio.h&amp;gt; typedef struct { int a; char b; int c; }SAMPLE_STRUCT; int main(void) { SAMPLE_STRUCT sample[3]; unsigned char indx; for(indx = 0; indx &amp;lt; INDEX_MAX; indx++) { printf(&amp;#34;ST_STRUCT[%d].</description>
+    </item>
+    <item>
+      <title>浮動小数点型と整数型</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/fudo_seisu/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/fudo_seisu/</guid>
+      <description>除数および被除数が整数型の除算
+計算結果は整数型 (小数点以下は切り捨て)
+  除数または被除数のどちらかが浮動小数点型の除算
+計算結果は浮動小数点型
+     計算式 結果     1/5 0   1.0/5.0 0.2   1/5.0 0.2   1.0/5 0.2    #include&amp;lt;stdio.h&amp;gt; void div(float val) { printf(&amp;#34;div = %f\n&amp;#34;, val); } int main() { int integer; float floating; /* 整数型同士の除算 = 整数型 */ integer = 1/2; printf(&amp;#34;1/2 = %d\n&amp;#34;, integer); /* 浮動小数点同士の除算 = 浮動小数点型 */ floating = 1.</description>
+    </item>
+  </channel>
+</rss>

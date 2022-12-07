@@ -18,6 +18,21 @@
 #include &amp;lt;stdio.h&amp;gt; int main(void) { const int array[3] = {1,2,3}; array[2] = 5; } $ gcc const.c const.c: In function ‘main’: const.c:6:14: error: assignment of read-only location ‘array[2]’ 6 | array[2] = 5; | ^ 構造体を読み取り専用にできる。</description>
     </item>
     <item>
+      <title>シフト演算</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/shift/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/shift/</guid>
+      <description>シフト演算   左シフト演算
+左側にはみ出したビットは削除される。 右側の空いたビットには0が埋められる。
+  右シフト演算
+右側にはみ出したビットは削除される。 左側の空いたビットの扱いには注意が必要。
+  論理シフトと算術シフト   算術シフト
+右シフトの左側の空いたビットを 符号ビット で埋める。
+  論理シフト
+右シフトの左側の空いたビットを 0 で埋める。
+  </description>
+    </item>
+    <item>
       <title>ポインタのconst</title>
       <link>https://tonboAkinori.github.io/hugo-memo/c_language/const-pointer/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
@@ -26,24 +41,71 @@
    const 位置 const 効果対象     const char* sample ポインタが指すアドレスにある値   char const *sample ポインタが指すアドレスにある値   char* const sample ポインタが指すアドレス   const char* const sample ポインタが指すアドレスとポインタが指すアドレスにある値    ポインタが指すアドレスにある値 #include &amp;lt;stdio.h&amp;gt; int main(void) { const char *sample = &amp;#34;sample&amp;#34;; char *out = &amp;#34;out&amp;#34;; sample[0] = &amp;#39;z&amp;#39;; sample = out; return 0; } $ gcc const.c const.</description>
     </item>
     <item>
+      <title>単なるchar型の符号有無</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/type_char/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/type_char/</guid>
+      <description>単なるchar型 6.3.1.1参照 単なるchar型の符号有無は処理系定義である。
+コンパイラのオプション設定で、char型の符号有無を設定できるものがある。</description>
+    </item>
+    <item>
+      <title>型</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/type/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/type/</guid>
+      <description>型 標準符号付き整数型は以下の5種類である。
+singed charとして宣言されたオブジェクトは、char型のオブジェクトと同じ大きさの記憶域を占有する。
+ signed char short int int long long long int  浮動小数点型は以下の3種類である。
+ float double long double  </description>
+    </item>
+    <item>
+      <title>整数拡張</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/seisu_kakuchou/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/seisu_kakuchou/</guid>
+      <description>整数拡張 int より小さな整数型は演算時に整数拡張される。
+元の型のすべての値をintで表現できる場合にintに変換する。
+それ以外の場合、unsigned intに変換する。
+整数拡張は通常の算術型変換の一部として、引数式や、単項 +、-、~演算子, シフト演算子のオペランドに対して適用される。</description>
+    </item>
+    <item>
       <title>構造体</title>
       <link>https://tonboAkinori.github.io/hugo-memo/c_language/structure/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       <guid>https://tonboAkinori.github.io/hugo-memo/c_language/structure/</guid>
       <description>構造体の代入 同じ型の構造体は代入可能である。
 #include &amp;lt;stdio.h&amp;gt; typedef struct{ int a; char c; }ST_SAMPLE; int main(void) { ST_SAMPLE si = {-1, &amp;#39;c&amp;#39;}; ST_SAMPLE so; so = si; printf(&amp;#34;so.a = %d\n&amp;#34;, so.a); printf(&amp;#34;so.c = %c\n&amp;#34;, so.c); return 0; } $ ./a.out so.a = -1 so.c = c 構造体の初期化 初期化子リスト 波括弧で括ったリストで初期化する。
+C言語規格 6.,7.8 初期化を参照すると、以下の記載がある。
+「明示的に初期化されていないすべての部分オブジェクトは、
+静的記憶域期間をもつオブジェクトと同じ規則で暗黙に初期化する」
+ そのオブジェクトの型がポインタ型の場合、空ポインタに初期化する そのオブジェクトが型が算術型の場合、（正または符号無し）の0に初期化する  上記より、配列要素や構造体のメンバを部分的に初期化しない場合、
+空ポインタまたは0に初期化される。
 #include&amp;lt;stdio.h&amp;gt; typedef struct { int a; char b; int c; }SAMPLE_STRUCT; int main(void) { SAMPLE_STRUCT sample[3]; unsigned char indx; for(indx = 0; indx &amp;lt; INDEX_MAX; indx++) { printf(&amp;#34;ST_STRUCT[%d].</description>
+    </item>
+    <item>
+      <title>浮動小数点型</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/fudosyousu/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/fudosyousu/</guid>
+      <description></description>
     </item>
     <item>
       <title>浮動小数点型と整数型</title>
       <link>https://tonboAkinori.github.io/hugo-memo/c_language/fudo_seisu/</link>
       <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
       <guid>https://tonboAkinori.github.io/hugo-memo/c_language/fudo_seisu/</guid>
-      <description>除数および被除数が整数型の除算
+      <description>除数および 被除数が整数型の除算
 計算結果は整数型 (小数点以下は切り捨て)
   除数または被除数のどちらかが浮動小数点型の除算
 計算結果は浮動小数点型
      計算式 結果     1/5 0   1.0/5.0 0.2   1/5.0 0.2   1.0/5 0.2    #include&amp;lt;stdio.h&amp;gt; void div(float val) { printf(&amp;#34;div = %f\n&amp;#34;, val); } int main() { int integer; float floating; /* 整数型同士の除算 = 整数型 */ integer = 1/2; printf(&amp;#34;1/2 = %d\n&amp;#34;, integer); /* 浮動小数点同士の除算 = 浮動小数点型 */ floating = 1.</description>
+    </item>
+    <item>
+      <title>用語集</title>
+      <link>https://tonboAkinori.github.io/hugo-memo/c_language/word/</link>
+      <pubDate>Sat, 29 Dec 2018 11:02:05 +0600</pubDate>
+      <guid>https://tonboAkinori.github.io/hugo-memo/c_language/word/</guid>
+      <description>用語集  列挙定数 列挙体のメンバ  </description>
     </item>
   </channel>
 </rss>
